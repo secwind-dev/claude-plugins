@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/secwind/_WORK/SecWind/claude-plugins -maxdepth 2 -name \".claude\" -o -name \".clauderc*\" -o -name \"skills\" -o -name \"plugins\" 2>/dev/null | grep -v \".git\")",
+      "Bash(tree -L 3 -a /Users/secwind/_WORK/SecWind/claude-plugins 2>/dev/null || find /Users/secwind/_WORK/SecWind/claude-plugins -not -path '*/.git/*' -type f -o -type d | head -50)"
+    ]
+  }
+}
