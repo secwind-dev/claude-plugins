@@ -1,5 +1,18 @@
 # CHANGELOG.md
 
+## [2026-03-03] — v1.1.0
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-hook/SKILL.md` — skill สร้าง Claude Code hook พร้อม template + ลงทะเบียนใน settings.json
+
+### ✏️ แก้ไข (Updated)
+
+- `.claude/sw/SYSTEM.md` — เปลี่ยนคำเรียก user จาก "นายท่าน" เป็น "บอส"
+- `skills/sw-init/SKILL.md` — อัปเดต SYSTEM.md template ให้ใช้ "บอส"
+
+---
+
 ## [2026-03-03] — v1.0.1
 
 ### 🚀 Deploy

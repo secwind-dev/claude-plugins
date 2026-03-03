@@ -46,3 +46,4 @@ claude-plugins/
 |-------|--------|--------|
 | sw-init | `/sw-init <ชื่อโปรเจกต์>` | Setup โปรเจกต์ใหม่ สร้างไฟล์ทั้งหมด 8 ไฟล์ |
 | create | `/create <path/to/file.ext>` | สร้างไฟล์พร้อม boilerplate ตามนามสกุล |
+| sw-hook | `/sw-hook <hook-name>` | สร้าง Claude Code hook script + ลงทะเบียนใน settings.json |
