@@ -1,5 +1,21 @@
 # CHANGELOG.md
 
+## [2026-03-03] — v1.3.3
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-review/SKILL.md` — skill `/sw-review` อ่าน git diff แล้วทำ code review พร้อม feedback, จุดเสี่ยง, best practice
+
+---
+
+## [2026-03-03] — v1.3.2
+
+### ✏️ แก้ไข (Updated)
+
+- `skills/sw-create-hook/SKILL.md` — ลบ hook `log-bash.sh` ออกจาก skill (ขั้นตอน, chmod, settings.json, summary)
+
+---
+
 ## [2026-03-03] — v1.3.1
 
 ### ✏️ แก้ไข (Updated)
@@ -9,6 +25,14 @@
 - `.claude/hooks/notify-done.sh` — รองรับทั้ง macOS และ Windows (popup/เสียง/พูด)
 - `skills/sw-create-hook/SKILL.md` — อัปเดต template notify-done.sh รองรับ cross-platform
 - `skills/sw-create-hook/SKILL.md` — อัปเดต template notify-done.sh ให้ตรงกัน
+
+---
+
+## [2026-03-03] — v1.3.1 🚀 Deploy
+
+### 🚀 Deploy
+
+- `git push` สำเร็จ → `main` (ab6bbbe..9c19f27)
 
 ---
 

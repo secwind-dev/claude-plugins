@@ -1,6 +1,6 @@
 {
     "name": "sw-claude-plugins",
     "description": "SecWind Claude Plugins — ชุด skills สำหรับ setup และจัดการโปรเจกต์",
-    "version": "1.3.1",
+    "version": "1.3.3",
     "author": { "name": "SecWind" }
 }

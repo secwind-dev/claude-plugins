@@ -1,6 +1,6 @@
 ---
 name: sw-create-hook
-description: 'Create all default hooks (log-bash, track-action, notify-done) and register them in .claude/settings.json automatically. Usage: /sw-create-hook'
+description: 'Create all default hooks (track-action, notify-done) and register them in .claude/settings.json automatically. Usage: /sw-create-hook'
 disable-model-invocation: true
 ---
 
@@ -18,40 +18,7 @@ mkdir -p .claude/hooks
 
 ---
 
-## ขั้นที่ 2 — สร้าง log-bash.sh
-
-ใช้ tool `Write` สร้างไฟล์ `.claude/hooks/log-bash.sh` ด้วยเนื้อหาต่อไปนี้:
-
-```bash
-#!/bin/bash
-# Hook: log-bash
-# Event: PreToolUse
-# Matcher: Bash
-# วัตถุประสงค์: บันทึกทุก Bash command ที่ Claude รันลงไฟล์ hook.log
-#
-# Input (stdin): JSON object จาก Claude Code
-#   - tool_name  : ชื่อ tool (จะเป็น "Bash" เสมอเพราะ matcher ระบุไว้)
-#   - tool_input : object ที่มี field "command" เป็น shell command ที่จะรัน
-#
-# Output:
-#   - exit 0 : อนุญาตให้ Claude รัน command ต่อเสมอ
-
-# รับ JSON input จาก stdin
-INPUT=$(cat)
-
-# ดึง command จาก tool_input.command
-COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')
-
-# บันทึก timestamp + command ลง hook.log
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] $COMMAND" >> .claude/hooks/hook.log
-
-# อนุญาตเสมอ — hook นี้เป็น logging-only ไม่บล็อก
-exit 0
-```
-
----
-
-## ขั้นที่ 3 — สร้าง track-action.sh
+## ขั้นที่ 2 — สร้าง track-action.sh
 
 ใช้ tool `Write` สร้างไฟล์ `.claude/hooks/track-action.sh` ด้วยเนื้อหาต่อไปนี้:
 
@@ -118,7 +85,7 @@ exit 0
 
 ---
 
-## ขั้นที่ 4 — สร้าง notify-done.sh
+## ขั้นที่ 3 — สร้าง notify-done.sh
 
 ใช้ tool `Write` สร้างไฟล์ `.claude/hooks/notify-done.sh` ด้วยเนื้อหาต่อไปนี้:
 
@@ -207,17 +174,16 @@ exit 0
 
 ---
 
-## ขั้นที่ 5 — ให้สิทธิ์ execute ทั้ง 3 ไฟล์
+## ขั้นที่ 4 — ให้สิทธิ์ execute ทั้ง 2 ไฟล์
 
 ```bash
-chmod +x .claude/hooks/log-bash.sh
 chmod +x .claude/hooks/track-action.sh
 chmod +x .claude/hooks/notify-done.sh
 ```
 
 ---
 
-## ขั้นที่ 6 — ลงทะเบียนใน .claude/settings.json
+## ขั้นที่ 5 — ลงทะเบียนใน .claude/settings.json
 
 อ่านไฟล์ `.claude/settings.json` ก่อน
 
@@ -235,15 +201,6 @@ chmod +x .claude/hooks/notify-done.sh
           {
             "type": "command",
             "command": "bash .claude/hooks/track-action.sh"
-          }
-        ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash .claude/hooks/log-bash.sh"
           }
         ]
       }
@@ -266,19 +223,17 @@ chmod +x .claude/hooks/notify-done.sh
 
 ---
 
-## ขั้นที่ 7 — แจ้งผลสรุป
+## ขั้นที่ 6 — แจ้งผลสรุป
 
 ```
 ✅ สร้าง Default Hooks เรียบร้อยแล้วค่ะ บอส!
 
-📄 log-bash.sh     — PreToolUse:Bash → บันทึก command ลง hook.log
-📄 track-action.sh — PreToolUse:All  → track บริบท action ล่าสุดไว้ใน last-action.tmp
+📄 track-action.sh — PreToolUse:All → track บริบท action ล่าสุดไว้ใน last-action.tmp
 📄 notify-done.sh  — Stop → popup + เสียง + พูดภาษาไทยพร้อมบริบท
 
 🔧 ลงทะเบียนใน .claude/settings.json แล้วค่ะ
 
 💡 ทดสอบได้ด้วย:
-   echo '{"tool_input":{"command":"ls"}}' | bash .claude/hooks/log-bash.sh
    echo '{"tool_name":"Bash","tool_input":{"command":"git push"}}' | bash .claude/hooks/track-action.sh
    echo '{}' | bash .claude/hooks/notify-done.sh
 ```
