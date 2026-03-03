@@ -1,5 +1,23 @@
 # CHANGELOG.md
 
+## [2026-03-04] — v1.3.4
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `.claude-plugin/marketplace.json` — เพิ่ม marketplace config เพื่อให้ผู้ใช้ install ได้ผ่าน `/plugin marketplace add secwind-dev/clude-plugins`
+- `.claude/hooks/track-action.sh` — hook script สำหรับ track บริบท action ล่าสุด
+- `.claude/hooks/notify-done.sh` — hook script สำหรับแจ้งเตือนเมื่อ Claude เสร็จงาน (popup + เสียง + พูดภาษาไทย)
+
+---
+
+## [2026-03-03] — v1.3.4 🚀 Deploy
+
+### 🚀 Deploy
+
+- `git push` สำเร็จ → `main` (0989c18..74c9561)
+
+---
+
 ## [2026-03-03] — v1.3.4
 
 ### ✨ เพิ่มใหม่ (Added)
