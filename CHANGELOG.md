@@ -1,5 +1,27 @@
 # CHANGELOG.md
 
+## [2026-03-03] — v1.0.1
+
+### 🚀 Deploy
+
+- `git push` สำเร็จ → `main`
+- อัปเดต version `1.0.0` → `1.0.1`
+
+### ✏️ แก้ไข (Updated)
+
+- `.claude/sw/DEPLOY.md` — อัปเดต flow: อัปเดต version+CHANGELOG ก่อน push, ถามแค่ครั้งเดียว
+
+## [2026-03-03] — Deploy
+
+### 🚀 Deploy
+
+- `git push` สำเร็จ → `89d6b21..252200d main -> main`
+- repo: https://github.com/secwind-dev/clude-plugins
+
+### ✏️ แก้ไข (Updated)
+
+- `.claude/sw/PROJECT.md` — เพิ่มคำอธิบาย, Tech Stack, โครงสร้างโปรเจกต์, ตาราง Skills
+
 ## [2026-03-03]
 
 ### ➕ สร้างใหม่ (Created)
