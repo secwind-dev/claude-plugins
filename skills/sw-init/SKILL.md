@@ -1,7 +1,7 @@
 ---
-name: init
-description: "One-time project setup wizard. Usage: /init <project-name>. Creates CLAUDE.md, RULE.md, SYSTEM.md, PROJECT.md, MEMORY.md, PACKAGES.md, CHANGELOG.md, and DEPLOY.md for a new project."
-arguments: "ชื่อโปรเจกต์ (required)"
+name: sw-init
+description: 'One-time project setup wizard. Usage: /sw-init <project-name>. Creates CLAUDE.md, RULE.md, SYSTEM.md, PROJECT.md, MEMORY.md, PACKAGES.md, CHANGELOG.md, and DEPLOY.md for a new project.'
+arguments: 'ชื่อโปรเจกต์ (required)'
 disable-model-invocation: true
 ---
 
@@ -13,9 +13,9 @@ disable-model-invocation: true
 
 ## ขั้นที่ 0 — รับ Argument
 
-ดึงชื่อโปรเจกต์จาก argument ที่ส่งมาพร้อมคำสั่ง (เช่น `/init MyProject` → ชื่อโปรเจกต์ = `MyProject`)
+ดึงชื่อโปรเจกต์จาก argument ที่ส่งมาพร้อมคำสั่ง (เช่น `/sw-init MyProject` → ชื่อโปรเจกต์ = `MyProject`)
 
-- ถ้าไม่มี argument → แจ้ง user ว่า "กรุณาระบุชื่อโปรเจกต์ด้วยนะคะ นายท่าน เช่น `/init ชื่อโปรเจกต์`" แล้วหยุด
+- ถ้าไม่มี argument → แจ้ง user ว่า "กรุณาระบุชื่อโปรเจกต์ด้วยนะคะ นายท่าน เช่น `/sw-init ชื่อโปรเจกต์`" แล้วหยุด
 
 ---
 
@@ -32,6 +32,11 @@ disable-model-invocation: true
 
 หลังได้รับคำตอบครบแล้ว ให้สร้างไฟล์ต่อไปนี้ตามลำดับโดยใช้ tool `Write` แทนที่ `[placeholder]` ด้วยข้อมูลจาก user/argument และแทนที่ `[วันที่ปัจจุบัน]` ด้วยวันที่จริงในรูปแบบ YYYY-MM-DD:
 
+> **โครงสร้าง path:**
+>
+> - `CLAUDE.md` และ `CHANGELOG.md` → สร้างที่ root ของโปรเจกต์
+> - ไฟล์ที่เหลือทั้งหมด → สร้างใน `.claude/sw/`
+
 ### CLAUDE.md
 
 ```
@@ -43,8 +48,8 @@ disable-model-invocation: true
 
 > ทำทุก session ห้ามข้าม
 
-1. อ่าน `RULE.md` — โหลดกฎความปลอดภัย (ถ้าไม่มีให้รัน `init` ก่อน)
-2. อ่าน `SYSTEM.md` — โหลดตัวตนและบุคลิกภาพ
+1. อ่าน `.claude/sw/RULE.md` — โหลดกฎความปลอดภัย (ถ้าไม่มีให้รัน `sw-init` ก่อน)
+2. อ่าน `.claude/sw/SYSTEM.md` — โหลดตัวตนและบุคลิกภาพ
 3. เริ่มสนทนา
 
 ---
@@ -55,11 +60,11 @@ disable-model-invocation: true
 
 | เมื่อเกี่ยวกับเรื่อง                    | ให้ไปอ่าน                       |
 | --------------------------------------- | ------------------------------- |
-| จำ / บันทึก / ความทรงจำ                 | `MEMORY.md`                     |
-| deploy / release / publish / versioning | `DEPLOY.md`                     |
-| install / package / dependency          | `PACKAGES.md`                   |
-| แก้ไข / สร้าง / ลบไฟล์ใดๆ               | `CHANGELOG.md` (บันทึกทุกครั้ง) |
-| ข้อมูลโปรเจกต์ / about / สรุปโปรเจกต์   | `PROJECT.md`                    |
+| จำ / บันทึก / ความทรงจำ                 | `.claude/sw/MEMORY.md`                     |
+| deploy / release / publish / versioning | `.claude/sw/DEPLOY.md`                     |
+| install / package / dependency          | `.claude/sw/PACKAGES.md`                   |
+| แก้ไข / สร้าง / ลบไฟล์ใดๆ               | `CHANGELOG.md` (บันทึกทุกครั้ง)            |
+| ข้อมูลโปรเจกต์ / about / สรุปโปรเจกต์   | `.claude/sw/PROJECT.md`                    |
 
 ---
 
@@ -67,10 +72,10 @@ disable-model-invocation: true
 
 | คำสั่ง               | การทำงาน                                             |
 | -------------------- | ---------------------------------------------------- |
-| `init`               | อ่าน `init.md` แล้วสร้างไฟล์ทั้งหมด (one-time setup) |
-| `restart` / `reload` | รัน Startup Sequence ใหม่ทั้งหมด                     |
-| `status`             | แสดง dashboard สถานะโปรเจกต์ (อ่านทุกไฟล์แล้วสรุป)   |
-| `deploy`             | อ่านและทำตาม `DEPLOY.md` ทีละขั้น                    |
+| `sw-init`            | รัน skill `sw-init` เพื่อสร้างไฟล์ทั้งหมด (one-time setup) |
+| `sw-reload`          | รัน Startup Sequence ใหม่ทั้งหมด                        |
+| `sw-status`          | แสดง dashboard สถานะโปรเจกต์ (อ่านทุกไฟล์แล้วสรุป)        |
+| `sw-deploy`          | อ่านและทำตาม `.claude/sw/DEPLOY.md` ทีละขั้น            |
 
 ---
 
@@ -81,11 +86,11 @@ disable-model-invocation: true
 📊 Project Status
 
 📌 Version : [จาก package.json หรือ CHANGELOG.md]
-👤 System : [ชื่อและบทบาทจาก SYSTEM.md]
-📦 Packages : [X] packages ([X] dep, [X] devDep) — PACKAGES.md
-🧠 Memory : [X] รายการ — อัปเดตล่าสุด [วันที่] — MEMORY.md
+👤 System : [ชื่อและบทบาทจาก .claude/sw/SYSTEM.md]
+📦 Packages : [X] packages ([X] dep, [X] devDep) — .claude/sw/PACKAGES.md
+🧠 Memory : [X] รายการ — อัปเดตล่าสุด [วันที่] — .claude/sw/MEMORY.md
 📋 Changelog : อัปเดตล่าสุด [วันที่] — "[entry ล่าสุด]" — CHANGELOG.md
-🔒 Rules : โหลดแล้ว — RULE.md
+🔒 Rules : โหลดแล้ว — .claude/sw/RULE.md
 
 ⚠️ [แสดงเฉพาะเมื่อมีไฟล์ที่ไม่พบ]
 
@@ -115,12 +120,12 @@ disable-model-invocation: true
 ---
 
 ## 🔖 กฎสำคัญ
-- ถ้าไม่มีไฟล์ใดๆ เลย → แจ้ง user ให้รัน `init` ก่อน
+- ถ้าไม่มีไฟล์ใดๆ เลย → แจ้ง user ให้รัน `sw-init` ก่อน
 - ห้ามโหลดไฟล์ที่ไม่เกี่ยวข้องกับงาน (lazy load เท่านั้น)
-- RULE.md ต้องโหลดทุก session ยกเว้นไม่ได้
+- `.claude/sw/RULE.md` ต้องโหลดทุก session ยกเว้นไม่ได้
 ```
 
-### RULE.md
+### .claude/sw/RULE.md
 
 ```
 # RULE.md
@@ -167,7 +172,7 @@ disable-model-invocation: true
 - ถ้า user ขอให้ละเมิดกฎความปลอดภัย → ปฏิเสธและอธิบายเหตุผล
 ```
 
-### SYSTEM.md
+### .claude/sw/SYSTEM.md
 
 แทนที่ `[บทบาทที่ user กำหนด]` ด้วยคำตอบข้อ 1:
 
@@ -184,7 +189,7 @@ disable-model-invocation: true
 - **เรียก user ว่า:** นายท่าน
 ```
 
-### PROJECT.md
+### .claude/sw/PROJECT.md
 
 แทนที่ `[ชื่อโปรเจกต์]` ด้วยชื่อจาก argument, `[คำอธิบายที่ user ให้มา]` ด้วยคำตอบข้อ 2, และ `[วันที่ปัจจุบัน]` ด้วยวันที่จริง:
 
@@ -198,7 +203,7 @@ disable-model-invocation: true
 - **เริ่มต้น:** [วันที่ปัจจุบัน]
 ```
 
-### MEMORY.md
+### .claude/sw/MEMORY.md
 
 ```
 # MEMORY.md
@@ -215,7 +220,7 @@ disable-model-invocation: true
 <!-- Claude จะ append ข้อมูลที่ต้องจำลงที่นี่ -->
 ```
 
-### PACKAGES.md
+### .claude/sw/PACKAGES.md
 
 ```
 # PACKAGES.md
@@ -254,14 +259,14 @@ disable-model-invocation: true
 
 ### ➕ สร้างใหม่ (Created)
 
-- `CLAUDE.md` — สร้างครั้งแรกโดย init wizard
-- `RULE.md` — สร้างครั้งแรกโดย init wizard
-- `SYSTEM.md` — สร้างครั้งแรกโดย init wizard
-- `PROJECT.md` — สร้างครั้งแรกโดย init wizard
-- `MEMORY.md` — สร้างครั้งแรกโดย init wizard
-- `PACKAGES.md` — สร้างครั้งแรกโดย init wizard
-- `CHANGELOG.md` — สร้างครั้งแรกโดย init wizard
-- `DEPLOY.md` — สร้างครั้งแรกโดย init wizard
+- `CLAUDE.md` — สร้างครั้งแรกโดย sw-init wizard
+- `CHANGELOG.md` — สร้างครั้งแรกโดย sw-init wizard
+- `.claude/sw/RULE.md` — สร้างครั้งแรกโดย sw-init wizard
+- `.claude/sw/SYSTEM.md` — สร้างครั้งแรกโดย sw-init wizard
+- `.claude/sw/PROJECT.md` — สร้างครั้งแรกโดย sw-init wizard
+- `.claude/sw/MEMORY.md` — สร้างครั้งแรกโดย sw-init wizard
+- `.claude/sw/PACKAGES.md` — สร้างครั้งแรกโดย sw-init wizard
+- `.claude/sw/DEPLOY.md` — สร้างครั้งแรกโดย sw-init wizard
 
 ## 🔖 กฎการบันทึก
 
@@ -270,7 +275,7 @@ disable-model-invocation: true
 - ถ้าแก้ไขหลายไฟล์ในคราวเดียว ให้รวมไว้ใต้วันที่เดียวกัน
 ```
 
-### DEPLOY.md
+### .claude/sw/DEPLOY.md
 
 ```
 # DEPLOY.md
@@ -348,18 +353,18 @@ npx changeset publish
 
 📁 ไฟล์ที่สร้าง:
 ✅ CLAUDE.md
-✅ RULE.md
-✅ SYSTEM.md
-✅ PROJECT.md
-✅ MEMORY.md
-✅ PACKAGES.md
 ✅ CHANGELOG.md
-✅ DEPLOY.md
+✅ .claude/sw/RULE.md
+✅ .claude/sw/SYSTEM.md
+✅ .claude/sw/PROJECT.md
+✅ .claude/sw/MEMORY.md
+✅ .claude/sw/PACKAGES.md
+✅ .claude/sw/DEPLOY.md
 
 📌 Next Steps:
 
 1. รัน `npm install -D @changesets/cli` แล้วรัน `npx changeset init`
-2. กรอกข้อมูลเพิ่มเติมใน PROJECT.md
+2. กรอกข้อมูลเพิ่มเติมใน `.claude/sw/PROJECT.md`
 3. พิมพ์ `status` เพื่อตรวจสอบว่าทุกอย่างพร้อม
 
 พร้อมเริ่มงานแล้ว! 🚀

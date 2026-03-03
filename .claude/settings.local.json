@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(find /Users/secwind/_WORK/SecWind/claude-plugins -maxdepth 2 -name \".claude\" -o -name \".clauderc*\" -o -name \"skills\" -o -name \"plugins\" 2>/dev/null | grep -v \".git\")",
-      "Bash(tree -L 3 -a /Users/secwind/_WORK/SecWind/claude-plugins 2>/dev/null || find /Users/secwind/_WORK/SecWind/claude-plugins -not -path '*/.git/*' -type f -o -type d | head -50)"
+      "Bash(tree -L 3 -a /Users/secwind/_WORK/SecWind/claude-plugins 2>/dev/null || find /Users/secwind/_WORK/SecWind/claude-plugins -not -path '*/.git/*' -type f -o -type d | head -50)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "Bash(git add skills/sw-init/ skills/init/SKILL.md .claude-plugin/plugin.json .claude/settings.local.json && git commit -m \"$\\(cat <<'EOF'\nfeat\\(skill\\): rename init → sw-init, organize files into .claude/sw/\n\n- Rename skills/init/ to skills/sw-init/ and update skill name/description\n- Restructure output paths: CLAUDE.md and CHANGELOG.md stay at root,\n  remaining files go into .claude/sw/ to avoid conflicts with Claude Code\n- Update all internal references \\(Startup Sequence, Routing Table,\n  Special Commands, Status Format, rules\\) to use new paths\n- Update plugin name in plugin.json\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }
