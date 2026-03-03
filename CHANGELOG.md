@@ -1,5 +1,21 @@
 # CHANGELOG.md
 
+## [2026-03-03] — v1.3.4
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-mcp-playwright/SKILL.md` — skill `/sw-mcp-playwright` ติดตั้งและ config Playwright MCP server ใน ~/.claude/settings.json อัตโนมัติ (screenshot, PDF, web scraping)
+
+---
+
+## [2026-03-03] — v1.3.3 🚀 Deploy
+
+### 🚀 Deploy
+
+- `git push` สำเร็จ → `main` (9c19f27..0989c18)
+
+---
+
 ## [2026-03-03] — v1.3.3
 
 ### ✨ เพิ่มใหม่ (Added)
