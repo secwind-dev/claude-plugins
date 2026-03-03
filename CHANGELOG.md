@@ -1,5 +1,19 @@
 # CHANGELOG.md
 
+## [2026-03-03] — v1.3.0
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-create-hook/SKILL.md` — skill สร้าง default hooks (log-bash, track-action, notify-done) อัตโนมัติในคราวเดียว
+- `.claude/hooks/track-action.sh` — PreToolUse hook (all tools) บันทึก context ของ action ล่าสุดไว้ใน last-action.tmp
+
+### ✏️ แก้ไข (Updated)
+
+- `.claude/hooks/notify-done.sh` — ดึงชื่อ Claude จาก SYSTEM.md + พูดบริบท action ล่าสุดจาก track-action.sh
+- `.gitignore` — เพิ่ม `.test/`
+
+---
+
 ## [2026-03-03] — v1.2.1
 
 ### ✨ เพิ่มใหม่ (Added)
