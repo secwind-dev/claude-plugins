@@ -1,5 +1,24 @@
 # CHANGELOG.md
 
+## [2026-03-03] — v1.2.0
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `.claude/hooks/log-bash.sh` — PreToolUse hook บันทึกทุก Bash command พร้อม timestamp
+- `.claude/settings.json` — ลงทะเบียน hook สำหรับ PreToolUse:Bash matcher
+
+### ✏️ แก้ไข (Updated)
+
+- `.claude/settings.local.json` — เพิ่ม chmod +x permission สำหรับ log-bash.sh
+
+---
+
+## [2026-03-03] — v1.1.0 🚀 Deploy
+
+### 🚀 Deploy
+
+- `git push` สำเร็จ → `main` (77696bf..7a8914d)
+
 ## [2026-03-03] — v1.1.0
 
 ### ✨ เพิ่มใหม่ (Added)
