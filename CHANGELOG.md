@@ -1,5 +1,25 @@
 # CHANGELOG.md
 
+## [2026-03-03] — v1.3.1
+
+### ✏️ แก้ไข (Updated)
+
+- `.claude/hooks/notify-done.sh` — ไม่เล่นเสียง/พูด เมื่อ Claude แค่ตอบคำถาม (ไม่มี last-action.tmp) + เปลี่ยนกลับเป็น voice Kanya ภาษาไทย
+- `.claude/hooks/track-action.sh` — แก้ข้อความ echo ทั้งหมดจากภาษาอังกฤษเป็นภาษาไทย
+- `.claude/hooks/notify-done.sh` — รองรับทั้ง macOS และ Windows (popup/เสียง/พูด)
+- `skills/sw-create-hook/SKILL.md` — อัปเดต template notify-done.sh รองรับ cross-platform
+- `skills/sw-create-hook/SKILL.md` — อัปเดต template notify-done.sh ให้ตรงกัน
+
+---
+
+## [2026-03-03] — v1.3.0 🚀 Deploy
+
+### 🚀 Deploy
+
+- `git push` สำเร็จ → `main` (16ecc8c..ab6bbbe)
+
+---
+
 ## [2026-03-03] — v1.3.0
 
 ### ✨ เพิ่มใหม่ (Added)
