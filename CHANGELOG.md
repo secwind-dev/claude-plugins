@@ -4,6 +4,8 @@
 
 ### ✨ เพิ่มใหม่ (Added)
 
+- `README.md` — อธิบายโปรเจกต์ครบถ้วน พร้อมคำสั่ง install, รายการ skills และ hooks
+
 - `.claude-plugin/marketplace.json` — เพิ่ม marketplace config เพื่อให้ผู้ใช้ install ได้ผ่าน `/plugin marketplace add secwind-dev/clude-plugins`
 - `.claude/hooks/track-action.sh` — hook script สำหรับ track บริบท action ล่าสุด
 - `.claude/hooks/notify-done.sh` — hook script สำหรับแจ้งเตือนเมื่อ Claude เสร็จงาน (popup + เสียง + พูดภาษาไทย)
