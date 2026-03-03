@@ -2,7 +2,7 @@
   "name": "sw-plugins",
   "owner": {
     "name": "SecWind",
-    "email": ""
+    "email": "secwind.dev@gmail.com"
   },
   "metadata": {
     "description": "SecWind Claude Plugins — ชุด skills สำหรับ setup โปรเจกต์, สร้าง hooks, review code, และติดตั้ง MCP servers",
@@ -13,14 +13,14 @@
       "name": "sw-claude-plugins",
       "source": {
         "source": "github",
-        "repo": "secwind-dev/clude-plugins"
+        "repo": "secwind-dev/claude-plugins"
       },
       "description": "SecWind Claude Plugins — ชุด skills สำหรับ setup และจัดการโปรเจกต์ด้วย Claude Code",
       "version": "1.3.4",
       "author": {
         "name": "SecWind"
       },
-      "repository": "https://github.com/secwind-dev/clude-plugins",
+      "repository": "https://github.com/secwind-dev/claude-plugins",
       "keywords": ["claude-code", "hooks", "skills", "workflow", "mcp", "thai"],
       "category": "productivity"
     }
