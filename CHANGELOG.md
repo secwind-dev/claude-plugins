@@ -1,5 +1,17 @@
 # CHANGELOG.md
 
+## [2026-03-03] — v1.2.1
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `.gitignore` — ignore `.claude/` directory ทั้งหมด
+
+### ✏️ แก้ไข (Updated)
+
+- untrack `.claude/` จาก git index (`git rm --cached`)
+
+---
+
 ## [2026-03-03] — v1.2.0
 
 ### ✨ เพิ่มใหม่ (Added)
