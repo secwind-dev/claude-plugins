@@ -13,9 +13,9 @@ disable-model-invocation: true
 
 ## ขั้นที่ 0 — รับ Argument
 
-ดึงชื่อโปรเจกต์จาก argument ที่ส่งมาพร้อมคำสั่ง (เช่น `/sw-init MyProject` → ชื่อโปรเจกต์ = `MyProject`)
+ชื่อโปรเจกต์ที่รับมา: `$ARGUMENTS`
 
-- ถ้าไม่มี argument → แจ้ง user ว่า "กรุณาระบุชื่อโปรเจกต์ด้วยนะคะ บอส เช่น `/sw-init ชื่อโปรเจกต์`" แล้วหยุด
+- ถ้า `$ARGUMENTS` ว่างเปล่า → แจ้ง user ว่า "กรุณาระบุชื่อโปรเจกต์ด้วยนะคะ บอส เช่น `/sw-init ชื่อโปรเจกต์`" แล้วหยุด
 
 ---
 
@@ -523,28 +523,28 @@ grep -qxF '.claude/hooks/last-action.tmp' .gitignore 2>/dev/null || echo '.claud
 
 ```json
 {
-  "hooks": {
-    "PreToolUse": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash .claude/hooks/track-action.sh"
-          }
+    "hooks": {
+        "PreToolUse": [
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "bash .claude/hooks/track-action.sh"
+                    }
+                ]
+            }
+        ],
+        "Stop": [
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "bash .claude/hooks/notify-done.sh"
+                    }
+                ]
+            }
         ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash .claude/hooks/notify-done.sh"
-          }
-        ]
-      }
-    ]
-  }
+    }
 }
 ```
 
@@ -574,9 +574,9 @@ grep -qxF '.claude/hooks/last-action.tmp' .gitignore 2>/dev/null || echo '.claud
 
 📌 Next Steps:
 
-1. รัน `npm install -D @changesets/cli` แล้วรัน `npx changeset init`
-2. กรอกข้อมูลเพิ่มเติมใน `.claude/sw/PROJECT.md`
-3. พิมพ์ `status` เพื่อตรวจสอบว่าทุกอย่างพร้อม
+1. package recommend สำหรับ update version package.json รัน `npm install -D @changesets/cli` แล้วรัน `npx changeset init`
+2. รัน skill /sw-check เพื่อตรวจสอบว่าไฟล์ทั้งหมดถูกโหลดและไม่มีปัญหา
+3. พิมพ์ `sw-status` เพื่อตรวจสอบว่าทุกอย่างพร้อม
 
 พร้อมเริ่มงานแล้ว! 🚀
 ```

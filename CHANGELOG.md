@@ -1,5 +1,14 @@
 # CHANGELOG.md
 
+## [2026-03-05] — v1.5.4
+
+### 🐛 แก้ไข (Fixed)
+
+- `skills/sw-init/SKILL.md` — inject `$ARGUMENTS` เพื่อให้ Claude รับ project name ได้จริง (bug fix)
+- `.gitignore` — เพิ่ม `.claude/hooks/last-action.tmp`
+
+---
+
 ## [2026-03-04] — v1.5.3 🚀 Deploy
 
 ### 🚀 Deploy
