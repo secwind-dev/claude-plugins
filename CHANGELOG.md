@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-04] — v1.5.0 🚀 Deploy
+
+### 🚀 Deploy
+
+- `git push` สำเร็จ → `main` (ad76276..34adac2)
+
+---
+
 ## [2026-03-04] — v1.5.0
 
 ### 🐛 แก้ไข Bug (Fixed)
