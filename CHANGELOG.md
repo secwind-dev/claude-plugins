@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-04] — v1.4.1
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-postgreSQL/SKILL.md` — skill `/sw-postgreSQL` ตรวจสอบ/สร้าง `.claude/sw/POSTGRES_DB.md`, ถาม config ผ่าน AskUserQuestion, และ setup PostgreSQL ผ่าน Docker พร้อม decision tree ตรวจสอบ image/container
+
+---
+
 ## [2026-03-04] — v1.4.0 🚀 Deploy
 
 ### 🚀 Deploy
