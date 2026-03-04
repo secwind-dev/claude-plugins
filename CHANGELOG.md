@@ -1,5 +1,18 @@
 # CHANGELOG.md
 
+## [2026-03-04] — v1.4.0
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `.mcp.json` — เพิ่ม MCP servers ครบชุด: `playwright`, `context7`, `github`, `sequential-thinking` (auto-available เมื่อ install)
+
+### 🗑️ ลบออก (Removed)
+
+- `skills/sw-mcp-playwright/SKILL.md` — ลบออก เปลี่ยนไปใช้ `.mcp.json` แทน
+- `skills/create/SKILL.md` — ลบออก เนื่องจากไม่ตรง use case ของ plugin
+
+---
+
 ## [2026-03-04] — v1.3.4
 
 ### ✨ เพิ่มใหม่ (Added)
