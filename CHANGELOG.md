@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-04] — v1.5.1
+
+### ♻️ Refactor
+
+- `skills/sw-init/SKILL.md` — ย้าย `โทนการตอบ` ออกจาก CLAUDE.md template ไปอยู่ใน SYSTEM.md ที่เดียว (ลด redundancy)
+
+---
+
 ## [2026-03-04] — v1.5.0 🚀 Deploy
 
 ### 🚀 Deploy
