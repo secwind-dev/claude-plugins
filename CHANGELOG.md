@@ -1,5 +1,18 @@
 # CHANGELOG.md
 
+## [2026-03-04] — v1.5.2
+
+### ➕ เพิ่ม
+
+- `skills/sw-init/SKILL.md` — รวม hook setup (track-action.sh + notify-done.sh + settings.json) เข้าเป็น default ขั้นที่ 3
+- `skills/sw-init/SKILL.md` — แก้ `arguments:` → `argument-hint:` ให้ตรงกับ spec
+
+### 🗑️ ลบ
+
+- `skills/sw-create-hook/` — ยุบรวมเข้า sw-init แล้ว ไม่จำเป็นต้องมี skill แยก
+
+---
+
 ## [2026-03-04] — v1.5.1 🚀 Deploy
 
 ### 🚀 Deploy
