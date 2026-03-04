@@ -1,5 +1,14 @@
 # CHANGELOG.md
 
+## [2026-03-04] — v1.5.3
+
+### ✏️ แก้ไข
+
+- `README.md` — ลบ sw-create-hook ออกจาก table, อัปเดต section hooks, เพิ่ม section อัปเดต Marketplace
+- `.claude-plugin/marketplace.json` — อัปเดต version เป็น 1.5.3
+
+---
+
 ## [2026-03-04] — v1.5.2 🚀 Deploy
 
 ### 🚀 Deploy

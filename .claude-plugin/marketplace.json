@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "SecWind Claude Plugins — ชุด skills สำหรับ setup โปรเจกต์, สร้าง hooks, review code, และติดตั้ง MCP servers",
-    "version": "1.5.1"
+    "version": "1.5.3"
   },
   "plugins": [
     {
@@ -16,7 +16,7 @@
         "repo": "secwind-dev/claude-plugins"
       },
       "description": "SecWind Claude Plugins — ชุด skills สำหรับ setup และจัดการโปรเจกต์ด้วย Claude Code",
-      "version": "1.5.1",
+      "version": "1.5.3",
       "author": {
         "name": "SecWind"
       },
