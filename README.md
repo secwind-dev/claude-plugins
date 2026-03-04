@@ -4,11 +4,20 @@
 
 ---
 
-## 📦 ติดตั้ง
+## 📦 ติดตั้ง & อัปเดต
+
+### ติดตั้งครั้งแรก
 
 ```bash
 /plugin marketplace add secwind-dev/claude-plugins
 /plugin install sw-claude-plugins@sw-plugins
+```
+
+### อัปเดต plugin ที่ติดตั้งอยู่
+
+```bash
+/plugin marketplace update sw-plugins        # รีเฟรช catalog ให้เห็น version ล่าสุด
+/plugin update sw-claude-plugins@sw-plugins  # อัปเดต plugin ให้เป็น version ล่าสุด
 ```
 
 ---
@@ -36,7 +45,7 @@
 
 ---
 
-## 🔄 อัปเดต Marketplace
+## 🔄 สำหรับผู้พัฒนา — deploy version ใหม่
 
 เมื่อ deploy version ใหม่ ให้อัปเดต version ใน 3 ไฟล์นี้ให้ตรงกัน:
 
