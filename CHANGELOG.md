@@ -1,5 +1,17 @@
 # CHANGELOG.md
 
+## [2026-03-05] — v1.5.5
+
+### ✏️ แก้ไข (Updated)
+
+- `skills/sw-postgreSQL/SKILL.md` — เปลี่ยนจาก `docker run` เป็น `docker-compose.yml` + `.env` (credentials แยกใน .env ที่ gitignored), เพิ่มคำเตือน production, ลบ dead reference `.claude/sw/POSTGRES_DB.md`
+
+### ➕ สร้างใหม่ (Created)
+
+- `.claude/agents/secwind.md` — SecWind agent มี 3 ความสามารถ: ตัดสินใจเทคนิค, เขียนโค้ดสไตล์บอส, review & approve
+
+---
+
 ## [2026-03-05] — v1.5.4 🚀 Deploy
 
 ### 🚀 Deploy

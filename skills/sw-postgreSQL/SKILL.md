@@ -1,30 +1,32 @@
 ---
 name: sw-postgreSQL
-description: 'Setup PostgreSQL สำหรับโปรเจกต์. ตรวจสอบ .claude/sw/POSTGRES_DB.md, สร้าง config ถ้าไม่มี, และ setup Docker container. Usage: /sw-postgreSQL'
+description: 'Setup PostgreSQL สำหรับโปรเจกต์. สร้าง docker-compose.yml + .env สำหรับ local dev. Usage: /sw-postgreSQL'
 disable-model-invocation: true
 ---
 
 # sw-postgreSQL Skill
 
 ## บทบาท
-ช่วย setup PostgreSQL ผ่าน Docker สำหรับ local development
-ตรวจสอบ config ที่มีอยู่ → ถ้าไม่มีให้สร้างใหม่ → ถามเรื่อง Docker install
+ช่วย setup PostgreSQL ผ่าน Docker Compose สำหรับ local development
+สร้าง `docker-compose.yml` (commit ได้) + `.env` (gitignored) แยกกัน
 
 ---
 
-## ขั้นที่ 1 — ตรวจสอบ POSTGRES_DB.md
+## ขั้นที่ 1 — ตรวจสอบ Config ที่มีอยู่
 
 รัน Bash tool:
 ```bash
-test -f .claude/sw/POSTGRES_DB.md && echo "EXISTS" || echo "NOT_FOUND"
+test -f docker-compose.yml && echo "EXISTS" || echo "NOT_FOUND"
 ```
 
-- **EXISTS** → ใช้ Read tool อ่านเนื้อหาแล้วแสดงให้ user เห็น → ข้ามขั้นที่ 2 ไปขั้นที่ 3
-- **NOT_FOUND** → แจ้ง user ว่าไม่มี config → ไปขั้นที่ 2
+- **EXISTS** → อ่าน `docker-compose.yml` แสดงให้ user เห็น → ถามว่าจะ reconfigure ไหม
+  - ถ้า **ไม่** → ข้ามไปขั้นที่ 4
+  - ถ้า **ใช่** → ไปขั้นที่ 2
+- **NOT_FOUND** → ไปขั้นที่ 2
 
 ---
 
-## ขั้นที่ 2 — เก็บข้อมูล Config (เฉพาะกรณีไม่มีไฟล์)
+## ขั้นที่ 2 — เก็บข้อมูล Config
 
 ใช้ `AskUserQuestion` tool ถาม **4 ข้อพร้อมกัน**:
 
@@ -33,140 +35,138 @@ test -f .claude/sw/POSTGRES_DB.md && echo "EXISTS" || echo "NOT_FOUND"
 3. **Port** — header: "Port", options: `5432` (Recommended), `5433`, `5434`
 4. **PostgreSQL version** — header: "PG Version", options: `16` (Recommended), `15`, `14`, `latest`
 
-**Credentials ใช้ค่า fixed (dev-only defaults — ไม่ถาม user):**
-- Username: `root`
-- Password: `password`
-
-หลังได้คำตอบแล้ว → ใช้ Write tool สร้าง `.claude/sw/POSTGRES_DB.md`:
-
-```md
-# POSTGRES_DB.md
-
-## PostgreSQL Configuration
-- **Container Name:** <container_name>
-- **Image:** postgres:<version>
-- **Port:** <port>:5432
-- **Database:** <dbname>
-- **Username:** root
-- **Password:** password
-
-## Docker Command (Reference)
-docker run -d \
-  --name <container_name> \
-  -e POSTGRES_PASSWORD=password \
-  -e POSTGRES_USER=root \
-  -e POSTGRES_DB=<dbname> \
-  -p <port>:5432 \
-  postgres:<version>
-
-## Connection String
-postgresql://root:password@localhost:<port>/<dbname>
-
-## ⚠️ หมายเหตุ
-ไฟล์นี้เป็น local dev config เท่านั้น — ควร add ใน .gitignore
-```
-
-หลังสร้างไฟล์แล้ว → append `.claude/sw/POSTGRES_DB.md` เข้า `.gitignore` อัตโนมัติ (ถ้ายังไม่มี):
-
-```bash
-grep -qxF '.claude/sw/POSTGRES_DB.md' .gitignore 2>/dev/null || echo '.claude/sw/POSTGRES_DB.md' >> .gitignore
-```
-
-แจ้ง user ว่าสร้างไฟล์เรียบร้อยแล้ว และ `.claude/sw/POSTGRES_DB.md` ถูก add ใน `.gitignore` แล้ว
+> 💡 Username/Password จะใช้ค่า dev default (`root`/`password`) — แก้ได้ภายหลังใน `.env`
 
 ---
 
-## ขั้นที่ 3 — ถามเรื่อง Docker Install
+## ขั้นที่ 3 — สร้างไฟล์
+
+หลังได้ค่าทั้งหมดแล้ว สร้างไฟล์ตามลำดับด้วย Write tool:
+
+### 3.1 — สร้าง `docker-compose.yml`
+
+```yaml
+services:
+  postgres:
+    image: postgres:<version>
+    container_name: <container_name>
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "<port>:5432"
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+```
+
+> ✅ `docker-compose.yml` commit ได้ — ไม่มี credentials โดยตรง
+
+### 3.2 — สร้าง `.env.example`
+
+```env
+# PostgreSQL credentials (copy ไฟล์นี้เป็น .env แล้วแก้ค่า)
+POSTGRES_USER=root
+POSTGRES_PASSWORD=your_password_here
+POSTGRES_DB=<dbname>
+```
+
+> ✅ `.env.example` commit ได้ — เป็น template ให้ทีม
+
+### 3.3 — สร้าง `.env` (ถ้ายังไม่มี)
+
+ตรวจสอบก่อน:
+```bash
+test -f .env && echo "EXISTS" || echo "NOT_FOUND"
+```
+
+- **NOT_FOUND** → สร้าง `.env` ด้วย dev defaults:
+
+```env
+# PostgreSQL credentials (local dev)
+# ⚠️ LOCAL DEV ONLY — เปลี่ยน password ก่อนใช้งาน production
+POSTGRES_USER=root
+POSTGRES_PASSWORD=password
+POSTGRES_DB=<dbname>
+```
+
+- **EXISTS** → **ไม่** เขียนทับ → แจ้ง user ว่า `.env` มีอยู่แล้ว ให้ตรวจสอบว่ามี `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB` ครบ
+
+### 3.4 — Add ใน `.gitignore`
+
+```bash
+grep -qxF '.env' .gitignore 2>/dev/null || echo '.env' >> .gitignore
+```
+
+> ⚠️ `.env` ต้อง gitignored เสมอ — `.env.example` commit ได้
+
+แจ้ง user ว่าสร้างไฟล์ครบแล้ว
+
+---
+
+## ขั้นที่ 4 — ถาม Docker Compose Up
 
 ใช้ `AskUserQuestion` tool ถาม 1 ข้อ:
 
-- **question:** "ต้องการ setup PostgreSQL ผ่าน Docker ตอนนี้เลยไหมคะ บอส?"
-- **header:** "Docker Setup"
+- **question:** "ต้องการ start PostgreSQL ด้วย `docker compose up -d` ตอนนี้เลยไหมคะ บอส?"
+- **header:** "Start Now?"
 - **options:**
-  - `ใช่เลยค่ะ` — description: "ตรวจสอบ image/container และ setup ทันที"
-  - `ยังไม่ตอนนี้` — description: "ข้ามขั้นตอน Docker setup → สรุปผลและจบ"
+  - `เริ่มเลยค่ะ` — description: "รัน docker compose up -d ทันที"
+  - `ยังไม่ตอนนี้` — description: "สรุปผลและจบ"
 
-- **ใช่เลยค่ะ** → ไปขั้นที่ 4
-- **ยังไม่ตอนนี้** → สรุปผล: แสดง connection string, แจ้งขั้นตอน setup ในภายหลัง → จบ
+- **เริ่มเลยค่ะ** → ไปขั้นที่ 5
+- **ยังไม่ตอนนี้** → แสดงสรุปผล → จบ
 
 ---
 
-## ขั้นที่ 4 — ตรวจสอบ Docker Status
+## ขั้นที่ 5 — Start Docker Compose
 
-รัน 3 Bash commands (ใช้ค่า container_name จาก POSTGRES_DB.md):
+ตรวจสอบ Docker daemon ก่อน:
 
 ```bash
-# 1. ตรวจสอบ Docker daemon
 docker info > /dev/null 2>&1 && echo "DOCKER_OK" || echo "DOCKER_NOT_RUNNING"
 ```
 
+- **DOCKER_NOT_RUNNING** → แจ้ง user: "กรุณาเปิด Docker Desktop ก่อนนะคะ บอส" → หยุด
+
+รัน:
 ```bash
-# 2. ตรวจสอบ image ที่มีอยู่
-docker images postgres --format "{{.Repository}}:{{.Tag}}" 2>/dev/null
+docker compose up -d
 ```
 
+Verify:
 ```bash
-# 3. ตรวจสอบ container status
-docker ps -a --filter "name=<container_name>" --format "{{.Names}}\t{{.Status}}" 2>/dev/null
-```
-
-**Decision tree ตามผลที่ได้:**
-
-| สถานะ | การดำเนินการ |
-|-------|------------|
-| `DOCKER_NOT_RUNNING` | แจ้ง user: "กรุณาเปิด Docker Desktop ก่อนนะคะ บอส" → หยุด |
-| Container กำลัง running | แจ้ง: "Container `<name>` รันอยู่แล้วค่ะ ✅" → จบ |
-| Container หยุดอยู่ (Exited) | ถาม user: "start container เลยไหมคะ?" → ถ้าใช่ → `docker start <name>` → verify → จบ |
-| Image มี แต่ไม่มี container | ข้าม pull → ไปขั้นที่ 5 (สร้าง container) |
-| ไม่มีทั้ง image และ container | ไปขั้นที่ 5 (pull + สร้าง container) |
-
----
-
-## ขั้นที่ 5 — Setup Container
-
-ก่อน `docker run` → ใช้ `AskUserQuestion` แจ้ง user:
-- **question:** "อิงโกะจะรัน docker run ด้วย password=`password` (dev default) นะคะ บอส — ยืนยันได้เลยไหมคะ? (password นี้จะไม่ถูกบันทึกใน session)"
-- **header:** "ยืนยัน Setup"
-- **options:**
-  - `ยืนยัน` — description: "รัน docker run ทันที"
-  - `ยกเลิก` — description: "ยกเลิกการ setup"
-
-ถ้า user ยืนยัน → รัน commands ตามลำดับที่จำเป็น:
-
-```bash
-# Pull image (เฉพาะกรณีไม่มี image)
-docker pull postgres:<version>
-```
-
-```bash
-# Create + Start container
-docker run -d \
-  --name <container_name> \
-  -e POSTGRES_PASSWORD=password \
-  -e POSTGRES_USER=root \
-  -e POSTGRES_DB=<dbname> \
-  -p <port>:5432 \
-  postgres:<version>
-```
-
-```bash
-# Start container (เฉพาะกรณี container หยุดอยู่)
-docker start <container_name>
-```
-
-หลัง setup เสร็จ → verify ด้วย:
-```bash
-docker ps --filter "name=<container_name>" --format "{{.Names}}\t{{.Status}}"
+docker compose ps
 ```
 
 สรุปผลให้ user เห็น:
-- ✅ Container running
-- Connection string: `postgresql://root:password@localhost:<port>/<dbname>`
-- แจ้งเตือน: ไฟล์ `.claude/sw/POSTGRES_DB.md` เป็น local dev config — ควร add ใน `.gitignore`
+```
+✅ PostgreSQL พร้อมใช้งานแล้วค่ะ บอส!
+
+🐘 Container : <container_name>
+🔌 Port      : localhost:<port>
+📁 Database  : <dbname>
+🔗 Connection: postgresql://root:***@localhost:<port>/<dbname>
+
+📁 ไฟล์ที่สร้าง:
+  ✅ docker-compose.yml   — commit ได้
+  ✅ .env.example         — commit ได้ (template)
+  ✅ .env                 — gitignored (credentials จริง)
+
+💡 คำสั่งที่ใช้บ่อย:
+  docker compose up -d    — เริ่ม
+  docker compose down     — หยุด
+  docker compose logs postgres — ดู logs
+```
 
 ---
 
 ## ข้อควรระวัง
-- Username/Password เป็น fixed dev defaults (`root`/`password`) — เหมาะสำหรับ local dev เท่านั้น
-- POSTGRES_DB.md ควร add ใน `.gitignore` เสมอ
+
+- `.env` ต้อง gitignored เสมอ — ห้าม commit
+- ถ้า `.env` มีอยู่แล้ว → **ไม่** เขียนทับ
 - ถ้า Docker ไม่รัน → หยุดและแจ้ง user ก่อน ห้าม proceed ต่อ
