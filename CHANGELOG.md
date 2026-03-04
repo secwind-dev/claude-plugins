@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-04] — v1.5.1 🚀 Deploy
+
+### 🚀 Deploy
+
+- `git push` สำเร็จ → `main` (4382ab8..1be2341)
+
+---
+
 ## [2026-03-04] — v1.5.1
 
 ### ♻️ Refactor
