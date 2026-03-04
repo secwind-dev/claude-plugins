@@ -66,7 +66,13 @@ postgresql://root:password@localhost:<port>/<dbname>
 ไฟล์นี้เป็น local dev config เท่านั้น — ควร add ใน .gitignore
 ```
 
-แจ้ง user ว่าสร้างไฟล์เรียบร้อยแล้ว และแนะนำให้ add `.claude/sw/POSTGRES_DB.md` ใน `.gitignore`
+หลังสร้างไฟล์แล้ว → append `.claude/sw/POSTGRES_DB.md` เข้า `.gitignore` อัตโนมัติ (ถ้ายังไม่มี):
+
+```bash
+grep -qxF '.claude/sw/POSTGRES_DB.md' .gitignore 2>/dev/null || echo '.claude/sw/POSTGRES_DB.md' >> .gitignore
+```
+
+แจ้ง user ว่าสร้างไฟล์เรียบร้อยแล้ว และ `.claude/sw/POSTGRES_DB.md` ถูก add ใน `.gitignore` แล้ว
 
 ---
 

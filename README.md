@@ -21,8 +21,10 @@
 | **sw-hook** | `/sw-hook <ชื่อ-hook>` | สร้าง Claude Code hook แบบ guided พร้อม boilerplate และลงทะเบียนใน settings.json |
 | **sw-create-hook** | `/sw-create-hook` | สร้าง default hooks ครบทั้ง 2 ตัว (track-action + notify-done) อัตโนมัติ |
 | **sw-review** | `/sw-review [target]` | Code review จาก git diff พร้อมวิเคราะห์ security, คะแนน quality, และแนะนำ best practices |
-| **sw-mcp-playwright** | `/sw-mcp-playwright` | ติดตั้งและ config Playwright MCP server สำหรับ browser automation, screenshot, PDF |
-| **create** | `/create <path/to/file>` | สร้างไฟล์พร้อม parent directories อัตโนมัติ |
+| **sw-postgreSQL** | `/sw-postgreSQL` | Setup PostgreSQL ผ่าน Docker สำหรับ local dev พร้อม config, connection string, และ .gitignore |
+| **sw-context** | `/sw-context <library> [query]` | โหลด up-to-date docs จาก Context7 สำหรับ library ใดๆ เข้า context |
+| **sw-commit** | `/sw-commit` | วิเคราะห์ git diff แล้วสร้าง Conventional Commit message พร้อม confirm ก่อน commit |
+| **sw-check** | `/sw-check` | ตรวจสอบ environment: runtime, git config, package manager, และ .env security |
 
 ---
 

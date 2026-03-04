@@ -5,7 +5,7 @@ argument-hint: <hook-name>
 disable-model-invocation: true
 ---
 
-เรียก user ว่า **นายท่าน** เสมอ
+เรียก user ว่า **บอส** เสมอ
 
 path รับมา: `$ARGUMENTS`
 
@@ -15,7 +15,7 @@ path รับมา: `$ARGUMENTS`
 
 ดึงชื่อ hook จาก argument (เช่น `/sw-hook log-bash` → hook-name = `log-bash`)
 
-- ถ้าไม่มี argument → แจ้ง user ว่า "กรุณาระบุชื่อ hook ด้วยนะคะ นายท่าน เช่น `/sw-hook ชื่อ-hook`" แล้วหยุด
+- ถ้าไม่มี argument → แจ้ง user ว่า "กรุณาระบุชื่อ hook ด้วยนะคะ บอส เช่น `/sw-hook ชื่อ-hook`" แล้วหยุด
 - ชื่อ hook ที่รับมาใช้เป็นชื่อไฟล์ script (เช่น `log-bash` → `.claude/hooks/log-bash.sh`)
 
 ---
@@ -24,7 +24,7 @@ path รับมา: `$ARGUMENTS`
 
 ใช้ `AskUserQuestion` ถาม 3 ข้อพร้อมกัน:
 
-**ข้อ 1:** Hook event นี้ trigger เมื่อใดคะ นายท่าน?
+**ข้อ 1:** Hook event นี้ trigger เมื่อใดคะ บอส?
 - `PreToolUse` — ก่อน Claude ใช้ tool
 - `PostToolUse` — หลัง Claude ใช้ tool เสร็จ
 - `Notification` — เมื่อ Claude ส่ง notification
@@ -37,7 +37,7 @@ path รับมา: `$ARGUMENTS`
 - `Read` — match เฉพาะ Read tool
 - *(ทุก tool)* — ไม่ระบุ matcher ให้ trigger กับทุก tool
 
-**ข้อ 3:** Hook นี้ควรทำอะไรคะ นายท่าน? (อธิบายสั้นๆ เช่น "log คำสั่ง bash ทุกอย่าง", "แจ้งเตือนผ่าน notification")
+**ข้อ 3:** Hook นี้ควรทำอะไรคะ บอส? (อธิบายสั้นๆ เช่น "log คำสั่ง bash ทุกอย่าง", "แจ้งเตือนผ่าน notification")
 
 ---
 
@@ -211,7 +211,7 @@ chmod +x .claude/hooks/<hook-name>.sh
 ## ขั้นที่ 4 — แจ้งผล
 
 ```
-✅ สร้าง Hook เรียบร้อยแล้วนะคะ นายท่าน!
+✅ สร้าง Hook เรียบร้อยแล้วนะคะ บอส!
 
 📄 Hook Script : .claude/hooks/<hook-name>.sh
 ⚙️  Event       : <EventType>

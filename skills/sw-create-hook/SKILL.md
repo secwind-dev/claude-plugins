@@ -181,6 +181,12 @@ chmod +x .claude/hooks/track-action.sh
 chmod +x .claude/hooks/notify-done.sh
 ```
 
+จากนั้น append `.claude/hooks/last-action.tmp` เข้า `.gitignore` อัตโนมัติ (ถ้ายังไม่มี):
+
+```bash
+grep -qxF '.claude/hooks/last-action.tmp' .gitignore 2>/dev/null || echo '.claude/hooks/last-action.tmp' >> .gitignore
+```
+
 ---
 
 ## ขั้นที่ 5 — ลงทะเบียนใน .claude/settings.json

@@ -1,5 +1,28 @@
 # CHANGELOG.md
 
+## [2026-03-04] — v1.5.0
+
+### 🐛 แก้ไข Bug (Fixed)
+
+- `.claude-plugin/marketplace.json` — แก้ version mismatch: `1.3.4` → `1.5.0` (ทั้ง metadata และ plugins[0])
+- `skills/sw-hook/SKILL.md` — แก้ persona: เปลี่ยนคำเรียก user จาก "นายท่าน" → "บอส" ทุกจุด
+- `skills/sw-init/SKILL.md` — แก้ persona: เปลี่ยนคำเรียก user จาก "นายท่าน" → "บอส" ทุกจุด
+- `README.md` — ลบ skills ที่ถูกลบไปแล้ว (sw-mcp-playwright, create) และเพิ่ม skills ใหม่
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-context/SKILL.md` — skill `/sw-context <library> [query]` โหลด up-to-date docs จาก Context7 เข้า context
+- `skills/sw-commit/SKILL.md` — skill `/sw-commit` วิเคราะห์ git diff สร้าง Conventional Commit message พร้อม confirm
+- `skills/sw-check/SKILL.md` — skill `/sw-check` ตรวจสอบ environment: runtime, git config, package manager, .env safety, .claude/ gitignore (พร้อม auto-fix)
+
+### ✏️ แก้ไข (Updated)
+
+- `skills/sw-postgreSQL/SKILL.md` — เพิ่ม step append `.claude/sw/POSTGRES_DB.md` เข้า `.gitignore` อัตโนมัติ
+- `skills/sw-create-hook/SKILL.md` — เพิ่ม step append `.claude/hooks/last-action.tmp` เข้า `.gitignore` อัตโนมัติ
+- `.claude-plugin/plugin.json` — bump version `1.4.1` → `1.5.0`
+
+---
+
 ## [2026-03-04] — v1.4.1 🚀 Deploy
 
 ### 🚀 Deploy
