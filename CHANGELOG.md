@@ -1,5 +1,17 @@
 # CHANGELOG.md
 
+## [2026-03-05] — sw-adc
+
+### ✏️ แก้ไข (Changed)
+
+- `skills/sw-adc/SKILL.md` — ปรับ Argument รับได้ทั้ง code และคำสั่งภาษาไทย/อังกฤษ, ขั้นที่ 1 auto-fetch ADC.md จาก GitHub ถ้าไม่มี local file
+  - เพิ่มระบบตรวจสอบโหมด: **แปลง code** vs **สร้าง code**
+  - เพิ่มขั้นที่ 2G (วิเคราะห์คำสั่ง) และ 3G (สร้าง code ใน ADC style)
+  - เพิ่ม format header `✨ ADC Style Generation` สำหรับโหมดสร้าง
+  - อัปเดต `description`, `argument-hint`, และ usage examples
+
+---
+
 ## [2026-03-05] — v1.6.7 🚀 Deploy
 
 ### 🚀 Deploy

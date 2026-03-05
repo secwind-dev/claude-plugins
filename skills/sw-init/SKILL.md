@@ -270,7 +270,7 @@ disable-model-invocation: true
 
 ### .claude/sw/DEPLOY.md
 
-```
+````
 # DEPLOY.md
 
 ## คู่มือ Deploy สำหรับ Claude
@@ -281,59 +281,47 @@ disable-model-invocation: true
 
 ### ขั้นที่ 1 — ตรวจสอบ Tests
 
-\`\`\`bash
+```bash
 npm run validate
-\`\`\`
+````
 
 - ❌ ถ้ามี error → หยุดทันที แจ้ง user ห้ามทำขั้นตอนถัดไป
 - ✅ ถ้าผ่าน → ทำขั้นตอนถัดไป
 
-### ขั้นที่ 2 — สร้าง Changeset
+### ขั้นที่ 2 — อัปเดต Version และ CHANGELOG.md
 
-\`\`\`bash
-npx changeset
-\`\`\`
-
-- เลือก bump type: `patch` | `minor` | `major`
-- เขียน summary อธิบายการเปลี่ยนแปลง
-
-### ขั้นที่ 3 — อัปเดต Version และ CHANGELOG
-
-\`\`\`bash
+```bash
 npx changeset version
-\`\`\`
+```
 
-- อัปเดต version ใน package.json อัตโนมัติ
-- สร้าง/อัปเดต CHANGELOG.md อัตโนมัติ
+- อัปเดต version ใน `package.json` อัตโนมัติ
+- สร้าง/อัปเดต `CHANGELOG.md` อัตโนมัติ
 
 ### ขั้นที่ 4 — Build
 
-\`\`\`bash
+```bash
 npm run build
-\`\`\`
+```
 
 - ❌ ถ้า fail → หยุดทันที แจ้ง user
 
-### ขั้นที่ 5 — Commit & Push
+### ขั้นที่ 5 — Commit & Push _(confirm กับ user ก่อนทุกครั้ง)_
 
-\`\`\`bash
-git add .
-git commit -m "feat: ..."
+ระบุไฟล์ที่เปลี่ยนแปลงจริงๆ เสมอ ห้ามใช้ `git add .`:
+
+```bash
+git add CHANGELOG.md package.json <ไฟล์อื่นๆ ที่เปลี่ยน>
+git commit -m "chore: v<version> — <สรุปสั้นๆ>"
 git push
-\`\`\`
-
-### ขั้นที่ 6 — Publish _(ถาม user ก่อนทุกครั้ง)_
-
-\`\`\`bash
-npx changeset publish
-\`\`\`
+```
 
 ### ⚠️ กฎสำคัญ
 
 - ทุก step ที่ fail → หยุดและรายงาน ห้าม skip
-- ขั้นที่ 6 ต้องได้รับอนุญาตจาก user ก่อนเสมอ
+- ขั้นที่ 5 เท่านั้นที่ต้อง confirm กับ user ก่อน
 - หลัง deploy สำเร็จให้บันทึกลง CHANGELOG.md ด้วย
-```
+
+````
 
 ---
 
@@ -343,7 +331,7 @@ npx changeset publish
 
 ```bash
 mkdir -p .claude/hooks
-```
+````
 
 ### 3.2 — สร้าง track-action.sh
 
