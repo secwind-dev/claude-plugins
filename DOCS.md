@@ -1,19 +1,3 @@
-# SecWind Claude Plugins — คู่มือการใช้งาน
-
-**Version:** 1.6.0
-**Repository:** https://github.com/secwind-dev/claude-plugins
-
----
-
-## 📦 ติดตั้ง
-
-```
-/plugin marketplace add secwind-dev/claude-plugins
-/plugin install sw-claude-plugins@sw-plugins
-```
-
----
-
 ## 🛠️ Skills ทั้งหมด
 
 ### `/sw-init <ชื่อโปรเจกต์>`
@@ -99,30 +83,3 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 
 ### `/sw-docs`
 **คู่มือการใช้งาน** — ดึงไฟล์นี้จาก GitHub มาแสดงสดทุกครั้ง (เสมอ up-to-date)
-
----
-
-## 🪝 Default Hooks
-
-สร้างอัตโนมัติโดย `sw-init`:
-
-| Hook | Event | ทำอะไร |
-|------|-------|---------|
-| `track-action.sh` | PreToolUse | จับ action ล่าสุดของ Claude (Write, Edit, Bash, git ฯลฯ) |
-| `notify-done.sh` | Stop | popup + เสียง + พูดภาษาไทยแจ้งว่าทำอะไรเสร็จ |
-
----
-
-## 🔄 อัปเดต
-
-```
-/plugin marketplace update sw-plugins
-/plugin update sw-claude-plugins@sw-plugins
-```
-
----
-
-## 👤 Author
-
-**SecWind** — secwind.dev@gmail.com
-https://github.com/secwind-dev/claude-plugins
