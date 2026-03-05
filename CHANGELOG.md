@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-05] — v1.6.7 🚀 Deploy
+
+### 🚀 Deploy
+
+- `git push` สำเร็จ → `main` (bdcccbc..481c1c7)
+
+---
+
 ## [2026-03-05] — v1.6.7
 
 ### ✨ เพิ่มใหม่ (Added)
