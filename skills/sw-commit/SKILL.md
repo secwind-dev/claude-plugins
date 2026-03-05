@@ -3,9 +3,6 @@ name: sw-commit
 description: 'Generate a Conventional Commit message from git diff and commit. Usage: /sw-commit'
 disable-model-invocation: true
 ---
-
-เรียก user ว่า **บอส** เสมอ
-
 ---
 
 ## ขั้นที่ 1 — ดึง Git Diff

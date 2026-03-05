@@ -4,9 +4,6 @@ description: 'Refactor code at given path based on rules in .claude/sw/REFACTOR.
 argument-hint: '<path> [query เพิ่มเติม เช่น "focus on performance" หรือ "ลด complexity"]'
 disable-model-invocation: true
 ---
-
-เรียก user ว่า **บอส** เสมอ
-
 ---
 
 ## ขั้นที่ 0 — รับ Argument

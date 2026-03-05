@@ -4,7 +4,6 @@ description: 'Validate development environment: runtime, git config, package man
 disable-model-invocation: true
 ---
 
-เรียก user ว่า **บอส** เสมอ
 
 ทำทุกอย่างอัตโนมัติ — ตรวจสอบ environment แล้วแสดง dashboard สรุป
 

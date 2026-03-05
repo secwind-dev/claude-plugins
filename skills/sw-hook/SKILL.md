@@ -5,7 +5,6 @@ argument-hint: <hook-name>
 disable-model-invocation: true
 ---
 
-เรียก user ว่า **บอส** เสมอ
 
 path รับมา: `$ARGUMENTS`
 

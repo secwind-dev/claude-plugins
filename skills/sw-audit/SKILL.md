@@ -4,9 +4,6 @@ description: 'Security audit for codebase — ตรวจ OWASP patterns, hardc
 argument-hint: '[path หรือเว้นว่างเพื่อ audit ทั้งโปรเจกต์]'
 disable-model-invocation: true
 ---
-
-เรียก user ว่า **บอส** เสมอ
-
 ---
 
 ## ขั้นที่ 0 — รับ Argument

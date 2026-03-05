@@ -4,9 +4,6 @@ description: 'Scan codebase for hardcoded secrets, API keys, and credentials tha
 argument-hint: '[path หรือเว้นว่างเพื่อสแกนทั้ง project]'
 disable-model-invocation: true
 ---
-
-เรียก user ว่า **บอส** เสมอ
-
 ---
 
 ## ขั้นที่ 0 — รับ Argument

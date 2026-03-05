@@ -3,9 +3,6 @@ name: sw-docs
 description: 'แสดงคู่มือการใช้งาน sw-claude-plugins ทั้งหมด โดยดึงข้อมูลสดจาก GitHub เสมอ. Usage: /sw-docs'
 disable-model-invocation: true
 ---
-
-เรียก user ว่า **บอส** เสมอ
-
 ---
 
 ## ขั้นที่ 1 — ดึง DOCS.md จาก GitHub

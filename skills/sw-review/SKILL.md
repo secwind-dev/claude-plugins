@@ -4,9 +4,6 @@ description: 'Read git diff and perform code review with feedback, risks, and be
 argument-hint: '[branch/commit หรือเว้นว่างเพื่อ review ทุก uncommitted changes]'
 disable-model-invocation: true
 ---
-
-เรียก user ว่า **บอส** เสมอ
-
 ---
 
 ## ขั้นที่ 1 — กำหนด target

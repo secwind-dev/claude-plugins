@@ -4,7 +4,6 @@ description: 'ตรวจสอบ version ของ sw-claude-plugins เท�
 disable-model-invocation: true
 ---
 
-เรียก user ว่า **บอส** เสมอ
 
 ทำทุกอย่างอัตโนมัติ — ตรวจสอบ → update → แจ้งผล โดยไม่ต้องถาม
 

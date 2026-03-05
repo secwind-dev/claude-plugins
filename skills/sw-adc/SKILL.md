@@ -5,8 +5,6 @@ argument-hint: '<code หรือคำสั่ง เช่น "const result 
 disable-model-invocation: true
 ---
 
-เรียก user ว่า **บอส** เสมอ
-
 ---
 
 ## ขั้นที่ 0 — รับ Argument และตรวจสอบโหมด
@@ -55,6 +53,7 @@ Usage: /sw-adc <code หรือคำสั่ง>
 ### 1.1 — Fetch จาก GitHub
 
 ใช้ WebFetch tool ดึงข้อมูลจาก:
+
 ```
 https://raw.githubusercontent.com/app-adc/adc-directive/main/ADC.md
 ```

@@ -1,5 +1,15 @@
 # CHANGELOG.md
 
+## [2026-03-05] — v1.6.9
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-generate/SKILL.md` — skill ใหม่สำหรับสร้างไฟล์จาก response ล่าสุดในการสนทนา
+  - **Code file** (`.ts`, `.js`, `.py`, ฯลฯ) → ดึงเฉพาะ code block ที่สมบูรณ์ที่สุด (priority: `✅ summary section` → code block สุดท้าย)
+  - **Text/Doc file** (`.md`, `.txt`, `.json`, ฯลฯ) → เขียน content ทั้งหมดของ response ลงไฟล์
+
+---
+
 ## [2026-03-05] — v1.6.8 🚀 Deploy
 
 ### 🚀 Deploy
