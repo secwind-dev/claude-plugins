@@ -1,5 +1,14 @@
 # CHANGELOG.md
 
+## [2026-03-05] — v1.7.0
+
+### ✨ เพิ่มใหม่ / แก้ไข (Added / Changed)
+
+- `skills/sw-init/SKILL.md` — เพิ่ม rule ให้อิงโกะถาม user ก่อนเมื่อเห็นคำสั่งผิดหรือเสี่ยงต่อความเสียหายของโปรเจกต์
+- `skills/sw-adc/SKILL.md` — แก้ example timestamp จาก hardcode เป็น `YYYY-MM-DD HH:MM:SS` พร้อมระบุให้ใช้วันที่จริง ณ ตอนที่สร้าง
+
+---
+
 ## [2026-03-05] — v1.6.9 🚀 Deploy
 
 ### 🚀 Deploy

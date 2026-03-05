@@ -101,6 +101,7 @@ https://raw.githubusercontent.com/app-adc/adc-directive/main/ADC.md
 
 สร้าง code ใน ADC style ตามที่วิเคราะห์ไว้ โดยยึดหลักการต่อไปนี้:
 
+- **Comment วันเวลาที่สร้าง** — เพิ่ม comment บรรทัดแรกสุดของ code ระบุวันที่และเวลาจริง ณ ตอนที่สร้าง (ไม่ใช่ตัวอย่าง) เช่น `// Created: YYYY-MM-DD HH:MM:SS`
 - **Pure function** — ไม่ mutate state ภายนอก
 - **ใช้ ADC patterns** ที่เหมาะสมตามขั้นที่ 2G
 - **Comment ภาษาไทย** — อธิบาย ADC pattern ที่ใช้
