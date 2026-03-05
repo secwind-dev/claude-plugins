@@ -72,8 +72,6 @@ disable-model-invocation: true
 
 | คำสั่ง               | การทำงาน                                             |
 | -------------------- | ---------------------------------------------------- |
-| `sw-init`            | รัน skill `sw-init` เพื่อสร้างไฟล์ทั้งหมด (one-time setup) |
-| `sw-reload`          | รัน Startup Sequence ใหม่ทั้งหมด                        |
 | `sw-status`          | แสดง dashboard สถานะโปรเจกต์ (อ่านทุกไฟล์แล้วสรุป)        |
 | `sw-deploy`          | อ่านและทำตาม `.claude/sw/DEPLOY.md` ทีละขั้น            |
 

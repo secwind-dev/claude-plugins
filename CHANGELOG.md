@@ -1,5 +1,14 @@
 # CHANGELOG.md
 
+## [2026-03-05] — v1.6.2
+
+### ✏️ แก้ไข (Updated)
+
+- `skills/sw-init/SKILL.md` — ลบ `sw-init` และ `sw-reload` ออกจาก Special Commands table เหลือเฉพาะ `sw-status` และ `sw-deploy`
+- `CLAUDE.md` — sync Special Commands table ให้ตรงกับ SKILL.md
+
+---
+
 ## [2026-03-05] — v1.6.1 🚀 Deploy
 
 ### 🚀 Deploy
