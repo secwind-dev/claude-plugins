@@ -1,9 +1,16 @@
 # CHANGELOG.md
 
-## [2026-03-05]
+## [2026-03-05] — v1.6.0
 
 ### ➕ สร้างใหม่ (Created)
 
+- `DOCS.md` — คู่มือการใช้งาน skills ทั้งหมด เป็น single source of truth บน GitHub
+
+### ✏️ แก้ไข (Updated)
+
+- `.claude/sw/DEPLOY.md` — เพิ่ม `DOCS.md` ใน deploy checklist ป้องกัน version drift
+- `README.md` — เพิ่ม `DOCS.md` ในตารางไฟล์ที่ต้องอัปเดตตอน deploy
+- `skills/sw-docs/SKILL.md` — skill ดึง DOCS.md จาก GitHub มาแสดงสดทุกครั้ง
 - `skills/sw-doctor/SKILL.md` — skill ตรวจสอบ version เทียบ GitHub, แสดง changelog ของ version ใหม่ พร้อมคำสั่ง update ให้ user รันเอง รองรับ installed mode และ dev mode
 
 ---

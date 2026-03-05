@@ -34,6 +34,7 @@
 | **sw-commit** | `/sw-commit` | วิเคราะห์ git diff แล้วสร้าง Conventional Commit message พร้อม confirm ก่อน commit |
 | **sw-check** | `/sw-check` | ตรวจสอบ environment: runtime, git config, package manager, และ .env security |
 | **sw-doctor** | `/sw-doctor` | ตรวจสอบ version เทียบกับ marketplace บน GitHub แจ้งเมื่อมี version ใหม่ให้อัปเดต |
+| **sw-docs** | `/sw-docs` | แสดงคู่มือการใช้งาน skills ทั้งหมด โดยดึงจาก GitHub สดทุกครั้ง |
 
 ---
 
@@ -54,6 +55,7 @@
 |------|-------|
 | `.claude-plugin/plugin.json` | `"version"` |
 | `.claude-plugin/marketplace.json` | `"metadata.version"` และ `"plugins[0].version"` |
+| `DOCS.md` | `**Version:**` |
 | `CHANGELOG.md` | entry header เช่น `## [YYYY-MM-DD] — vX.X.X` |
 
 จากนั้น commit และ push — marketplace จะดึง version ใหม่จาก GitHub โดยอัตโนมัติ
