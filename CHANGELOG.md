@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-05] — v1.6.8
+
+### 🐛 แก้ไข Bug (Fixed)
+
+- `skills/sw-init/SKILL.md` — แก้ markdown fence mismatch ใน DEPLOY.md template (inner `bash` block ใช้ ```` ```` ```` แทน ` ``` `)
+
+---
+
 ## [2026-03-05] — sw-adc
 
 ### ✏️ แก้ไข (Changed)

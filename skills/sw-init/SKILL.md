@@ -283,7 +283,7 @@ disable-model-invocation: true
 
 ```bash
 npm run validate
-````
+```
 
 - ❌ ถ้ามี error → หยุดทันที แจ้ง user ห้ามทำขั้นตอนถัดไป
 - ✅ ถ้าผ่าน → ทำขั้นตอนถัดไป
@@ -331,7 +331,7 @@ git push
 
 ```bash
 mkdir -p .claude/hooks
-````
+```
 
 ### 3.2 — สร้าง track-action.sh
 
