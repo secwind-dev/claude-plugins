@@ -1,5 +1,17 @@
 # CHANGELOG.md
 
+## [2026-03-05] — v1.6.7
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-refactor-code/SKILL.md` — skill ใหม่สำหรับ refactor code ตาม rule ใน `.claude/sw/REFACTOR.md`
+  - รับ `path` (required) และ `query` (optional)
+  - สร้าง `.claude/sw/REFACTOR.md` อัตโนมัติถ้ายังไม่มี พร้อม rule Functional Programming ครบชุด
+  - เน้น pure function, immutability, function composition — ไม่ใช้ OOP
+  - user ปรับแต่ง rule ได้เองในภายหลัง
+
+---
+
 ## [2026-03-05] — v1.6.6 🚀 Deploy
 
 ### 🚀 Deploy
