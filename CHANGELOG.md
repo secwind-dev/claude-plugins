@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-05] — v1.6.3
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-secret/SKILL.md` — skill ใหม่: สแกนหา hardcoded secrets, API keys, credentials ใน codebase พร้อม severity levels (Critical/Warning/Info) และตรวจ .gitignore coverage
+
+---
+
 ## [2026-03-05] — v1.6.2 🚀 Deploy
 
 ### 🚀 Deploy
