@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-05]
+
+### ➕ สร้างใหม่ (Created)
+
+- `skills/sw-doctor/SKILL.md` — skill ตรวจสอบ version เทียบ GitHub, แสดง changelog ของ version ใหม่ พร้อมคำสั่ง update ให้ user รันเอง รองรับ installed mode และ dev mode
+
+---
+
 ## [2026-03-05] — v1.5.5 🚀 Deploy
 
 ### 🚀 Deploy

@@ -33,6 +33,7 @@
 | **sw-context** | `/sw-context <library> [query]` | โหลด up-to-date docs จาก Context7 สำหรับ library ใดๆ เข้า context |
 | **sw-commit** | `/sw-commit` | วิเคราะห์ git diff แล้วสร้าง Conventional Commit message พร้อม confirm ก่อน commit |
 | **sw-check** | `/sw-check` | ตรวจสอบ environment: runtime, git config, package manager, และ .env security |
+| **sw-doctor** | `/sw-doctor` | ตรวจสอบ version เทียบกับ marketplace บน GitHub แจ้งเมื่อมี version ใหม่ให้อัปเดต |
 
 ---
 
