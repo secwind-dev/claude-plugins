@@ -81,5 +81,27 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 
 ---
 
+### `/sw-secret [path]`
+**สแกน hardcoded secrets** — ตรวจหา API keys, passwords, private keys, AWS credentials ใน codebase
+
+- ไม่ระบุ path → สแกนทั้งโปรเจกต์
+- ระบุ path → สแกนเฉพาะ directory/file นั้น
+
+แสดงผล: findings จัดกลุ่มตาม severity (Critical/Warning/Info) + .gitignore coverage
+
+---
+
+### `/sw-audit [path]`
+**Security audit แบบ comprehensive** — ตรวจ OWASP Top 10 patterns, hardcoded secrets, dependency vulnerabilities, และ config safety
+
+- ไม่ระบุ → audit ทั้งโปรเจกต์
+- `<path>` → audit เฉพาะ path นั้น
+
+แสดงผล: Risk Score (0-100), findings จัดกลุ่ม Critical/High/Medium/Low, คำแนะนำเรียงลำดับ priority
+
+> แนะนำให้เปิด session ใหม่หลัง audit เสมอ เพื่อให้ Claude มี context เต็มสำหรับงานถัดไป
+
+---
+
 ### `/sw-docs`
 **คู่มือการใช้งาน** — ดึงไฟล์นี้จาก GitHub มาแสดงสดทุกครั้ง (เสมอ up-to-date)

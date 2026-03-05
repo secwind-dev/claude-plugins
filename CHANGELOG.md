@@ -1,5 +1,36 @@
 # CHANGELOG.md
 
+## [2026-03-05] — v1.6.6
+
+### 🗑️ ลบออก (Removed)
+
+- `skills/sw-task/SKILL.md` — ลบ skill sw-task ออกจากโปรเจกต์
+- `DOCS.md` — ลบ section `/sw-task` ออก
+
+---
+
+## [2026-03-05] — v1.6.5
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-audit/SKILL.md` — skill ใหม่: Security audit แบบ comprehensive — ตรวจ OWASP Top 10 patterns, hardcoded secrets, dependency vulnerabilities (npm audit / pip-audit), config safety พร้อม Risk Score (0-100) และ findings จัดกลุ่ม Critical/High/Medium/Low
+- `DOCS.md` — เพิ่ม `/sw-audit`, `/sw-secret`, `/sw-task` ที่ขาดไป
+
+### ✏️ แก้ไข (Updated)
+
+- `skills/sw-audit/SKILL.md` — ลบ flags `--deps` / `--code` ออก ทำให้ใช้งานง่ายขึ้น, รวม bash commands ให้น้อยลงเพื่อประหยัด context, เปลี่ยน `npm audit --json` → text output, เพิ่มคำแนะนำ clear session หลัง audit เสร็จ
+- `DOCS.md` — อัปเดต description ของ `/sw-audit` ให้ตรงกับ spec ใหม่
+
+---
+
+## [2026-03-05] — v1.6.4
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-task/SKILL.md` — skill ใหม่: จัดการ session tasks — แตก goal เป็น steps, track progress, mark done พร้อม modes: plan/list/add/done/clear
+
+---
+
 ## [2026-03-05] — v1.6.3
 
 ### ✨ เพิ่มใหม่ (Added)
