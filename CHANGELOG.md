@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-06] — v1.8.1
+
+### 📝 เอกสาร (Docs)
+
+- `README.md` — เพิ่ม Vision statement และ skills `sw-awaken`, `sw-on-session` ในตาราง
+
+---
+
 ## [2026-03-06] — v1.8.0 🚀 Deploy
 
 ### 🚀 Deploy

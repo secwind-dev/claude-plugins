@@ -2,6 +2,8 @@
 
 **SecWind Claude Plugins** — ชุด skills & hooks สำหรับ Claude Code เพื่อ setup โปรเจกต์, จัดการ hooks, review code, และติดตั้ง MCP servers ได้อย่างรวดเร็ว
 
+> 🎯 **Vision:** สร้าง plugin ecosystem ที่เป็น standard สำหรับ AI setup — คำนึงถึงมาตรฐานเครื่องมือ, การจัดการ API token อย่างปลอดภัย, และการบริหาร context window อย่างมีประสิทธิภาพ
+
 ---
 
 ## 📦 ติดตั้ง & อัปเดต
@@ -35,6 +37,8 @@
 | **sw-check** | `/sw-check` | ตรวจสอบ environment: runtime, git config, package manager, และ .env security |
 | **sw-doctor** | `/sw-doctor` | ตรวจสอบ version เทียบกับ marketplace บน GitHub แจ้งเมื่อมี version ใหม่ให้อัปเดต |
 | **sw-docs** | `/sw-docs` | แสดงคู่มือการใช้งาน skills ทั้งหมด โดยดึงจาก GitHub สดทุกครั้ง |
+| **sw-awaken** | `/sw-awaken` | โหลด awaken knowledge ถาวรของ Claude จาก `.claude/sw/awaken/` |
+| **sw-on-session** | `/sw-on-session` | เรียกใช้งานเมื่อเริ่ม session ใหม่ เพื่อ bootstrap context |
 
 ---
 
