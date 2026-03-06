@@ -103,5 +103,29 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 
 ---
 
+### `/sw-awaken [url]`
+**ความรู้ถาวรข้ามทุก session** — สอนอิงโกะให้รู้จักบางอย่างตลอดไป เช่น ข้อมูลบริษัท, spec โปรเจกต์
+
+- ไม่ระบุ argument → โหลดไฟล์ทั้งหมดใน `.claude/sw/awaken/` เข้า context
+- ระบุ URL → fetch เนื้อหา + **บันทึกเป็นไฟล์ถาวร** ใน `.claude/sw/awaken/`
+- ถ้ายังไม่มี folder → สร้างให้อัตโนมัติ + ตั้งค่า auto-load ใน `SYSTEM.md`
+
+> ✨ ความรู้ใน `awaken/` จะ **auto-load ทุก session** โดยอัตโนมัติ ไม่ต้องรันซ้ำ
+> ⚠️ ไฟล์ใหญ่มากอาจกิน context window ทุก session — แนะนำเก็บเฉพาะข้อมูลสำคัญ
+
+---
+
+### `/sw-on-session [url]`
+**โหลด session context** — โหลดข้อมูลเข้า context window ของ session ปัจจุบัน
+
+- ไม่ระบุ argument → อ่านไฟล์ทั้งหมดใน `.claude/sw/session/` แล้ว load เข้า context
+- ระบุ URL → fetch เนื้อหาจาก URL แล้ว load เข้า context
+- ถ้ายังไม่มี folder `.claude/sw/session/` → สร้างให้อัตโนมัติพร้อมแนะนำวิธีใช้
+
+> ⚠️ Context มีผลแค่ session ปัจจุบัน — ต้องรัน `/sw-on-session` ใหม่ทุกครั้งที่เปิด session ใหม่
+> แนะนำเพิ่ม `.claude/sw/session/` ใน `.gitignore` ถ้ามีไฟล์ sensitive
+
+---
+
 ### `/sw-docs`
 **คู่มือการใช้งาน** — ดึงไฟล์นี้จาก GitHub มาแสดงสดทุกครั้ง (เสมอ up-to-date)

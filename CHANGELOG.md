@@ -1,5 +1,19 @@
 # CHANGELOG.md
 
+## [2026-03-06] — v1.8.0
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-awaken/SKILL.md` — สร้าง skill ใหม่ `/sw-awaken` สำหรับเพิ่มความรู้ถาวรให้อิงโกะจากไฟล์ใน `.claude/sw/awaken/` หรือจาก URL (auto-load ทุก session)
+- `skills/sw-on-session/SKILL.md` — สร้าง skill ใหม่ `/sw-on-session` สำหรับโหลด session context จากไฟล์ใน `.claude/sw/session/` หรือจาก URL
+- `DOCS.md` — เพิ่มเอกสาร skill `sw-awaken` และ `sw-on-session`
+
+### ✏️ แก้ไข (Changed)
+
+- `.claude/sw/SYSTEM.md` — เพิ่ม `## 🌅 Awaken Knowledge` directive เพื่อ auto-load ไฟล์ใน `.claude/sw/awaken/` ทุก session
+
+---
+
 ## [2026-03-05] — v1.7.0 🚀 Deploy
 
 ### 🚀 Deploy
