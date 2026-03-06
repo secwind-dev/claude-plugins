@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-06] — v1.8.1 🚀 Deploy
+
+### 🚀 Deploy
+
+- pushed to `main` (f35ad6c..37ba6e7)
+
+---
+
 ## [2026-03-06] — v1.8.1
 
 ### 📝 เอกสาร (Docs)
