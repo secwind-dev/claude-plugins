@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-06] — v1.8.0 🚀 Deploy
+
+### 🚀 Deploy
+
+- `git push` สำเร็จ → `main` (474495d..a4cacec)
+
+---
+
 ## [2026-03-06] — v1.8.0
 
 ### ✨ เพิ่มใหม่ (Added)
