@@ -1,5 +1,25 @@
 # CHANGELOG.md
 
+## [2026-03-08] — v1.8.2
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-yt/SKILL.md` — สร้าง skill ใหม่ `/sw-yt <url> [--create=<folder>]` สรุปเนื้อหา YouTube video โดยใช้ yt-dlp ดึง subtitle (th/en) แล้วสรุปเป็นภาษาไทย พร้อมแสดง title, channel, duration และ bullet points หลัก; ถ้ามี `--create=<folder>` จะบันทึกไฟล์ `.md` ไปยัง folder ที่ระบุอัตโนมัติ; merge title/channel/duration เข้ากับขั้น subtitle ด้วย `--print` flag เพื่อลด API call; เปลี่ยน `ls` เป็น `find` สำหรับ glob ที่ปลอดภัยกว่า
+
+---
+
+## [2026-03-07] — v1.8.1
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-version/SKILL.md` — สร้าง skill ใหม่สำหรับเช็ค version ของ sw-claude-plugins
+
+### 🔧 แก้ไข (Changed)
+
+- `skills/sw-on-session/SKILL.md` — เพิ่มคำสั่ง `--create` สำหรับ path/URL: ทำความเข้าใจ content และบันทึกไฟล์ไว้ใน `.claude/sw/session/` พร้อมกัน
+
+---
+
 ## [2026-03-06] — v1.8.1 🚀 Deploy
 
 ### 🚀 Deploy

@@ -1,7 +1,7 @@
 ---
 name: sw-on-session
-description: 'โหลด context เข้า session จากไฟล์ใน .claude/sw/session/ หรือจาก URL. Usage: /sw-on-session [url]'
-argument-hint: '[url]'
+description: 'โหลด context เข้า session จากไฟล์ใน .claude/sw/session/ หรือจาก path/URL. Usage: /sw-on-session [path|url] [--create]'
+argument-hint: '[path|url] [--create]'
 disable-model-invocation: true
 ---
 
@@ -9,11 +9,15 @@ argument ที่รับมา: `$ARGUMENTS`
 
 ---
 
-## ขั้นที่ 0 — รับ Argument
+## ขั้นที่ 0 — รับและ Parse Argument
 
-ตรวจสอบ argument ที่ได้รับ:
-- ถ้ามี argument → ถือว่าเป็น URL → ไปที่ **ขั้นที่ 3**
-- ถ้าไม่มี argument → ไปที่ **ขั้นที่ 1**
+แยก arguments ที่ได้รับ:
+- ตรวจว่ามี `--create` flag ใน arguments หรือไม่ → บันทึกไว้เป็น **create_mode** (true/false)
+- แยก path/URL ออกจาก arguments (ส่วนที่ไม่ใช่ `--create`) → บันทึกไว้เป็น **target**
+
+ตรวจสอบ:
+- ถ้าไม่มี **target** (ไม่มี argument หรือมีแค่ `--create`) → ไปที่ **ขั้นที่ 1**
+- ถ้ามี **target** → ไปที่ **ขั้นที่ 3**
 
 ---
 
@@ -80,24 +84,53 @@ find .claude/sw/session/ -type f | sort
 
 ---
 
-## ขั้นที่ 3 — Fetch Context จาก URL
+## ขั้นที่ 3 — Fetch/Read Context จาก path หรือ URL
 
-ใช้ WebFetch tool ดึงเนื้อหาจาก URL ที่รับมา:
-- URL = argument ที่ได้รับ
+ตรวจว่า **target** เป็น URL หรือ local path:
+- ถ้าขึ้นต้นด้วย `http://` หรือ `https://` → ถือว่าเป็น **URL** → ใช้ WebFetch tool ดึงเนื้อหา
+- ถ้าเป็น path อื่น → ถือว่าเป็น **local path** → ใช้ Read tool อ่านไฟล์
 
 - ถ้า fail หรือ error → แจ้ง user:
   ```
-  ❌ ไม่สามารถ fetch URL ได้ค่ะ บอส
-  URL: <url ที่รับมา>
+  ❌ ไม่สามารถโหลด content ได้ค่ะ บอส
+  Target: <target ที่รับมา>
 
   กรุณาตรวจสอบ:
-  - URL ถูกต้องและ public access ได้
-  - Internet connection ปกติ
+  - Path หรือ URL ถูกต้อง
+  - ถ้าเป็น URL ต้องเป็น public access ได้และ internet connection ปกติ
   - ถ้าเป็น GitHub private repo จะไม่สามารถ fetch ได้โดยตรงค่ะ
   ```
   แล้วหยุด
 
-- ถ้าสำเร็จ → ทำความเข้าใจและเก็บ content ไว้ใน session context แล้วไปที่ **ขั้นที่ 4**
+- ถ้าสำเร็จ → ทำความเข้าใจและเก็บ content ไว้ใน session context
+  - ถ้า **create_mode** เป็น true → ไปที่ **ขั้นที่ 3.5**
+  - ถ้า **create_mode** เป็น false → ไปที่ **ขั้นที่ 4**
+
+---
+
+## ขั้นที่ 3.5 — สร้างไฟล์ใน .claude/sw/session/
+
+กำหนดชื่อไฟล์จาก **target** ตามลำดับนี้:
+
+1. ถ้าเป็น URL:
+   - ตัด query string (`?...`) และ fragment (`#...`) ออกก่อน
+   - Strip trailing slash ออก
+   - ใช้ last path segment เป็นชื่อไฟล์ เช่น:
+     - `https://example.com/docs/api-spec?token=xxx` → `api-spec`
+     - `https://example.com/docs/api-spec/` → `api-spec`
+   - ถ้า last path segment ว่างหรือหาไม่ได้ (เช่น URL เป็น root `/`) → ใช้ hostname เป็นชื่อไฟล์แทน เช่น `example.com`
+2. ถ้าเป็น local path → ใช้ชื่อไฟล์เดิม เช่น `/path/to/project-brief.txt` → `project-brief.txt`
+3. ถ้าชื่อไฟล์ที่ได้ไม่มี extension → เติม `.md` ให้อัตโนมัติ
+
+ตรวจสอบว่า `.claude/sw/session/` มีอยู่หรือไม่:
+
+```bash
+mkdir -p .claude/sw/session/
+```
+
+จากนั้นสร้างไฟล์ใน `.claude/sw/session/<ชื่อไฟล์>` โดยใช้ Write tool บันทึก content ที่ดึงมา
+
+แล้วไปที่ **ขั้นที่ 4**
 
 ---
 
@@ -119,12 +152,23 @@ find .claude/sw/session/ -type f | sort
    หากต้องการโหลดอีกครั้งในครั้งหน้า ให้รัน /sw-on-session ใหม่ค่ะ
 ```
 
-กรณีโหลดจาก URL:
+กรณีโหลดจาก URL หรือ path (ไม่มี --create):
 ```
-✅ โหลด session context จาก URL สำเร็จแล้วค่ะ บอส!
+✅ โหลด session context สำเร็จแล้วค่ะ บอส!
 
-🌐 URL        : <url ที่ fetch มา>
+🎯 แหล่งที่มา : <path หรือ URL ที่ใช้>
 📝 เนื้อหา    : <สรุปสั้นๆ ว่า content นั้นคืออะไร>
 
 💡 Context นี้มีผลแค่ session ปัจจุบันนะคะ
+```
+
+กรณีโหลดจาก URL หรือ path พร้อม --create:
+```
+✅ โหลด session context และสร้างไฟล์สำเร็จแล้วค่ะ บอส!
+
+🎯 แหล่งที่มา : <path หรือ URL ที่ใช้>
+💾 บันทึกไว้ที่ : .claude/sw/session/<ชื่อไฟล์>
+📝 เนื้อหา    : <สรุปสั้นๆ ว่า content นั้นคืออะไร>
+
+💡 Context นี้จะโหลดอัตโนมัติครั้งหน้าเมื่อรัน /sw-on-session ด้วยนะคะ
 ```
