@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-08] — v1.8.4
+
+### 🔧 แก้ไข (Changed)
+
+- `CLAUDE.md` + `skills/sw-init/templates/CLAUDE.md` — ลบ Context Loading Tiers section (ซ้ำกับ Startup Sequence และ Routing Table) + เพิ่มความชัดเจน Startup Sequence warning
+
+---
+
 ## [2026-03-08] — v1.8.3 🚀 Deploy
 
 ### 🚀 Deploy

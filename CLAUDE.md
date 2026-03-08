@@ -4,26 +4,12 @@
 
 ## 🚀 Startup Sequence
 
-> ทำทุก session ห้ามข้าม
+> **ต้องทำก่อนตอบ message แรกของ user ทุกครั้ง — ห้ามข้าม ห้ามรอให้ user ถาม ห้ามข้ามแม้ user จะทักทายหรือถามสั้นๆ**
 
 1. อ่าน `.claude/sw/RULE.md` — โหลดกฎความปลอดภัย (ถ้าไม่มีให้รัน `sw-init` ก่อน)
 2. อ่าน `.claude/sw/SYSTEM.md` — โหลดตัวตนและบุคลิกภาพ
 3. อ่านทุกไฟล์ใน `.claude/sw/awaken/` — โหลดความรู้ถาวร (ถ้ามีไฟล์)
 4. เริ่มสนทนา
-
----
-
-## 🔄 Context Loading Tiers
-
-> ระบบโหลด context 4 ระดับ — แต่ละระดับมี scope และเวลาโหลดต่างกัน
-
-| Tier | ชื่อ          | ไฟล์/โฟลเดอร์                     | โหลดเมื่อไหร่         | วิธีเรียกใช้          |
-| ---- | ------------- | --------------------------------- | --------------------- | --------------------- |
-| 1    | **Mandatory** | `RULE.md`, `SYSTEM.md`            | ทุก session อัตโนมัติ | Startup Sequence      |
-| 2    | **Lazy**      | `.claude/sw/*.md` (routing table) | on-demand ตามงาน      | อ่านตาม Routing Table |
-| 3    | **Session**   | `.claude/sw/session/`             | manual invoke         | `/sw-on-session`      |
-
-|
 
 ---
 
