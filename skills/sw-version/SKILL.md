@@ -13,13 +13,25 @@ disable-model-invocation: true
 รัน Bash tool:
 
 ```bash
-# ค้นหา plugin.json ของ sw-claude-plugins จาก installed path
-PLUGIN_JSON=$(find ~/.claude/plugins -name "plugin.json" 2>/dev/null \
-  | xargs grep -l '"sw-claude-plugins"' 2>/dev/null \
-  | head -1)
+INSTALLED_JSON=~/.claude/plugins/installed_plugins.json
+
+# อ่าน installPath ของ sw-claude-plugins จาก installed_plugins.json (source of truth)
+# เลือก scope "user" ก่อน ถ้าไม่มีค่อย fallback ไป scope แรกที่เจอ
+if [ -f "$INSTALLED_JSON" ]; then
+  INSTALL_PATH=$(jq -r '
+    (.plugins["sw-claude-plugins@sw-plugins"] // [])
+    | (map(select(.scope == "user"))[0] // .[0])
+    | .installPath // empty
+  ' "$INSTALLED_JSON")
+fi
+
+# ถ้าเจอ installPath → ใช้ plugin.json จาก path นั้น
+if [ -n "$INSTALL_PATH" ]; then
+  PLUGIN_JSON="$INSTALL_PATH/.claude-plugin/plugin.json"
+fi
 
 # fallback: dev mode (รันจาก repo โดยตรง)
-if [ -z "$PLUGIN_JSON" ]; then
+if [ -z "$PLUGIN_JSON" ] || [ ! -f "$PLUGIN_JSON" ]; then
   DEV_PATH=".claude-plugin/plugin.json"
   if [ -f "$DEV_PATH" ] && grep -q '"sw-claude-plugins"' "$DEV_PATH" 2>/dev/null; then
     PLUGIN_JSON="$DEV_PATH"
@@ -27,7 +39,7 @@ if [ -z "$PLUGIN_JSON" ]; then
   fi
 fi
 
-if [ -n "$PLUGIN_JSON" ]; then
+if [ -n "$PLUGIN_JSON" ] && [ -f "$PLUGIN_JSON" ]; then
   VERSION=$(jq -r '.version // empty' "$PLUGIN_JSON")
   NAME=$(jq -r '.name // empty' "$PLUGIN_JSON")
   AUTHOR=$(jq -r '.author.name // empty' "$PLUGIN_JSON")
