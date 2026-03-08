@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-09] — v1.8.7
+
+### 🔧 แก้ไข (Changed)
+
+- `skills/sw-doctor/SKILL.md` — แก้ bug การอ่าน version จาก cache สุ่ม → อ่านจาก `installed_plugins.json` โดยตรง พร้อม scope-aware selection (user scope ก่อน)
+
+---
+
 ## [2026-03-09] — v1.8.6 🚀 Deploy
 
 ### 🚀 Deploy
