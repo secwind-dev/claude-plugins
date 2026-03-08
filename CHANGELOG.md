@@ -1,5 +1,30 @@
 # CHANGELOG.md
 
+## [2026-03-08]
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-init/templates/CLAUDE.md` — template สำหรับ sw-init (แยกออกจาก SKILL.md)
+- `skills/sw-init/templates/RULE.md` — template สำหรับ sw-init
+- `skills/sw-init/templates/SYSTEM.md` — template สำหรับ sw-init
+- `skills/sw-init/templates/PROJECT.md` — template สำหรับ sw-init
+- `skills/sw-init/templates/MEMORY.md` — template สำหรับ sw-init
+- `skills/sw-init/templates/PACKAGES.md` — template สำหรับ sw-init
+- `skills/sw-init/templates/CHANGELOG.md` — template สำหรับ sw-init
+- `skills/sw-init/templates/DEPLOY.md` — template สำหรับ sw-init
+- `skills/sw-init/templates/settings.json` — template สำหรับ sw-init
+- `skills/sw-init/templates/hooks/track-action.sh` — template สำหรับ sw-init
+- `skills/sw-init/templates/hooks/notify-done.sh` — template สำหรับ sw-init
+
+### 🔧 แก้ไข (Changed)
+
+- `CLAUDE.md` — เพิ่ม section `🔄 Context Loading Tiers` อธิบาย 4 ระดับการโหลด context
+- `skills/sw-init/templates/CLAUDE.md` — เพิ่ม Context Loading Tiers section ใน template ด้วย
+- `CLAUDE.md` + `skills/sw-init/templates/CLAUDE.md` — แก้ Tier 4 Awaken: โหลดทุก session ผ่าน SYSTEM.md (ไม่ใช่แค่ครั้งแรก); ลบ `sw-status` ออกจาก Special Commands
+- `skills/sw-init/SKILL.md` — refactor แทนที่ embedded template blocks ด้วย reference ไปยัง `skills/sw-init/templates/` ลด duplication และง่ายต่อการบำรุงรักษา; เพิ่มสร้าง `.claude/sw/awaken/` และ `.claude/sw/session/` เป็น default; แก้ template path ให้ใช้ `<Base directory for this skill>/templates/` แทน path relative
+
+---
+
 ## [2026-03-08] — v1.8.2 🚀 Deploy
 
 ### 🚀 Deploy
