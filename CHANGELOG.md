@@ -1,5 +1,16 @@
 # CHANGELOG.md
 
+## [2026-03-08] — v1.8.3
+
+### 🔧 แก้ไข (Changed)
+
+- `CLAUDE.md` + `skills/sw-init/templates/CLAUDE.md` — ย้าย Awaken loading เข้า Startup Sequence เป็น Tier 1 Mandatory (ขั้นที่ 3) แทนการอ่านผ่าน SYSTEM.md
+- `skills/sw-init/templates/SYSTEM.md` — ลบ `## 🌅 Awaken Knowledge` section ออก (ไม่ duplicate กับ CLAUDE.md แล้ว); แก้ `\*\*` markdown ที่ escape ผิด
+- `skills/sw-awaken/SKILL.md` — refactor ให้รับ argument บังคับ (`url|path`) เท่านั้น ลบ no-argument folder scan flow ออก
+- `.gitignore` — เปิดให้ `CLAUDE.md` ถูก track โดย git
+
+---
+
 ## [2026-03-08]
 
 ### ✨ เพิ่มใหม่ (Added)
