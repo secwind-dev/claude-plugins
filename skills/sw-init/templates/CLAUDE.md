@@ -13,20 +13,6 @@
 
 ---
 
-## 🔄 Context Loading Tiers
-
-> ระบบโหลด context 4 ระดับ — แต่ละระดับมี scope และเวลาโหลดต่างกัน
-
-| Tier | ชื่อ          | ไฟล์/โฟลเดอร์                     | โหลดเมื่อไหร่         | วิธีเรียกใช้          |
-| ---- | ------------- | --------------------------------- | --------------------- | --------------------- |
-| 1    | **Mandatory** | `RULE.md`, `SYSTEM.md`            | ทุก session อัตโนมัติ | Startup Sequence      |
-| 2    | **Lazy**      | `.claude/sw/*.md` (routing table) | on-demand ตามงาน      | อ่านตาม Routing Table |
-| 3    | **Session**   | `.claude/sw/session/`             | manual invoke         | `/sw-on-session`      |
-
-|
-
----
-
 ## 🗺️ Routing Table
 
 > อ่านเฉพาะไฟล์ที่เกี่ยวข้องกับงานนั้นๆ เท่านั้น

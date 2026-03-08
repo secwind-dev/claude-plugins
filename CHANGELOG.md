@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-08] — v1.8.5
+
+### 🔧 แก้ไข (Changed)
+
+- `skills/sw-init/templates/CLAUDE.md` — ลบ Context Loading Tiers section (sync กับ CLAUDE.md หลัก)
+
+---
+
 ## [2026-03-08] — v1.8.4 🚀 Deploy
 
 ### 🚀 Deploy
