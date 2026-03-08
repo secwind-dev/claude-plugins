@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-03-09] — v1.8.7 🚀 Deploy
+
+### 🚀 Deploy
+
+- pushed to `main` (185ae3e..3933128)
+
+---
+
 ## [2026-03-09] — v1.8.7
 
 ### 🔧 แก้ไข (Changed)
