@@ -1,5 +1,29 @@
 # CHANGELOG.md
 
+## [2026-03-10] — v1.8.9
+
+### 🔧 แก้ไข (Changed)
+
+- `skills/sw-init/SKILL.md` — ลบทุกส่วนที่เกี่ยวกับการสร้าง `.claude/sw/PACKAGES.md` ออก (frontmatter description, section สร้างไฟล์, และ summary รายการไฟล์)
+
+---
+
+## [2026-03-10] — v1.8.8
+
+### 🔧 แก้ไข (Changed)
+
+- `skills/sw-review/SKILL.md` — ปรับปรุงคุณภาพ review จากการศึกษา code-review (Anthropic Official):
+  - เพิ่มการอ่าน `CLAUDE.md` ก่อน review เพื่อตรวจ convention ของโปรเจกต์
+  - เพิ่ม `git log` ของไฟล์ที่เปลี่ยนเพื่อ detect pre-existing issues
+  - เพิ่ม confidence level (`🔴 HIGH` / `🟡 MED` / `⚪ LOW`) ต่อ issue
+  - เพิ่ม section **Breaking Changes** ตรวจ function signature / interface / export
+  - เพิ่ม section **CLAUDE.md Compliance** (แสดงเฉพาะเมื่อพบไฟล์)
+  - แก้ logic `git diff` ให้ถูกต้อง — fallback ใช้ `--cached` เฉพาะ repo ใหม่ที่ไม่มี HEAD
+  - เพิ่ม `git diff --stat` สำหรับภาพรวมก่อนวิเคราะห์
+  - สรุปตาราง: เพิ่มแถว Breaking Changes และ CLAUDE.md, เปลี่ยน "ควร merge?" → "ควร commit?"
+
+---
+
 ## [2026-03-09] — v1.8.7 🚀 Deploy
 
 ### 🚀 Deploy

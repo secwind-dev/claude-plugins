@@ -21,7 +21,6 @@
 | --------------------------------------- | ------------------------------- |
 | จำ / บันทึก / ความทรงจำ                 | `.claude/sw/MEMORY.md`          |
 | deploy / release / publish / versioning | `.claude/sw/DEPLOY.md`          |
-| install / package / dependency          | `.claude/sw/PACKAGES.md`        |
 | แก้ไข / สร้าง / ลบไฟล์ใดๆ               | `CHANGELOG.md` (บันทึกทุกครั้ง) |
 | ข้อมูลโปรเจกต์ / about / สรุปโปรเจกต์   | `.claude/sw/PROJECT.md`         |
 

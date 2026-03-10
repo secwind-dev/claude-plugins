@@ -1,6 +1,6 @@
 ---
 name: sw-init
-description: 'One-time project setup wizard. Usage: /sw-init <project-name>. Creates CLAUDE.md, RULE.md, SYSTEM.md, PROJECT.md, MEMORY.md, PACKAGES.md, CHANGELOG.md, and DEPLOY.md for a new project.'
+description: 'One-time project setup wizard. Usage: /sw-init <project-name>. Creates CLAUDE.md, RULE.md, SYSTEM.md, PROJECT.md, MEMORY.md, CHANGELOG.md, and DEPLOY.md for a new project.'
 argument-hint: 'ชื่อโปรเจกต์ (required)'
 disable-model-invocation: true
 ---
@@ -71,11 +71,6 @@ disable-model-invocation: true
 อ่านจาก template: `<base_dir>/templates/MEMORY.md`
 ใช้ Write tool สร้างที่ `.claude/sw/MEMORY.md` — ไม่มี placeholder ในไฟล์นี้
 
-### .claude/sw/PACKAGES.md
-
-อ่านจาก template: `<base_dir>/templates/PACKAGES.md`
-ใช้ Write tool สร้างที่ `.claude/sw/PACKAGES.md` — ไม่มี placeholder ในไฟล์นี้
-
 ### CHANGELOG.md
 
 อ่านจาก template: `<base_dir>/templates/CHANGELOG.md`
@@ -136,7 +131,7 @@ grep -qxF '.claude/hooks/last-action.tmp' .gitignore 2>/dev/null || echo '.claud
 หลังสร้างไฟล์ครบทั้งหมดแล้ว แจ้ง user ดังนี้:
 
 ```
-✅ Setup เสร็จแล้ว! สร้างไฟล์ 10 ไฟล์ + 2 โฟลเดอร์ + ตั้งค่า 1 config
+✅ Setup เสร็จแล้ว! สร้างไฟล์ 9 ไฟล์ + 2 โฟลเดอร์ + ตั้งค่า 1 config
 
 📁 ไฟล์ที่สร้าง:
 ✅ CLAUDE.md
@@ -145,7 +140,6 @@ grep -qxF '.claude/hooks/last-action.tmp' .gitignore 2>/dev/null || echo '.claud
 ✅ .claude/sw/SYSTEM.md
 ✅ .claude/sw/PROJECT.md
 ✅ .claude/sw/MEMORY.md
-✅ .claude/sw/PACKAGES.md
 ✅ .claude/sw/DEPLOY.md
 ✅ .claude/hooks/track-action.sh
 ✅ .claude/hooks/notify-done.sh
