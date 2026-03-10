@@ -9,8 +9,8 @@
 - `.claude/sw/SYSTEM.md` — ตัวตนและบุคลิกภาพ
 - `.claude/sw/MEMORY.md` — ความทรงจำข้ามเซสชั่น
 - `.claude/sw/PROJECT.md` — ข้อมูลโปรเจกต์
-- `.claude/sw/PACKAGES.md` — บันทึก dependencies
 - `.claude/sw/DEPLOY.md` — คู่มือ deploy
+- `CHANGELOG.md` — บันทึกการเปลี่ยนแปลง
 - `.claude/hooks/` — default hooks (track-action + notify-done)
 
 ---
@@ -36,12 +36,14 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 ---
 
 ### `/sw-review [target]`
-**Code review** — วิเคราะห์ git diff แล้วแสดงผลแบบละเอียด
+**Code review** — วิเคราะห์ git diff แบบละเอียดพร้อม confidence level ต่อ issue
 
 - ไม่ระบุ target → `git diff HEAD` (uncommitted changes)
 - ระบุ target → เช่น `/sw-review main`, `/sw-review HEAD~3`
 
-แสดงผล: สรุปการเปลี่ยนแปลง / จุดดี / จุดเสี่ยง / Security / Best Practice / คะแนน
+แสดงผล: สรุปการเปลี่ยนแปลง / จุดดี / จุดเสี่ยง (พร้อม `🔴 HIGH / 🟡 MED / ⚪ LOW`) / Breaking Changes / Security / CLAUDE.md Compliance / คะแนน
+
+> ดึง `CLAUDE.md` และ `git log` ของไฟล์ที่เปลี่ยนมาประกอบการวิเคราะห์เพื่อลด false positive
 
 ---
 
@@ -63,21 +65,48 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 
 ---
 
+### `/sw-adc <ชื่อ function>`
+**สร้าง function ใน ADC style** — รับ function signature แล้วสร้าง code แบบ Functional Programming พร้อมแนะนำ function ต่อยอด
+
+ตัวอย่าง:
+- `/sw-adc emailValid(email: string)`
+- `/sw-adc getIncludeVat(price: number, vat: number)`
+
+แสดงผล: code เต็มพร้อม comment ภาษาไทย + import ที่ต้องเพิ่ม + แนะนำ 3 function ที่ต่อยอดได้ทันที
+
+> อ้างอิง `.claude/sw/ADC.md` — ดึงจาก GitHub อัตโนมัติถ้ายังไม่มีไฟล์
+
+---
+
+### `/sw-refactor-code <path> [query]`
+**Refactor code** — อ่านไฟล์หรือ directory แล้ว refactor ตาม rule ใน `.claude/sw/REFACTOR.md`
+
+- `/sw-refactor-code src/utils/helper.ts`
+- `/sw-refactor-code src/components/ focus on readability`
+
+แสดงผล: รายการเปลี่ยนแปลงพร้อม file:line / สิ่งที่ไม่แก้พร้อมเหตุผล / คำแนะนำเพิ่มเติม
+
+> สร้าง `REFACTOR.md` ให้อัตโนมัติถ้ายังไม่มี รองรับ Functional Programming style
+
+---
+
+### `/sw-generate <path/file>`
+**สร้างไฟล์จาก response ล่าสุด** — ดึง code block หรือ content จาก response ก่อนหน้าแล้วบันทึกเป็นไฟล์
+
+ตัวอย่าง:
+- `/sw-generate src/utils/emailValid.ts` — ดึงเฉพาะ code block
+- `/sw-generate docs/summary.md` — ดึง content ทั้งหมด
+
+> Code file → ดึงเฉพาะ code block | Text/Doc file → ดึง content ทั้งหมด
+
+---
+
 ### `/sw-postgreSQL`
 **Setup PostgreSQL** — สร้าง `docker-compose.yml` + `.env` สำหรับ local development
 
 - ถาม container name / database name / port / PG version
 - สร้างไฟล์แยก credentials ออกจาก config
 - Start Docker Compose ได้เลยถ้าต้องการ
-
----
-
-### `/sw-doctor`
-**ตรวจสอบ version** — เช็คว่า plugin ที่ติดตั้งอยู่เป็น version ล่าสุดหรือยัง
-
-- เปรียบเทียบ local version กับ GitHub
-- ถ้ามี version ใหม่ → แสดง changelog + คำสั่ง update
-- ถ้าเป็น version ล่าสุดแล้ว → แจ้งว่าไม่ต้องทำอะไร
 
 ---
 
@@ -100,6 +129,30 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 แสดงผล: Risk Score (0-100), findings จัดกลุ่ม Critical/High/Medium/Low, คำแนะนำเรียงลำดับ priority
 
 > แนะนำให้เปิด session ใหม่หลัง audit เสมอ เพื่อให้ Claude มี context เต็มสำหรับงานถัดไป
+
+---
+
+### `/sw-yt <youtube-url> [--create=<folder>]`
+**สรุป YouTube video** — ดึง subtitle/transcript แล้วสรุปเนื้อหาเป็นภาษาไทย
+
+- `/sw-yt https://youtu.be/xxxxx`
+- `/sw-yt https://youtu.be/xxxxx --create=.notes` — สรุปพร้อมบันทึกเป็น `.md`
+
+> ต้องติดตั้ง `yt-dlp` ก่อน: `brew install yt-dlp`
+
+---
+
+### `/sw-version`
+**แสดง version** — เช็ค version ของ sw-claude-plugins ที่ติดตั้งอยู่ในปัจจุบัน
+
+---
+
+### `/sw-doctor`
+**ตรวจสอบ version** — เช็คว่า plugin ที่ติดตั้งอยู่เป็น version ล่าสุดหรือยัง
+
+- เปรียบเทียบ local version กับ GitHub
+- ถ้ามี version ใหม่ → แสดง changelog + คำสั่ง update
+- ถ้าเป็น version ล่าสุดแล้ว → แจ้งว่าไม่ต้องทำอะไร
 
 ---
 

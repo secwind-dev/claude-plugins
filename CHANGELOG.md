@@ -1,5 +1,28 @@
 # CHANGELOG.md
 
+## [2026-03-10] — v1.9.1
+
+### 🔧 แก้ไข (Changed)
+
+- `DOCS.md` — อัปเดตครั้งใหญ่:
+  - ลบ `PACKAGES.md` ออกจากรายการ sw-init
+  - อัปเดต sw-review — เพิ่มคำอธิบาย confidence level, Breaking Changes, CLAUDE.md Compliance
+  - อัปเดต sw-adc — เขียนใหม่ให้ตรงกับ behavior ปัจจุบัน (สร้าง function + แนะนำต่อยอด)
+  - เพิ่ม skill ที่ขาดหายไป 5 รายการ: sw-adc, sw-refactor-code, sw-generate, sw-yt, sw-version
+
+---
+
+## [2026-03-10] — v1.9.0
+
+### 🔧 แก้ไข (Changed)
+
+- `skills/sw-adc/SKILL.md` — เขียนใหม่ให้ชัดเจนขึ้น:
+  - ตัด mode "แปลง code" ออก เหลือแค่ mode "สร้าง function จากคำสั่ง" อย่างเดียว
+  - เพิ่มขั้นที่ 4 — แนะนำ 3 function ต่อยอดหลังสร้างเสร็จ
+  - ปรับ argument-hint และ description ให้ตรงกับ behavior ใหม่
+
+---
+
 ## [2026-03-10] — v1.8.9
 
 ### 🔧 แก้ไข (Changed)
