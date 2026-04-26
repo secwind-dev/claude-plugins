@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-04-26] — v1.11.0 🚀 Deploy
+
+### 🚀 Deploy
+
+- pushed to `main` (15fc131..469b172)
+
+---
+
 ## [2026-04-26] — v1.11.0
 
 ### 🗑️ ลบ (Removed)
