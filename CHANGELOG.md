@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-04-26] — v1.10.0 🚀 Deploy
+
+### 🚀 Deploy
+
+- pushed to `main` (7ca5023..d7ac5eb)
+
+---
+
 ## [2026-04-26] — v1.10.0
 
 ### ✨ เพิ่มใหม่ (Added)
