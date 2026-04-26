@@ -1,5 +1,19 @@
 # CHANGELOG.md
 
+## [2026-04-26] — v1.10.1
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-deploy/SKILL.md` — สร้าง skill ใหม่ `/sw-deploy` แทน Special Command `sw-deploy`
+
+### 🔧 แก้ไข (Changed)
+
+- `CLAUDE.md` + `skills/sw-init/templates/CLAUDE.md` — ลบ section "⚡ Special Commands" (sw-deploy ย้ายไปเป็น skill แล้ว)
+- `DOCS.md` — เพิ่ม `/sw-deploy` ในรายการ skills
+- `README.md` — เพิ่ม sw-deploy ใน skill table
+
+---
+
 ## [2026-04-26] — v1.10.0 🚀 Deploy
 
 ### 🚀 Deploy

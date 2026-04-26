@@ -31,6 +31,14 @@
 
 ---
 
+### `/sw-deploy`
+
+**Deploy โปรเจกต์** — อ่านและทำตาม `.claude/sw/DEPLOY.md` ทีละขั้นโดยอัตโนมัติ
+
+- ถ้าไม่มี `DEPLOY.md` → แจ้ง user ให้รัน `/sw-init` ก่อน
+
+---
+
 ### `/sw-commit`
 
 **สร้าง Conventional Commit message** — วิเคราะห์ git diff แล้วสร้าง message พร้อม confirm ก่อน commit
