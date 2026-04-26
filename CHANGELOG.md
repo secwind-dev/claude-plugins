@@ -1,5 +1,21 @@
 # CHANGELOG.md
 
+## [2026-04-26] — v1.10.2
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-explore/SKILL.md` — สร้าง skill ใหม่ `/sw-explore [topic]` สำหรับสำรวจ topic ซับซ้อนผ่านการถามตอบ interactive:
+    - ตรวจ session เก่าอัตโนมัติ — เลือกต่อหรือเริ่มใหม่ได้
+    - Aiko ออกความเห็นหลังทุกคำตอบ การตัดสินใจเป็นของ user เสมอ
+    - Auto-save ลง `.claude/sw/awaken/<topic>-explore.md` ทุกครั้ง
+
+### 🔧 แก้ไข (Changed)
+
+- `DOCS.md` — เพิ่ม `/sw-explore` entry
+- `README.md` — เพิ่ม sw-explore ใน skill table
+
+---
+
 ## [2026-04-26] — v1.10.1
 
 ### ✨ เพิ่มใหม่ (Added)
