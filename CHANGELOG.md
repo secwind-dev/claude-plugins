@@ -1,5 +1,40 @@
 # CHANGELOG.md
 
+## [2026-04-26] — v1.10.0
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `CLAUDE.md` + `skills/sw-init/templates/CLAUDE.md` — เพิ่ม section "🧠 วิธีคิดก่อน Code" (Think Before Coding + Goal-Driven Execution) จาก Andrej Karpathy's principles
+
+### 🔧 แก้ไข (Changed)
+
+- `skills/sw-init/templates/SYSTEM.md` → `skills/sw-init/templates/SOUL.md` — เปลี่ยนชื่อ template
+- `skills/sw-init/SKILL.md` — แก้ template source path: `templates/SYSTEM.md` → `templates/SOUL.md`
+- `skills/sw-awaken/SKILL.md`, `sw-check/SKILL.md`, `sw-commit/SKILL.md`, `sw-init/SKILL.md` — เปลี่ยนชื่อ default จาก "อิงโกะ (Inko)" → "ไอโกะ (Aiko)"
+- `skills/sw-init/templates/SOUL.md` — เปลี่ยนชื่อ default character เป็น "ไอโกะ (Aiko)"
+
+---
+
+## [2026-04-19]
+
+### ✏️ เปลี่ยนชื่อ (Renamed)
+
+- `.claude/sw/SYSTEM.md` → `.claude/sw/SOUL.md` — เปลี่ยนชื่อไฟล์ตัวตน/บุคลิกภาพ
+- `skills/sw-init/templates/SYSTEM.md` → `skills/sw-init/templates/SOUL.md` — อัปเดต template ตาม
+
+### 🔧 แก้ไข (Changed)
+
+- `CLAUDE.md` — อัปเดต Startup Sequence ข้อ 2: `SYSTEM.md` → `SOUL.md`
+- `DOCS.md` — อัปเดต reference `SYSTEM.md` → `SOUL.md` (2 จุด)
+- `README.md` — อัปเดต description ใน sw-init table
+- `skills/sw-init/SKILL.md` — อัปเดตทุก reference (description + ขั้นที่ 2 + checklist)
+- `skills/sw-init/templates/CLAUDE.md` — อัปเดต Startup Sequence ข้อ 2
+- `skills/sw-init/templates/CHANGELOG.md` — อัปเดต entry สร้างไฟล์
+- `skills/sw-init/templates/SOUL.md` — อัปเดต header `# SYSTEM.md` → `# SOUL.md`
+- `skills/sw-init/templates/hooks/notify-done.sh` — อัปเดต path `SYSTEM.md` → `SOUL.md`
+
+---
+
 ## [2026-03-10] — v1.9.1 🚀 Deploy
 
 ### 🚀 Deploy
@@ -13,10 +48,10 @@
 ### 🔧 แก้ไข (Changed)
 
 - `DOCS.md` — อัปเดตครั้งใหญ่:
-  - ลบ `PACKAGES.md` ออกจากรายการ sw-init
-  - อัปเดต sw-review — เพิ่มคำอธิบาย confidence level, Breaking Changes, CLAUDE.md Compliance
-  - อัปเดต sw-adc — เขียนใหม่ให้ตรงกับ behavior ปัจจุบัน (สร้าง function + แนะนำต่อยอด)
-  - เพิ่ม skill ที่ขาดหายไป 5 รายการ: sw-adc, sw-refactor-code, sw-generate, sw-yt, sw-version
+    - ลบ `PACKAGES.md` ออกจากรายการ sw-init
+    - อัปเดต sw-review — เพิ่มคำอธิบาย confidence level, Breaking Changes, CLAUDE.md Compliance
+    - อัปเดต sw-adc — เขียนใหม่ให้ตรงกับ behavior ปัจจุบัน (สร้าง function + แนะนำต่อยอด)
+    - เพิ่ม skill ที่ขาดหายไป 5 รายการ: sw-adc, sw-refactor-code, sw-generate, sw-yt, sw-version
 
 ---
 
@@ -25,9 +60,9 @@
 ### 🔧 แก้ไข (Changed)
 
 - `skills/sw-adc/SKILL.md` — เขียนใหม่ให้ชัดเจนขึ้น:
-  - ตัด mode "แปลง code" ออก เหลือแค่ mode "สร้าง function จากคำสั่ง" อย่างเดียว
-  - เพิ่มขั้นที่ 4 — แนะนำ 3 function ต่อยอดหลังสร้างเสร็จ
-  - ปรับ argument-hint และ description ให้ตรงกับ behavior ใหม่
+    - ตัด mode "แปลง code" ออก เหลือแค่ mode "สร้าง function จากคำสั่ง" อย่างเดียว
+    - เพิ่มขั้นที่ 4 — แนะนำ 3 function ต่อยอดหลังสร้างเสร็จ
+    - ปรับ argument-hint และ description ให้ตรงกับ behavior ใหม่
 
 ---
 
@@ -44,14 +79,14 @@
 ### 🔧 แก้ไข (Changed)
 
 - `skills/sw-review/SKILL.md` — ปรับปรุงคุณภาพ review จากการศึกษา code-review (Anthropic Official):
-  - เพิ่มการอ่าน `CLAUDE.md` ก่อน review เพื่อตรวจ convention ของโปรเจกต์
-  - เพิ่ม `git log` ของไฟล์ที่เปลี่ยนเพื่อ detect pre-existing issues
-  - เพิ่ม confidence level (`🔴 HIGH` / `🟡 MED` / `⚪ LOW`) ต่อ issue
-  - เพิ่ม section **Breaking Changes** ตรวจ function signature / interface / export
-  - เพิ่ม section **CLAUDE.md Compliance** (แสดงเฉพาะเมื่อพบไฟล์)
-  - แก้ logic `git diff` ให้ถูกต้อง — fallback ใช้ `--cached` เฉพาะ repo ใหม่ที่ไม่มี HEAD
-  - เพิ่ม `git diff --stat` สำหรับภาพรวมก่อนวิเคราะห์
-  - สรุปตาราง: เพิ่มแถว Breaking Changes และ CLAUDE.md, เปลี่ยน "ควร merge?" → "ควร commit?"
+    - เพิ่มการอ่าน `CLAUDE.md` ก่อน review เพื่อตรวจ convention ของโปรเจกต์
+    - เพิ่ม `git log` ของไฟล์ที่เปลี่ยนเพื่อ detect pre-existing issues
+    - เพิ่ม confidence level (`🔴 HIGH` / `🟡 MED` / `⚪ LOW`) ต่อ issue
+    - เพิ่ม section **Breaking Changes** ตรวจ function signature / interface / export
+    - เพิ่ม section **CLAUDE.md Compliance** (แสดงเฉพาะเมื่อพบไฟล์)
+    - แก้ logic `git diff` ให้ถูกต้อง — fallback ใช้ `--cached` เฉพาะ repo ใหม่ที่ไม่มี HEAD
+    - เพิ่ม `git diff --stat` สำหรับภาพรวมก่อนวิเคราะห์
+    - สรุปตาราง: เพิ่มแถว Breaking Changes และ CLAUDE.md, เปลี่ยน "ควร merge?" → "ควร commit?"
 
 ---
 
@@ -219,7 +254,7 @@
 
 ### ✨ เพิ่มใหม่ (Added)
 
-- `skills/sw-awaken/SKILL.md` — สร้าง skill ใหม่ `/sw-awaken` สำหรับเพิ่มความรู้ถาวรให้อิงโกะจากไฟล์ใน `.claude/sw/awaken/` หรือจาก URL (auto-load ทุก session)
+- `skills/sw-awaken/SKILL.md` — สร้าง skill ใหม่ `/sw-awaken` สำหรับเพิ่มความรู้ถาวรให้ไอโกะจากไฟล์ใน `.claude/sw/awaken/` หรือจาก URL (auto-load ทุก session)
 - `skills/sw-on-session/SKILL.md` — สร้าง skill ใหม่ `/sw-on-session` สำหรับโหลด session context จากไฟล์ใน `.claude/sw/session/` หรือจาก URL
 - `DOCS.md` — เพิ่มเอกสาร skill `sw-awaken` และ `sw-on-session`
 
@@ -241,7 +276,7 @@
 
 ### ✨ เพิ่มใหม่ / แก้ไข (Added / Changed)
 
-- `skills/sw-init/SKILL.md` — เพิ่ม rule ให้อิงโกะถาม user ก่อนเมื่อเห็นคำสั่งผิดหรือเสี่ยงต่อความเสียหายของโปรเจกต์
+- `skills/sw-init/SKILL.md` — เพิ่ม rule ให้ไอโกะถาม user ก่อนเมื่อเห็นคำสั่งผิดหรือเสี่ยงต่อความเสียหายของโปรเจกต์
 - `skills/sw-adc/SKILL.md` — แก้ example timestamp จาก hardcode เป็น `YYYY-MM-DD HH:MM:SS` พร้อมระบุให้ใช้วันที่จริง ณ ตอนที่สร้าง
 
 ---
@@ -259,8 +294,8 @@
 ### ✨ เพิ่มใหม่ (Added)
 
 - `skills/sw-generate/SKILL.md` — skill ใหม่สำหรับสร้างไฟล์จาก response ล่าสุดในการสนทนา
-  - **Code file** (`.ts`, `.js`, `.py`, ฯลฯ) → ดึงเฉพาะ code block ที่สมบูรณ์ที่สุด (priority: `✅ summary section` → code block สุดท้าย)
-  - **Text/Doc file** (`.md`, `.txt`, `.json`, ฯลฯ) → เขียน content ทั้งหมดของ response ลงไฟล์
+    - **Code file** (`.ts`, `.js`, `.py`, ฯลฯ) → ดึงเฉพาะ code block ที่สมบูรณ์ที่สุด (priority: `✅ summary section` → code block สุดท้าย)
+    - **Text/Doc file** (`.md`, `.txt`, `.json`, ฯลฯ) → เขียน content ทั้งหมดของ response ลงไฟล์
 
 ---
 
@@ -276,7 +311,7 @@
 
 ### 🐛 แก้ไข Bug (Fixed)
 
-- `skills/sw-init/SKILL.md` — แก้ markdown fence mismatch ใน DEPLOY.md template (inner `bash` block ใช้ ```` ```` ```` แทน ` ``` `)
+- `skills/sw-init/SKILL.md` — แก้ markdown fence mismatch ใน DEPLOY.md template (inner `bash` block ใช้ ` ` ``` แทน ` `` `)
 
 ---
 
@@ -285,10 +320,10 @@
 ### ✏️ แก้ไข (Changed)
 
 - `skills/sw-adc/SKILL.md` — ปรับ Argument รับได้ทั้ง code และคำสั่งภาษาไทย/อังกฤษ, ขั้นที่ 1 auto-fetch ADC.md จาก GitHub ถ้าไม่มี local file
-  - เพิ่มระบบตรวจสอบโหมด: **แปลง code** vs **สร้าง code**
-  - เพิ่มขั้นที่ 2G (วิเคราะห์คำสั่ง) และ 3G (สร้าง code ใน ADC style)
-  - เพิ่ม format header `✨ ADC Style Generation` สำหรับโหมดสร้าง
-  - อัปเดต `description`, `argument-hint`, และ usage examples
+    - เพิ่มระบบตรวจสอบโหมด: **แปลง code** vs **สร้าง code**
+    - เพิ่มขั้นที่ 2G (วิเคราะห์คำสั่ง) และ 3G (สร้าง code ใน ADC style)
+    - เพิ่ม format header `✨ ADC Style Generation` สำหรับโหมดสร้าง
+    - อัปเดต `description`, `argument-hint`, และ usage examples
 
 ---
 
@@ -305,10 +340,10 @@
 ### ✨ เพิ่มใหม่ (Added)
 
 - `skills/sw-refactor-code/SKILL.md` — skill ใหม่สำหรับ refactor code ตาม rule ใน `.claude/sw/REFACTOR.md`
-  - รับ `path` (required) และ `query` (optional)
-  - สร้าง `.claude/sw/REFACTOR.md` อัตโนมัติถ้ายังไม่มี พร้อม rule Functional Programming ครบชุด
-  - เน้น pure function, immutability, function composition — ไม่ใช้ OOP
-  - user ปรับแต่ง rule ได้เองในภายหลัง
+    - รับ `path` (required) และ `query` (optional)
+    - สร้าง `.claude/sw/REFACTOR.md` อัตโนมัติถ้ายังไม่มี พร้อม rule Functional Programming ครบชุด
+    - เน้น pure function, immutability, function composition — ไม่ใช้ OOP
+    - user ปรับแต่ง rule ได้เองในภายหลัง
 
 ---
 

@@ -7,7 +7,7 @@
 - `CLAUDE.md` — สร้างครั้งแรกโดย sw-init wizard
 - `CHANGELOG.md` — สร้างครั้งแรกโดย sw-init wizard
 - `.claude/sw/RULE.md` — สร้างครั้งแรกโดย sw-init wizard
-- `.claude/sw/SYSTEM.md` — สร้างครั้งแรกโดย sw-init wizard
+- `.claude/sw/SOUL.md` — สร้างครั้งแรกโดย sw-init wizard
 - `.claude/sw/PROJECT.md` — สร้างครั้งแรกโดย sw-init wizard
 - `.claude/sw/MEMORY.md` — สร้างครั้งแรกโดย sw-init wizard
 - `.claude/sw/PACKAGES.md` — สร้างครั้งแรกโดย sw-init wizard

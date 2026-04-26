@@ -3,6 +3,7 @@ name: sw-commit
 description: 'Generate a Conventional Commit message from git diff and commit. Usage: /sw-commit'
 disable-model-invocation: true
 ---
+
 ---
 
 ## ขั้นที่ 1 — ดึง Git Diff
@@ -32,6 +33,7 @@ git diff HEAD
 ```
 
 **Types:**
+
 - `feat` — เพิ่ม feature ใหม่
 - `fix` — แก้ bug
 - `docs` — แก้ไข documentation
@@ -52,27 +54,30 @@ git diff HEAD
 
 ใช้ `AskUserQuestion` แสดง message ที่สร้าง:
 
-- **question:** "อิงโกะสร้าง commit message ด้านล่างนี้ค่ะ บอส — ดำเนินการต่อยังไงดีคะ?\n\n`<message>`"
+- **question:** "ไอโกะสร้าง commit message ด้านล่างนี้ค่ะ บอส — ดำเนินการต่อยังไงดีคะ?\n\n`<message>`"
 - **header:** "Commit"
 - **options:**
-  - `✅ Commit เลย` — description: "git add -A && git commit ทันที"
-  - `✏️ แก้ไข message` — description: "รอรับ message ใหม่จาก user"
-  - `❌ ยกเลิก` — description: "หยุดโดยไม่ commit"
+    - `✅ Commit เลย` — description: "git add -A && git commit ทันที"
+    - `✏️ แก้ไข message` — description: "รอรับ message ใหม่จาก user"
+    - `❌ ยกเลิก` — description: "หยุดโดยไม่ commit"
 
 ---
 
 ## ขั้นที่ 4 — ดำเนินการตามคำตอบ
 
 **✅ Commit เลย:**
+
 ```bash
 git add -A && git commit -m "<message>"
 ```
 
 **✏️ แก้ไข message:**
+
 - แจ้ง user: "กรุณาพิมพ์ commit message ที่ต้องการค่ะ บอส"
 - รับ message ใหม่จาก user
 - รัน: `git add -A && git commit -m "<new message>"`
 
 **❌ ยกเลิก:**
+
 - แจ้ง user: "ยกเลิกแล้วค่ะ บอส ยังไม่มีการ commit ใดๆ"
 - หยุด

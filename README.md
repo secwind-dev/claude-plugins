@@ -28,7 +28,7 @@
 
 | Skill | คำสั่ง | คำอธิบาย |
 |-------|--------|----------|
-| **sw-init** | `/sw-init <ชื่อโปรเจกต์>` | One-time setup สร้างไฟล์ทั้งหมด (CLAUDE.md, RULE.md, SYSTEM.md, MEMORY.md ฯลฯ) พร้อม default hooks อัตโนมัติ |
+| **sw-init** | `/sw-init <ชื่อโปรเจกต์>` | One-time setup สร้างไฟล์ทั้งหมด (CLAUDE.md, RULE.md, SOUL.md, MEMORY.md ฯลฯ) พร้อม default hooks อัตโนมัติ |
 | **sw-hook** | `/sw-hook <ชื่อ-hook>` | สร้าง Claude Code hook แบบ guided พร้อม boilerplate และลงทะเบียนใน settings.json |
 | **sw-review** | `/sw-review [target]` | Code review จาก git diff พร้อมวิเคราะห์ security, คะแนน quality, และแนะนำ best practices |
 | **sw-postgreSQL** | `/sw-postgreSQL` | Setup PostgreSQL ผ่าน Docker สำหรับ local dev พร้อม config, connection string, และ .gitignore |

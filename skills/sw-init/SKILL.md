@@ -1,6 +1,6 @@
 ---
 name: sw-init
-description: 'One-time project setup wizard. Usage: /sw-init <project-name>. Creates CLAUDE.md, RULE.md, SYSTEM.md, PROJECT.md, MEMORY.md, CHANGELOG.md, and DEPLOY.md for a new project.'
+description: 'One-time project setup wizard. Usage: /sw-init <project-name>. Creates CLAUDE.md, RULE.md, SOUL.md, PROJECT.md, MEMORY.md, CHANGELOG.md, and DEPLOY.md for a new project.'
 argument-hint: 'ชื่อโปรเจกต์ (required)'
 disable-model-invocation: true
 ---
@@ -21,7 +21,7 @@ disable-model-invocation: true
 
 ใช้ `AskUserQuestion` ถามคำถาม 2 ข้อพร้อมกันทีเดียว:
 
-1. **บทบาทของอิงโกะในโปรเจกต์นี้คืออะไรคะ บอส?** (เช่น backend dev assistant, fullstack helper)
+1. **บทบาทของไอโกะในโปรเจกต์นี้คืออะไรคะ บอส?** (เช่น backend dev assistant, fullstack helper)
 2. **โปรเจกต์นี้ทำอะไรคะ บอส?** (อธิบายสั้นๆ)
 
 ---
@@ -51,10 +51,10 @@ disable-model-invocation: true
 อ่านจาก template: `<base_dir>/templates/RULE.md`
 ใช้ Write tool สร้างที่ `.claude/sw/RULE.md` — ไม่มี placeholder ในไฟล์นี้
 
-### .claude/sw/SYSTEM.md
+### .claude/sw/SOUL.md
 
-อ่านจาก template: `<base_dir>/templates/SYSTEM.md`
-ใช้ Write tool สร้างที่ `.claude/sw/SYSTEM.md`
+อ่านจาก template: `<base_dir>/templates/SOUL.md`
+ใช้ Write tool สร้างที่ `.claude/sw/SOUL.md`
 แทนที่ `[บทบาทที่ user กำหนด]` ด้วยคำตอบข้อ 1
 
 ### .claude/sw/PROJECT.md
@@ -62,6 +62,7 @@ disable-model-invocation: true
 อ่านจาก template: `<base_dir>/templates/PROJECT.md`
 ใช้ Write tool สร้างที่ `.claude/sw/PROJECT.md`
 แทนที่:
+
 - `[ชื่อโปรเจกต์]` ด้วยชื่อจาก argument
 - `[คำอธิบายที่ user ให้มา]` ด้วยคำตอบข้อ 2
 - `[วันที่ปัจจุบัน]` ด้วยวันที่จริง
@@ -137,7 +138,7 @@ grep -qxF '.claude/hooks/last-action.tmp' .gitignore 2>/dev/null || echo '.claud
 ✅ CLAUDE.md
 ✅ CHANGELOG.md
 ✅ .claude/sw/RULE.md
-✅ .claude/sw/SYSTEM.md
+✅ .claude/sw/SOUL.md
 ✅ .claude/sw/PROJECT.md
 ✅ .claude/sw/MEMORY.md
 ✅ .claude/sw/DEPLOY.md

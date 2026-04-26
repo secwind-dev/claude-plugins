@@ -4,7 +4,6 @@ description: 'Validate development environment: runtime, git config, package man
 disable-model-invocation: true
 ---
 
-
 ทำทุกอย่างอัตโนมัติ — ตรวจสอบ environment แล้วแสดง dashboard สรุป
 
 ---
@@ -22,6 +21,7 @@ bun --version 2>/dev/null && echo "BUN_OK" || echo "BUN_NOT_FOUND"
 ```
 
 บันทึกผล:
+
 - ✅ ถ้าพบ version → แสดง version
 - ❌ ถ้าไม่พบ → แสดงสถานะ "ไม่พบ"
 
@@ -40,6 +40,7 @@ git config user.email
 ```
 
 บันทึกผล:
+
 - ✅ ถ้ามีค่า → แสดง name/email
 - ⚠️ ถ้าว่าง → แสดง "ยังไม่ได้ตั้งค่า"
 
@@ -54,6 +55,7 @@ ls package-lock.json yarn.lock bun.lockb pnpm-lock.yaml 2>/dev/null
 ```
 
 บันทึกผล:
+
 - `package-lock.json` → **npm**
 - `yarn.lock` → **yarn**
 - `bun.lockb` → **bun**
@@ -77,6 +79,7 @@ grep -q "^\.env" .gitignore 2>/dev/null && echo "GITIGNORE_OK" || echo "GITIGNOR
 ```
 
 บันทึกผล:
+
 - ไม่มี `.env` → ✅ ไม่มีไฟล์ .env
 - มี `.env` + อยู่ใน `.gitignore` → ✅ ปลอดภัย
 - มี `.env` + ไม่อยู่ใน `.gitignore` → 🚨 WARNING: .env ไม่อยู่ใน .gitignore!
@@ -92,22 +95,26 @@ grep -qxF '.claude/' .gitignore 2>/dev/null && echo "CLAUDE_GITIGNORE_OK" || ech
 ```
 
 บันทึกผล:
+
 - **OK** → ✅ `.claude/` อยู่ใน `.gitignore` แล้ว
 - **MISSING** → 🚨 `.claude/` ไม่อยู่ใน `.gitignore` → ถาม user ด้วย `AskUserQuestion`:
-  - **question:** "พบว่า `.claude/` ยังไม่อยู่ใน `.gitignore` นะคะ บอส — อิงโกะจะ add ให้และ untrack จาก git เลยไหมคะ?"
-  - **header:** ".claude/ Safety"
-  - **options:**
-    - `✅ ทำเลย` — description: "append `.claude/` ใน .gitignore และรัน `git rm -r --cached .claude/`"
-    - `❌ ข้ามไป` — description: "ไม่ทำอะไร บันทึกเป็น WARNING ใน dashboard"
+    - **question:** "พบว่า `.claude/` ยังไม่อยู่ใน `.gitignore` นะคะ บอส — ไอโกะจะ add ให้และ untrack จาก git เลยไหมคะ?"
+    - **header:** ".claude/ Safety"
+    - **options:**
+        - `✅ ทำเลย` — description: "append `.claude/` ใน .gitignore และรัน `git rm -r --cached .claude/`"
+        - `❌ ข้ามไป` — description: "ไม่ทำอะไร บันทึกเป็น WARNING ใน dashboard"
 
-  ถ้า user เลือก **✅ ทำเลย**:
-  ```bash
-  printf '\n.claude/\n' >> .gitignore
-  ```
-  ```bash
-  git rm -r --cached .claude/ 2>/dev/null || true
-  ```
-  → อัปเดตสถานะเป็น ✅ แก้ไขแล้ว
+    ถ้า user เลือก **✅ ทำเลย**:
+
+    ```bash
+    printf '\n.claude/\n' >> .gitignore
+    ```
+
+    ```bash
+    git rm -r --cached .claude/ 2>/dev/null || true
+    ```
+
+    → อัปเดตสถานะเป็น ✅ แก้ไขแล้ว
 
 ---
 
@@ -130,6 +137,7 @@ grep -qxF '.claude/' .gitignore 2>/dev/null && echo "CLAUDE_GITIGNORE_OK" || ech
 ```
 
 ถ้ามี 🚨 `.env` ที่ยังค้างอยู่ → แนะนำให้รัน:
+
 ```bash
 echo ".env" >> .gitignore
 ```

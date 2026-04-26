@@ -1,6 +1,6 @@
 ---
 name: sw-awaken
-description: 'เพิ่มความรู้ถาวรให้อิงโกะจำข้ามทุก session จาก URL หรือ file path. Usage: /sw-awaken <url|path>'
+description: 'เพิ่มความรู้ถาวรให้ไอโกะจำข้ามทุก session จาก URL หรือ file path. Usage: /sw-awaken <url|path>'
 argument-hint: '<url|path>'
 disable-model-invocation: true
 ---
@@ -31,23 +31,24 @@ Usage:
 ใช้ WebFetch tool ดึงเนื้อหาจาก URL ที่รับมา
 
 - ถ้า fail หรือ error → แจ้ง user แล้วหยุด:
-  ```
-  ❌ ไม่สามารถ fetch URL ได้ค่ะ บอส
-  URL: <url ที่รับมา>
 
-  กรุณาตรวจสอบ:
-  - URL ถูกต้องและ public access ได้
-  - Internet connection ปกติ
-  - ถ้าเป็น GitHub private repo จะไม่สามารถ fetch ได้โดยตรงค่ะ
-  ```
+    ```
+    ❌ ไม่สามารถ fetch URL ได้ค่ะ บอส
+    URL: <url ที่รับมา>
+
+    กรุณาตรวจสอบ:
+    - URL ถูกต้องและ public access ได้
+    - Internet connection ปกติ
+    - ถ้าเป็น GitHub private repo จะไม่สามารถ fetch ได้โดยตรงค่ะ
+    ```
 
 - ถ้าสำเร็จ:
-  - สร้าง folder: `mkdir -p .claude/sw/awaken/`
-  - ตั้งชื่อไฟล์จาก URL path → แปลงเป็น kebab-case ลงท้ายด้วย `.md`
-    - เช่น `https://example.com/my/page` → `my-page.md`
-  - บันทึก content ลงไฟล์ `.claude/sw/awaken/<filename>.md` ด้วย Write tool
-  - Load เนื้อหาเข้า session context
-  - ไปที่ **ขั้นที่ 3**
+    - สร้าง folder: `mkdir -p .claude/sw/awaken/`
+    - ตั้งชื่อไฟล์จาก URL path → แปลงเป็น kebab-case ลงท้ายด้วย `.md`
+        - เช่น `https://example.com/my/page` → `my-page.md`
+    - บันทึก content ลงไฟล์ `.claude/sw/awaken/<filename>.md` ด้วย Write tool
+    - Load เนื้อหาเข้า session context
+    - ไปที่ **ขั้นที่ 3**
 
 ---
 
@@ -56,25 +57,27 @@ Usage:
 ใช้ Read tool อ่านไฟล์จาก path ที่รับมา
 
 - ถ้าไม่พบไฟล์หรือ error → แจ้ง user แล้วหยุด:
-  ```
-  ❌ ไม่พบไฟล์ค่ะ บอส
-  Path: <path ที่รับมา>
 
-  กรุณาตรวจสอบว่า path ถูกต้องและไฟล์มีอยู่จริงค่ะ
-  ```
+    ```
+    ❌ ไม่พบไฟล์ค่ะ บอส
+    Path: <path ที่รับมา>
+
+    กรุณาตรวจสอบว่า path ถูกต้องและไฟล์มีอยู่จริงค่ะ
+    ```
 
 - ถ้าสำเร็จ:
-  - สร้าง folder: `mkdir -p .claude/sw/awaken/`
-  - ตั้งชื่อไฟล์จากชื่อไฟล์เดิม (basename)
-  - คัดลอก content ไปบันทึกที่ `.claude/sw/awaken/<filename>` ด้วย Write tool
-  - Load เนื้อหาเข้า session context
-  - ไปที่ **ขั้นที่ 3**
+    - สร้าง folder: `mkdir -p .claude/sw/awaken/`
+    - ตั้งชื่อไฟล์จากชื่อไฟล์เดิม (basename)
+    - คัดลอก content ไปบันทึกที่ `.claude/sw/awaken/<filename>` ด้วย Write tool
+    - Load เนื้อหาเข้า session context
+    - ไปที่ **ขั้นที่ 3**
 
 ---
 
 ## ขั้นที่ 3 — แสดง Summary
 
 กรณีโหลดจาก URL:
+
 ```
 🌅 Awaken จาก URL สำเร็จแล้วค่ะ บอส!
 
@@ -82,10 +85,11 @@ Usage:
 💾 บันทึกเป็น : .claude/sw/awaken/<filename>.md
 📝 เรียนรู้   : <สรุปสั้นๆ ว่าเนื้อหานั้นคืออะไร>
 
-✨ อิงโกะจะจำข้อมูลนี้ตลอดไปนะคะ — auto-load ทุก session ค่ะ
+✨ ไอโกะจะจำข้อมูลนี้ตลอดไปนะคะ — auto-load ทุก session ค่ะ
 ```
 
 กรณีโหลดจาก file:
+
 ```
 🌅 Awaken จาก File สำเร็จแล้วค่ะ บอส!
 
@@ -93,5 +97,5 @@ Usage:
 💾 บันทึกเป็น : .claude/sw/awaken/<filename>
 📝 เรียนรู้   : <สรุปสั้นๆ ว่าเนื้อหานั้นคืออะไร>
 
-✨ อิงโกะจะจำข้อมูลนี้ตลอดไปนะคะ — auto-load ทุก session ค่ะ
+✨ ไอโกะจะจำข้อมูลนี้ตลอดไปนะคะ — auto-load ทุก session ค่ะ
 ```

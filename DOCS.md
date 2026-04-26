@@ -1,12 +1,14 @@
 ## 🛠️ Skills ทั้งหมด
 
 ### `/sw-init <ชื่อโปรเจกต์>`
+
 **One-time setup** — สร้างไฟล์ทั้งหมดสำหรับโปรเจกต์ใหม่ในครั้งเดียว
 
 สร้างไฟล์เหล่านี้อัตโนมัติ:
+
 - `CLAUDE.md` — คำสั่งและ routing table สำหรับ Claude
 - `.claude/sw/RULE.md` — กฎความปลอดภัย
-- `.claude/sw/SYSTEM.md` — ตัวตนและบุคลิกภาพ
+- `.claude/sw/SOUL.md` — ตัวตนและบุคลิกภาพ
 - `.claude/sw/MEMORY.md` — ความทรงจำข้ามเซสชั่น
 - `.claude/sw/PROJECT.md` — ข้อมูลโปรเจกต์
 - `.claude/sw/DEPLOY.md` — คู่มือ deploy
@@ -16,9 +18,11 @@
 ---
 
 ### `/sw-check`
+
 **ตรวจสอบ environment** — รันครั้งเดียวได้ dashboard สรุปทันที
 
 ตรวจสอบ:
+
 - Node.js / Bun version
 - Git user.name / user.email
 - Package manager (npm / yarn / bun / pnpm)
@@ -28,6 +32,7 @@
 ---
 
 ### `/sw-commit`
+
 **สร้าง Conventional Commit message** — วิเคราะห์ git diff แล้วสร้าง message พร้อม confirm ก่อน commit
 
 รูปแบบ: `<type>(<scope>): <description>`
@@ -36,6 +41,7 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 ---
 
 ### `/sw-review [target]`
+
 **Code review** — วิเคราะห์ git diff แบบละเอียดพร้อม confidence level ต่อ issue
 
 - ไม่ระบุ target → `git diff HEAD` (uncommitted changes)
@@ -48,6 +54,7 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 ---
 
 ### `/sw-hook <ชื่อ-hook>`
+
 **สร้าง Claude Code hook** — guided wizard พร้อม boilerplate ครบ
 
 - ถามว่า hook ตอบสนองต่อ event ไหน (PreToolUse / PostToolUse / Stop ฯลฯ)
@@ -57,18 +64,22 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 ---
 
 ### `/sw-context <library> [query]`
+
 **โหลด documentation สด** — ดึง up-to-date docs จาก Context7 เข้า context ทันที
 
 ตัวอย่าง:
+
 - `/sw-context react` — โหลด React docs
 - `/sw-context prisma how to use transactions` — โหลดพร้อม query เฉพาะเจาะจง
 
 ---
 
 ### `/sw-adc <ชื่อ function>`
+
 **สร้าง function ใน ADC style** — รับ function signature แล้วสร้าง code แบบ Functional Programming พร้อมแนะนำ function ต่อยอด
 
 ตัวอย่าง:
+
 - `/sw-adc emailValid(email: string)`
 - `/sw-adc getIncludeVat(price: number, vat: number)`
 
@@ -79,6 +90,7 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 ---
 
 ### `/sw-refactor-code <path> [query]`
+
 **Refactor code** — อ่านไฟล์หรือ directory แล้ว refactor ตาม rule ใน `.claude/sw/REFACTOR.md`
 
 - `/sw-refactor-code src/utils/helper.ts`
@@ -91,9 +103,11 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 ---
 
 ### `/sw-generate <path/file>`
+
 **สร้างไฟล์จาก response ล่าสุด** — ดึง code block หรือ content จาก response ก่อนหน้าแล้วบันทึกเป็นไฟล์
 
 ตัวอย่าง:
+
 - `/sw-generate src/utils/emailValid.ts` — ดึงเฉพาะ code block
 - `/sw-generate docs/summary.md` — ดึง content ทั้งหมด
 
@@ -102,6 +116,7 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 ---
 
 ### `/sw-postgreSQL`
+
 **Setup PostgreSQL** — สร้าง `docker-compose.yml` + `.env` สำหรับ local development
 
 - ถาม container name / database name / port / PG version
@@ -111,6 +126,7 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 ---
 
 ### `/sw-secret [path]`
+
 **สแกน hardcoded secrets** — ตรวจหา API keys, passwords, private keys, AWS credentials ใน codebase
 
 - ไม่ระบุ path → สแกนทั้งโปรเจกต์
@@ -121,6 +137,7 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 ---
 
 ### `/sw-audit [path]`
+
 **Security audit แบบ comprehensive** — ตรวจ OWASP Top 10 patterns, hardcoded secrets, dependency vulnerabilities, และ config safety
 
 - ไม่ระบุ → audit ทั้งโปรเจกต์
@@ -133,6 +150,7 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 ---
 
 ### `/sw-yt <youtube-url> [--create=<folder>]`
+
 **สรุป YouTube video** — ดึง subtitle/transcript แล้วสรุปเนื้อหาเป็นภาษาไทย
 
 - `/sw-yt https://youtu.be/xxxxx`
@@ -143,11 +161,13 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 ---
 
 ### `/sw-version`
+
 **แสดง version** — เช็ค version ของ sw-claude-plugins ที่ติดตั้งอยู่ในปัจจุบัน
 
 ---
 
 ### `/sw-doctor`
+
 **ตรวจสอบ version** — เช็คว่า plugin ที่ติดตั้งอยู่เป็น version ล่าสุดหรือยัง
 
 - เปรียบเทียบ local version กับ GitHub
@@ -157,11 +177,12 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 ---
 
 ### `/sw-awaken [url]`
-**ความรู้ถาวรข้ามทุก session** — สอนอิงโกะให้รู้จักบางอย่างตลอดไป เช่น ข้อมูลบริษัท, spec โปรเจกต์
+
+**ความรู้ถาวรข้ามทุก session** — สอนไอโกะให้รู้จักบางอย่างตลอดไป เช่น ข้อมูลบริษัท, spec โปรเจกต์
 
 - ไม่ระบุ argument → โหลดไฟล์ทั้งหมดใน `.claude/sw/awaken/` เข้า context
 - ระบุ URL → fetch เนื้อหา + **บันทึกเป็นไฟล์ถาวร** ใน `.claude/sw/awaken/`
-- ถ้ายังไม่มี folder → สร้างให้อัตโนมัติ + ตั้งค่า auto-load ใน `SYSTEM.md`
+- ถ้ายังไม่มี folder → สร้างให้อัตโนมัติ + ตั้งค่า auto-load ใน `SOUL.md`
 
 > ✨ ความรู้ใน `awaken/` จะ **auto-load ทุก session** โดยอัตโนมัติ ไม่ต้องรันซ้ำ
 > ⚠️ ไฟล์ใหญ่มากอาจกิน context window ทุก session — แนะนำเก็บเฉพาะข้อมูลสำคัญ
@@ -169,6 +190,7 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 ---
 
 ### `/sw-on-session [url]`
+
 **โหลด session context** — โหลดข้อมูลเข้า context window ของ session ปัจจุบัน
 
 - ไม่ระบุ argument → อ่านไฟล์ทั้งหมดใน `.claude/sw/session/` แล้ว load เข้า context
@@ -181,4 +203,5 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 ---
 
 ### `/sw-docs`
+
 **คู่มือการใช้งาน** — ดึงไฟล์นี้จาก GitHub มาแสดงสดทุกครั้ง (เสมอ up-to-date)

@@ -3,7 +3,7 @@
 # Event: Stop
 # วัตถุประสงค์: แจ้งเตือนเมื่อ Claude ทำงานเสร็จ ด้วย popup + เสียง + พูด
 #              - รองรับทั้ง macOS และ Windows (Git Bash / MSYS2 / Cygwin)
-#              - ดึงชื่อ Claude จาก .claude/sw/SYSTEM.md อัตโนมัติ
+#              - ดึงชื่อ Claude จาก .claude/sw/SOUL.md อัตโนมัติ
 #              - ดึงบริบท action ล่าสุดจาก track-action.sh ผ่าน last-action.tmp
 #
 # Input (stdin): JSON object จาก Claude Code
@@ -18,9 +18,9 @@ INPUT=$(cat)
 # ตรวจสอบ OS
 OS=$(uname -s)
 
-# ดึงชื่อจาก SYSTEM.md — รูปแบบ: "- **ชื่อ:** <ชื่อไทย> (<ชื่ออังกฤษ>)"
+# ดึงชื่อจาก SOUL.md — รูปแบบ: "- **ชื่อ:** <ชื่อไทย> (<ชื่ออังกฤษ>)"
 # fallback เป็น "Claude" ถ้าไม่พบไฟล์หรือ pattern ไม่ตรง
-SYSTEM_FILE=".claude/sw/SYSTEM.md"
+SYSTEM_FILE=".claude/sw/SOUL.md"
 if [ -f "$SYSTEM_FILE" ]; then
   NAME=$(grep 'ชื่อ:' "$SYSTEM_FILE" | sed 's/.*ชื่อ:\*\* \([^ ]*\).*/\1/')
 fi
