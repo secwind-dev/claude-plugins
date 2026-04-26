@@ -31,7 +31,7 @@
 | **sw-init** | `/sw-init <ชื่อโปรเจกต์>` | One-time setup สร้างไฟล์ทั้งหมด (CLAUDE.md, RULE.md, SOUL.md, MEMORY.md ฯลฯ) พร้อม default hooks อัตโนมัติ |
 | **sw-hook** | `/sw-hook <ชื่อ-hook>` | สร้าง Claude Code hook แบบ guided พร้อม boilerplate และลงทะเบียนใน settings.json |
 | **sw-review** | `/sw-review [target]` | Code review จาก git diff พร้อมวิเคราะห์ security, คะแนน quality, และแนะนำ best practices |
-| **sw-explore** | `/sw-explore [topic]` | สำรวจ topic ซับซ้อนผ่านการถามตอบ interactive พร้อมบันทึกลง awaken อัตโนมัติ |
+| **sw-explore** | `/sw-explore [topic] [files...]` | สำรวจ topic ซับซ้อนผ่านการถามตอบ interactive โยนไฟล์แนบได้ บันทึกลง `.claude/sw/explore/<topic>/` |
 | **sw-deploy** | `/sw-deploy` | Deploy โปรเจกต์โดยอ่านและทำตาม `.claude/sw/DEPLOY.md` ทีละขั้นอัตโนมัติ |
 | **sw-commit** | `/sw-commit` | วิเคราะห์ git diff แล้วสร้าง Conventional Commit message พร้อม confirm ก่อน commit |
 | **sw-check** | `/sw-check` | ตรวจสอบ environment: runtime, git config, package manager, และ .env security |

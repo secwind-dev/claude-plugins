@@ -1,5 +1,23 @@
 # CHANGELOG.md
 
+## [2026-04-26] — v1.12.0
+
+### ✨ เพิ่มใหม่ (Added)
+
+- `skills/sw-explore/SKILL.md` — เพิ่ม file support: โยนไฟล์พร้อม topic ได้ (`/sw-explore topic file.pdf`)
+- `skills/sw-explore/SKILL.md` — เพิ่ม `✏️ พิมพ์เองค่ะ` และ `❓ ถามไอโกะกลับ` ในทุกรอบ Q&A
+
+### 🔧 แก้ไข (Changed)
+
+- `skills/sw-explore/SKILL.md` — เปลี่ยน storage path จาก `.claude/sw/awaken/` → `.claude/sw/explore/<topic>/notes.md`
+- `skills/sw-explore/SKILL.md` — ถ้ามีไฟล์โยนมา auto-continue session เก่าโดยไม่ถาม
+- `skills/sw-explore/SKILL.md` — กรณี free-text ให้ถามตรงในบทสนทนาแทน `AskUserQuestion` ที่ไม่มี options
+- `skills/sw-explore/SKILL.md` — เพิ่ม `test -f` check ก่อน `cp` ป้องกัน overwrite
+- `DOCS.md` — อัพเดท sw-explore section ให้ตรงกับ features ใหม่
+- `README.md` — อัพเดท sw-explore row
+
+---
+
 ## [2026-04-26] — v1.11.0 🚀 Deploy
 
 ### 🚀 Deploy
