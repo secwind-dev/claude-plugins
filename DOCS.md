@@ -82,17 +82,6 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 
 ---
 
-### `/sw-context <library> [query]`
-
-**โหลด documentation สด** — ดึง up-to-date docs จาก Context7 เข้า context ทันที
-
-ตัวอย่าง:
-
-- `/sw-context react` — โหลด React docs
-- `/sw-context prisma how to use transactions` — โหลดพร้อม query เฉพาะเจาะจง
-
----
-
 ### `/sw-adc <ชื่อ function>`
 
 **สร้าง function ใน ADC style** — รับ function signature แล้วสร้าง code แบบ Functional Programming พร้อมแนะนำ function ต่อยอด
@@ -134,16 +123,6 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 
 ---
 
-### `/sw-postgreSQL`
-
-**Setup PostgreSQL** — สร้าง `docker-compose.yml` + `.env` สำหรับ local development
-
-- ถาม container name / database name / port / PG version
-- สร้างไฟล์แยก credentials ออกจาก config
-- Start Docker Compose ได้เลยถ้าต้องการ
-
----
-
 ### `/sw-secret [path]`
 
 **สแกน hardcoded secrets** — ตรวจหา API keys, passwords, private keys, AWS credentials ใน codebase
@@ -165,17 +144,6 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 แสดงผล: Risk Score (0-100), findings จัดกลุ่ม Critical/High/Medium/Low, คำแนะนำเรียงลำดับ priority
 
 > แนะนำให้เปิด session ใหม่หลัง audit เสมอ เพื่อให้ Claude มี context เต็มสำหรับงานถัดไป
-
----
-
-### `/sw-yt <youtube-url> [--create=<folder>]`
-
-**สรุป YouTube video** — ดึง subtitle/transcript แล้วสรุปเนื้อหาเป็นภาษาไทย
-
-- `/sw-yt https://youtu.be/xxxxx`
-- `/sw-yt https://youtu.be/xxxxx --create=.notes` — สรุปพร้อมบันทึกเป็น `.md`
-
-> ต้องติดตั้ง `yt-dlp` ก่อน: `brew install yt-dlp`
 
 ---
 

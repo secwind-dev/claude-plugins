@@ -1,5 +1,21 @@
 # CHANGELOG.md
 
+## [2026-04-26] — v1.11.0
+
+### 🗑️ ลบ (Removed)
+
+- `skills/sw-context/SKILL.md` — ลบ skill `/sw-context`
+- `skills/sw-postgreSQL/SKILL.md` — ลบ skill `/sw-postgreSQL`
+- `skills/sw-yt/SKILL.md` — ลบ skill `/sw-yt`
+
+### 🔧 แก้ไข (Changed)
+
+- `.claude/sw/PROJECT.md` — ลบแถว sw-context, sw-postgreSQL
+- `README.md` — ลบแถว sw-context, sw-postgreSQL
+- `DOCS.md` — ลบ section `/sw-context`, `/sw-postgreSQL`, `/sw-yt`
+
+---
+
 ## [2026-04-26] — v1.10.2 🚀 Deploy
 
 ### 🚀 Deploy
