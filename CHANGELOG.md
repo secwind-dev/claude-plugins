@@ -1,5 +1,15 @@
 # CHANGELOG.md
 
+## [2026-05-01] — v1.12.1
+
+### ♻️ Refactor (Changed)
+
+- `skills/sw-check/SKILL.md` — เขียนใหม่ทั้งหมด: เปลี่ยนจาก environment checker เป็น plugin migration checker โดยตรง — ลบขั้นตอน runtime/git/package/env/gitignore ออกทั้งหมด แทนด้วย 4-point migration check (SOUL.md rename, CLAUDE.md ref, notify-done.sh ref, ชื่อ character) พร้อม batch fix ครั้งเดียว
+- `skills/sw-check/SKILL.md` — แก้ Fix M4 scope: เปลี่ยนจาก hardcode `SOUL.md` เป็น `grep -rl | xargs sed` ครอบคลุมทุกไฟล์ใน `.claude/sw/`
+- `CLAUDE.md` — แก้ `\*\*ให้ความสำคัญ...` → `**ให้ความสำคัญ...**` (escaped asterisk → bold ที่ถูกต้อง)
+
+---
+
 ## [2026-04-26] — v1.12.0 🚀 Deploy
 
 ### 🚀 Deploy

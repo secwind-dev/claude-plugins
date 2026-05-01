@@ -1,143 +1,115 @@
 ---
 name: sw-check
-description: 'Validate development environment: runtime, git config, package manager, and .env security. Usage: /sw-check'
+description: 'ตรวจสอบและอัปเดต plugin structure ให้ตรงกับ version ปัจจุบัน — rename SYSTEM.md → SOUL.md, อัปเดต references, เปลี่ยนชื่อ character. Usage: /sw-check'
 disable-model-invocation: true
 ---
 
-ทำทุกอย่างอัตโนมัติ — ตรวจสอบ environment แล้วแสดง dashboard สรุป
+ตรวจสอบและ fix migration issues ของ sw-claude-plugins อัตโนมัติ — batch fix ในครั้งเดียว
 
 ---
 
-## ขั้นที่ 1 — ตรวจ Runtime
+## ขั้นที่ 1 — ตรวจ Migration Issues
 
-รัน Bash commands:
+รัน Bash commands เพื่อตรวจ 4 จุด:
 
 ```bash
-node --version 2>/dev/null && echo "NODE_OK" || echo "NODE_NOT_FOUND"
+# M1: ตรวจว่ายังมี SYSTEM.md และยังไม่มี SOUL.md
+test -f .claude/sw/SYSTEM.md && echo "M1_FOUND" || echo "M1_OK"
+test -f .claude/sw/SOUL.md && echo "SOUL_EXISTS" || echo "SOUL_MISSING"
 ```
 
 ```bash
-bun --version 2>/dev/null && echo "BUN_OK" || echo "BUN_NOT_FOUND"
+# M2: ตรวจ CLAUDE.md ยังมี reference ถึง SYSTEM.md ไหม
+grep -q "SYSTEM\.md" CLAUDE.md 2>/dev/null && echo "M2_FOUND" || echo "M2_OK"
 ```
 
-บันทึกผล:
+```bash
+# M3: ตรวจ notify-done.sh ยังมี reference ถึง SYSTEM.md ไหม
+grep -q "SYSTEM\.md" .claude/hooks/notify-done.sh 2>/dev/null && echo "M3_FOUND" || echo "M3_OK"
+```
 
-- ✅ ถ้าพบ version → แสดง version
-- ❌ ถ้าไม่พบ → แสดงสถานะ "ไม่พบ"
+```bash
+# M4: ตรวจชื่อ "อิงโกะ" ยังเหลืออยู่ใน .claude/sw/ ไหม
+grep -rq "อิงโกะ" .claude/sw/ 2>/dev/null && echo "M4_FOUND" || echo "M4_OK"
+```
+
+บันทึกผลแต่ละข้อไว้ก่อน
 
 ---
 
-## ขั้นที่ 2 — ตรวจ Git Config
+## ขั้นที่ 2 — แสดงผลและขอ Confirm
 
-รัน Bash commands:
+**กรณีไม่พบ issue ใดเลย** → แสดงข้อความแล้วหยุด:
 
-```bash
-git config user.name
+```
+✅ Plugin structure เป็น version ปัจจุบันแล้วค่ะ ไม่มีอะไรต้อง fix
 ```
 
-```bash
-git config user.email
-```
+**กรณีพบ issue ≥ 1** → ถาม user ด้วย `AskUserQuestion`:
 
-บันทึกผล:
+- **header:** `Plugin Migration Check`
+- **question:** แสดงเฉพาะ issues ที่พบ เช่น:
 
-- ✅ ถ้ามีค่า → แสดง name/email
-- ⚠️ ถ้าว่าง → แสดง "ยังไม่ได้ตั้งค่า"
+    ```
+    พบ migration issues ที่ต้อง fix ค่ะ บอส:
 
----
+    - ⚠️ M1: ยังมี `.claude/sw/SYSTEM.md` (ต้อง rename → SOUL.md)
+    - ⚠️ M2: `CLAUDE.md` ยังมี reference ถึง SYSTEM.md
+    - ⚠️ M3: `notify-done.sh` ยังมี reference ถึง SYSTEM.md
+    - ⚠️ M4: พบชื่อ "อิงโกะ" ใน `.claude/sw/`
 
-## ขั้นที่ 3 — ตรวจ Package Manager
-
-รัน Bash tool:
-
-```bash
-ls package-lock.json yarn.lock bun.lockb pnpm-lock.yaml 2>/dev/null
-```
-
-บันทึกผล:
-
-- `package-lock.json` → **npm**
-- `yarn.lock` → **yarn**
-- `bun.lockb` → **bun**
-- `pnpm-lock.yaml` → **pnpm**
-- ไม่พบ lock file ใดๆ → **ไม่พบ package manager**
-
----
-
-## ขั้นที่ 4 — ตรวจ .env ใน .gitignore
-
-รัน Bash commands (ตรวจแค่การมีอยู่ ไม่อ่านเนื้อหา):
-
-```bash
-test -f .env && echo "ENV_EXISTS" || echo "ENV_NOT_FOUND"
-```
-
-ถ้าพบ `.env`:
-
-```bash
-grep -q "^\.env" .gitignore 2>/dev/null && echo "GITIGNORE_OK" || echo "GITIGNORE_MISSING"
-```
-
-บันทึกผล:
-
-- ไม่มี `.env` → ✅ ไม่มีไฟล์ .env
-- มี `.env` + อยู่ใน `.gitignore` → ✅ ปลอดภัย
-- มี `.env` + ไม่อยู่ใน `.gitignore` → 🚨 WARNING: .env ไม่อยู่ใน .gitignore!
-
----
-
-## ขั้นที่ 5 — ตรวจ .claude/ ใน .gitignore
-
-รัน Bash command:
-
-```bash
-grep -qxF '.claude/' .gitignore 2>/dev/null && echo "CLAUDE_GITIGNORE_OK" || echo "CLAUDE_GITIGNORE_MISSING"
-```
-
-บันทึกผล:
-
-- **OK** → ✅ `.claude/` อยู่ใน `.gitignore` แล้ว
-- **MISSING** → 🚨 `.claude/` ไม่อยู่ใน `.gitignore` → ถาม user ด้วย `AskUserQuestion`:
-    - **question:** "พบว่า `.claude/` ยังไม่อยู่ใน `.gitignore` นะคะ บอส — ไอโกะจะ add ให้และ untrack จาก git เลยไหมคะ?"
-    - **header:** ".claude/ Safety"
-    - **options:**
-        - `✅ ทำเลย` — description: "append `.claude/` ใน .gitignore และรัน `git rm -r --cached .claude/`"
-        - `❌ ข้ามไป` — description: "ไม่ทำอะไร บันทึกเป็น WARNING ใน dashboard"
-
-    ถ้า user เลือก **✅ ทำเลย**:
-
-    ```bash
-    printf '\n.claude/\n' >> .gitignore
+    ไอโกะจะ fix ทั้งหมดเลยไหมคะ?
     ```
 
-    ```bash
-    git rm -r --cached .claude/ 2>/dev/null || true
-    ```
-
-    → อัปเดตสถานะเป็น ✅ แก้ไขแล้ว
+- **options:**
+    - `✅ Fix ทั้งหมดเลย` — description: `แก้ทุก issue ที่พบอัตโนมัติ`
+    - `❌ ข้ามไป` — description: `ไม่ทำอะไร แค่แสดง issues ที่พบ`
 
 ---
 
-## ขั้นที่ 6 — แสดง Dashboard
+## ขั้นที่ 3 — Execute Fixes (ถ้า user เลือก Fix)
 
-รวบรวมผลทั้งหมดแล้วแสดงตาราง:
+แก้ตามลำดับ — **ทำ M1 ก่อนเสมอ** เพราะ M4 ต้องการ SOUL.md:
 
-```
-🔍 Environment Check — สรุปผลการตรวจสอบ
-
-| รายการ           | สถานะ | รายละเอียด                     |
-|------------------|-------|--------------------------------|
-| Node.js          | ✅/❌  | vX.X.X / ไม่พบ                |
-| Bun              | ✅/❌  | vX.X.X / ไม่พบ                |
-| Git user.name    | ✅/⚠️  | <ชื่อ> / ยังไม่ได้ตั้งค่า      |
-| Git user.email   | ✅/⚠️  | <email> / ยังไม่ได้ตั้งค่า     |
-| Package Manager  | ✅/⚠️  | npm/yarn/bun/pnpm / ไม่พบ     |
-| .env Safety      | ✅/🚨  | ปลอดภัย / WARNING!             |
-| .claude/ Safety  | ✅/🚨  | อยู่ใน .gitignore / WARNING!   |
-```
-
-ถ้ามี 🚨 `.env` ที่ยังค้างอยู่ → แนะนำให้รัน:
+**Fix M1** (ถ้า M1_FOUND และ SOUL_MISSING):
 
 ```bash
-echo ".env" >> .gitignore
+mv .claude/sw/SYSTEM.md .claude/sw/SOUL.md
 ```
+
+**Fix M2** (ถ้า M2_FOUND):
+
+```bash
+sed -i '' 's/SYSTEM\.md/SOUL.md/g' CLAUDE.md
+```
+
+**Fix M3** (ถ้า M3_FOUND):
+
+```bash
+sed -i '' 's/SYSTEM\.md/SOUL.md/g' .claude/hooks/notify-done.sh
+```
+
+**Fix M4** (ถ้า M4_FOUND):
+
+```bash
+grep -rl "อิงโกะ" .claude/sw/ 2>/dev/null | xargs sed -i '' 's/อิงโกะ (Inko)/ไอโกะ (Aiko)/g'
+```
+
+---
+
+## ขั้นที่ 4 — แสดงสรุปผล
+
+รวบรวมผลทั้งหมดแสดงตาราง:
+
+```
+🔧 Plugin Migration — สรุปผล
+
+| รายการ                   | สถานะ | รายละเอียด                        |
+|--------------------------|-------|-----------------------------------|
+| SYSTEM.md → SOUL.md      | ✅/⚠️  | rename แล้ว / ข้ามไป / ไม่มีปัญหา |
+| CLAUDE.md reference      | ✅/⚠️  | อัปเดตแล้ว / ข้ามไป / ไม่มีปัญหา  |
+| notify-done.sh reference | ✅/⚠️  | อัปเดตแล้ว / ข้ามไป / ไม่มีปัญหา  |
+| ชื่อ character            | ✅/⚠️  | ไอโกะแล้ว / ข้ามไป / ไม่มีปัญหา   |
+```
+
+ถ้ามี ⚠️ ค้างอยู่ → แนะนำให้รัน `/sw-check` อีกครั้งหลังแก้ไขเองค่ะ
