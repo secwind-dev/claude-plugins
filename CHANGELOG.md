@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-05-01] — v1.12.1 🚀 Deploy
+
+### 🚀 Deploy
+
+- pushed to `main` (9a50c29..126c7db)
+
+---
+
 ## [2026-05-01] — v1.12.1
 
 ### ♻️ Refactor (Changed)
