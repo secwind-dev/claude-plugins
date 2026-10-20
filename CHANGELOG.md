@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-10-20] — v1.14.0 🚀 Deploy
+
+### 🚀 Deploy
+
+- pushed to `main` (bcd8ea4..b6681b2)
+
+---
+
 ## [2026-10-20] — v1.14.0
 
 ### ✨ เพิ่ม (Added)
