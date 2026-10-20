@@ -111,16 +111,22 @@ Types: `feat` / `fix` / `docs` / `refactor` / `style` / `test` / `chore` / `perf
 
 ---
 
-### `/sw-generate <path/file>`
+### `/sw-validate [task]`
 
-**สร้างไฟล์จาก response ล่าสุด** — ดึง code block หรือ content จาก response ก่อนหน้าแล้วบันทึกเป็นไฟล์
+**ตรวจงานสำคัญก่อนส่ง** — เลือกระดับการตรวจ แก้ checklist ได้ก่อนเริ่ม
 
-ตัวอย่าง:
+- ไม่ระบุ task → ตรวจงานล่าสุดในบทสนทนา
+- ระบุ task → เช่น `/sw-validate ฟังก์ชันคำนวณดอกเบี้ย`
 
-- `/sw-generate src/utils/emailValid.ts` — ดึงเฉพาะ code block
-- `/sw-generate docs/summary.md` — ดึง content ทั้งหมด
+ขั้นตอน: เลือกระดับ L1/L2/L3 → อนุมัติ/แก้ checklist → ตรวจ → รายงาน (ตรวจแล้ว / ยังไม่ได้ตรวจ / ความเสี่ยงที่เหลือ)
 
-> Code file → ดึงเฉพาะ code block | Text/Doc file → ดึง content ทั้งหมด
+| ระดับ | ตรวจอะไร |
+|---|---|
+| L1 ปกติ | ผลจริง 1 รอบ |
+| L2 สำคัญ | + edge case, breaking changes, test suite |
+| L3 วิกฤต | + checklist เฉพาะด้าน (การเงิน / สัญญา / ข้อมูลส่วนบุคคล) + ผู้ตรวจอิสระ `sw-validator` |
+
+> ผู้ตรวจอิสระรับบทบาทและบริบทเฉพาะงานทุกครั้ง ไม่เห็นเหตุผลของผู้เขียน ไม่มี Write/Edit (ยังมี Bash ไว้รัน test — ห้ามเขียนไฟล์ด้วยกฎใน prompt) · พบ 🔴 แก้ได้ 1 รอบ ไม่วนต่อ
 
 ---
 

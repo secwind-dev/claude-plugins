@@ -1,5 +1,21 @@
 # CHANGELOG.md
 
+## [2026-10-20] — v1.14.0
+
+### ✨ เพิ่ม (Added)
+
+- `skills/sw-validate/SKILL.md` — skill ใหม่: ตรวจงานตามระดับ L1/L2/L3 → user อนุมัติ/แก้ checklist → ตรวจ → รายงาน (ตรวจแล้ว / ยังไม่ได้ตรวจ / ความเสี่ยงที่เหลือ)
+- `agents/sw-validator.md` — agent ผู้ตรวจอิสระสำหรับ L3: ห้าม Write/Edit, รับบทบาท+บริบทเฉพาะงานจาก prompt
+- `skills/sw-init/templates/SOUL.md` + `.claude/sw/SOUL.md` — เพิ่มกฎ: งานสำคัญให้แนะนำ user รัน `/sw-validate`
+- `DOCS.md`, `README.md` — เพิ่มส่วน `/sw-validate`
+
+### 🗑️ ลบ (Removed)
+
+- `skills/sw-generate/` — ลบ skill ออก เพราะไม่ได้ใช้และกิน context (description โหลดทุก session)
+- `DOCS.md` — ลบ section `/sw-generate`
+
+---
+
 ## [2026-10-20] — v1.13.0 🚀 Deploy
 
 ### 🚀 Deploy
