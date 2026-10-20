@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2026-10-20] — v1.13.0 🚀 Deploy
+
+### 🚀 Deploy
+
+- pushed to `main` (64d48ea..ec15201)
+
+---
+
 ## [2026-10-20] — v1.13.0
 
 ### 🔧 แก้ไข (Changed)
