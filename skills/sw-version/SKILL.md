@@ -54,7 +54,7 @@ fi
 
 - ถ้าผลลัพธ์เป็น `NOT_FOUND` → แจ้ง user:
   ```
-  ❌ ไม่พบ sw-claude-plugins ที่ติดตั้งอยู่ค่ะ บอส
+  ❌ ไม่พบ sw-claude-plugins ที่ติดตั้งอยู่
   กรุณาติดตั้งก่อนด้วยคำสั่ง:
     /plugin marketplace add secwind-dev/claude-plugins
     /plugin install sw-claude-plugins@sw-plugins
@@ -75,7 +75,7 @@ fi
 🔖 Version : v<version>
 👤 Author  : <author>
 
-💡 ใช้ /sw-doctor เพื่อเช็คอัปเดตนะคะ
+💡 ใช้ /sw-doctor เพื่อเช็คอัปเดต
 ```
 
 กรณี dev mode (DEV=true):
@@ -86,5 +86,5 @@ fi
 🔖 Version : v<version> (dev)
 👤 Author  : <author>
 
-⚙️ รันอยู่ใน development mode ค่ะ บอส
+⚙️ รันอยู่ใน development mode
 ```

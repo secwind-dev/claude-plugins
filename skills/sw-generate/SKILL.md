@@ -13,7 +13,7 @@ argument ที่รับมา: `$ARGUMENTS`
 ถ้าไม่มี argument → แจ้ง user:
 
 ```
-กรุณาระบุ path/file ที่ต้องการสร้างด้วยนะคะ บอส
+กรุณาระบุ path/file ที่ต้องการสร้าง
 
 Usage: /sw-generate <path/file>
 ตัวอย่าง:
@@ -58,8 +58,8 @@ Usage: /sw-generate <path/file>
 
 3. ถ้าไม่มี code block เลยใน response → แจ้ง user:
    ```
-   ไม่พบ code ใน response ล่าสุดค่ะ บอส
-   response ล่าสุดเป็น text ธรรมดา — ลองใช้ .md หรือ .txt แทนได้นะคะ
+   ไม่พบ code ใน response ล่าสุด
+   response ล่าสุดเป็น text ธรรมดา — ลองใช้ .md หรือ .txt แทนได้
 
    ตัวอย่าง: /sw-generate <path/file>.md
    ```
@@ -89,7 +89,7 @@ mkdir -p "$(dirname '$ARGUMENTS')"
 แสดงผลในรูปแบบ:
 
 ```
-✅ สร้างไฟล์สำเร็จค่ะ บอส!
+✅ สร้างไฟล์สำเร็จ!
 
 📄 File   : <path/file>
 📦 Source : <"code block จาก ✅ summary section" | "code block สุดท้าย" | "content ทั้งหมดของ response">

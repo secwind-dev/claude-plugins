@@ -48,7 +48,7 @@ git diff --cached
 - ถ้า diff ยังว่างอยู่ → แจ้ง user:
 
 ```
-ไม่พบการเปลี่ยนแปลงที่จะ review ค่ะ บอส
+ไม่พบการเปลี่ยนแปลงที่จะ review
 
 💡 ลองใช้:
    /sw-review main     — เปรียบเทียบกับ branch main

@@ -42,7 +42,7 @@ grep -rq "อิงโกะ" .claude/sw/ 2>/dev/null && echo "M4_FOUND" || echo
 **กรณีไม่พบ issue ใดเลย** → แสดงข้อความแล้วหยุด:
 
 ```
-✅ Plugin structure เป็น version ปัจจุบันแล้วค่ะ ไม่มีอะไรต้อง fix
+✅ Plugin structure เป็น version ปัจจุบันแล้ว ไม่มีอะไรต้อง fix
 ```
 
 **กรณีพบ issue ≥ 1** → ถาม user ด้วย `AskUserQuestion`:
@@ -51,14 +51,14 @@ grep -rq "อิงโกะ" .claude/sw/ 2>/dev/null && echo "M4_FOUND" || echo
 - **question:** แสดงเฉพาะ issues ที่พบ เช่น:
 
     ```
-    พบ migration issues ที่ต้อง fix ค่ะ บอส:
+    พบ migration issues ที่ต้อง fix:
 
     - ⚠️ M1: ยังมี `.claude/sw/SYSTEM.md` (ต้อง rename → SOUL.md)
     - ⚠️ M2: `CLAUDE.md` ยังมี reference ถึง SYSTEM.md
     - ⚠️ M3: `notify-done.sh` ยังมี reference ถึง SYSTEM.md
     - ⚠️ M4: พบชื่อ "อิงโกะ" ใน `.claude/sw/`
 
-    ไอโกะจะ fix ทั้งหมดเลยไหมคะ?
+    Fix ทั้งหมดเลยไหม?
     ```
 
 - **options:**
@@ -112,4 +112,4 @@ grep -rl "อิงโกะ" .claude/sw/ 2>/dev/null | xargs sed -i '' 's/อ�
 | ชื่อ character            | ✅/⚠️  | ไอโกะแล้ว / ข้ามไป / ไม่มีปัญหา   |
 ```
 
-ถ้ามี ⚠️ ค้างอยู่ → แนะนำให้รัน `/sw-check` อีกครั้งหลังแก้ไขเองค่ะ
+ถ้ามี ⚠️ ค้างอยู่ → แนะนำให้รัน `/sw-check` อีกครั้งหลังแก้ไขเอง

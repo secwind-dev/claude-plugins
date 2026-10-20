@@ -20,7 +20,7 @@ git diff --staged
 git diff HEAD
 ```
 
-ถ้ายังว่างอยู่ → แจ้ง user: "ไม่พบ changes ที่จะ commit นะคะ บอส" แล้วหยุด
+ถ้ายังว่างอยู่ → แจ้ง user: "ไม่พบ changes ที่จะ commit" แล้วหยุด
 
 ---
 
@@ -54,7 +54,7 @@ git diff HEAD
 
 ใช้ `AskUserQuestion` แสดง message ที่สร้าง:
 
-- **question:** "ไอโกะสร้าง commit message ด้านล่างนี้ค่ะ บอส — ดำเนินการต่อยังไงดีคะ?\n\n`<message>`"
+- **question:** "สร้าง commit message ด้านล่างนี้ — ดำเนินการต่อยังไงดี?\n\n`<message>`"
 - **header:** "Commit"
 - **options:**
     - `✅ Commit เลย` — description: "git add -A && git commit ทันที"
@@ -73,11 +73,11 @@ git add -A && git commit -m "<message>"
 
 **✏️ แก้ไข message:**
 
-- แจ้ง user: "กรุณาพิมพ์ commit message ที่ต้องการค่ะ บอส"
+- แจ้ง user: "กรุณาพิมพ์ commit message ที่ต้องการ"
 - รับ message ใหม่จาก user
 - รัน: `git add -A && git commit -m "<new message>"`
 
 **❌ ยกเลิก:**
 
-- แจ้ง user: "ยกเลิกแล้วค่ะ บอส ยังไม่มีการ commit ใดๆ"
+- แจ้ง user: "ยกเลิกแล้ว ยังไม่มีการ commit ใดๆ"
 - หยุด

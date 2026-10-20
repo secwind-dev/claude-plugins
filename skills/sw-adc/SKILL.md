@@ -12,7 +12,7 @@ argument ที่รับมา: `$ARGUMENTS`
 ถ้าไม่มี argument → แจ้ง user แล้วหยุด:
 
 ```
-กรุณาระบุ function ที่ต้องการสร้างด้วยนะคะ บอส
+กรุณาระบุ function ที่ต้องการสร้าง
 
 Usage: /sw-adc <ชื่อ function>
 ตัวอย่าง:
@@ -38,8 +38,8 @@ https://raw.githubusercontent.com/app-adc/adc-directive/main/ADC.md
 ถ้า fetch ล้มเหลว → แจ้ง user แล้วหยุด:
 
 ```
-ไม่พบ .claude/sw/ADC.md และไม่สามารถ fetch จาก GitHub ได้ค่ะ บอส
-กรุณาสร้างไฟล์ .claude/sw/ADC.md ด้วยตนเองนะคะ
+ไม่พบ .claude/sw/ADC.md และไม่สามารถ fetch จาก GitHub ได้
+กรุณาสร้างไฟล์ .claude/sw/ADC.md ด้วยตนเอง
 ```
 
 ---
@@ -112,6 +112,6 @@ https://raw.githubusercontent.com/app-adc/adc-directive/main/ADC.md
 2. `<ชื่อ function + signature>` — <อธิบาย>
 3. `<ชื่อ function + signature>` — <อธิบาย>
 
-💬 พิมพ์ /sw-adc <ชื่อ function> เพื่อสร้างได้เลยค่ะ บอส
+💬 พิมพ์ /sw-adc <ชื่อ function> เพื่อสร้างได้เลย
 ════════════════════════════════════════
 ```

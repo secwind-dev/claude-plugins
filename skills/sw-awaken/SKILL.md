@@ -1,6 +1,6 @@
 ---
 name: sw-awaken
-description: 'เพิ่มความรู้ถาวรให้ไอโกะจำข้ามทุก session จาก URL หรือ file path. Usage: /sw-awaken <url|path>'
+description: 'เพิ่มความรู้ถาวรให้ Claude จำข้ามทุก session จาก URL หรือ file path. Usage: /sw-awaken <url|path>'
 argument-hint: '<url|path>'
 disable-model-invocation: true
 ---
@@ -14,7 +14,7 @@ argument ที่รับมา: `$ARGUMENTS`
 - ถ้าไม่มี argument → แจ้ง user แล้วหยุด:
 
 ```
-❌ กรุณาระบุ URL หรือ file path ค่ะ บอส
+❌ กรุณาระบุ URL หรือ file path
 
 Usage:
   /sw-awaken https://example.com/info.md   ← fetch จาก URL
@@ -33,13 +33,13 @@ Usage:
 - ถ้า fail หรือ error → แจ้ง user แล้วหยุด:
 
     ```
-    ❌ ไม่สามารถ fetch URL ได้ค่ะ บอส
+    ❌ ไม่สามารถ fetch URL ได้
     URL: <url ที่รับมา>
 
     กรุณาตรวจสอบ:
     - URL ถูกต้องและ public access ได้
     - Internet connection ปกติ
-    - ถ้าเป็น GitHub private repo จะไม่สามารถ fetch ได้โดยตรงค่ะ
+    - ถ้าเป็น GitHub private repo จะไม่สามารถ fetch ได้โดยตรง
     ```
 
 - ถ้าสำเร็จ:
@@ -59,10 +59,10 @@ Usage:
 - ถ้าไม่พบไฟล์หรือ error → แจ้ง user แล้วหยุด:
 
     ```
-    ❌ ไม่พบไฟล์ค่ะ บอส
+    ❌ ไม่พบไฟล์
     Path: <path ที่รับมา>
 
-    กรุณาตรวจสอบว่า path ถูกต้องและไฟล์มีอยู่จริงค่ะ
+    กรุณาตรวจสอบว่า path ถูกต้องและไฟล์มีอยู่จริง
     ```
 
 - ถ้าสำเร็จ:
@@ -79,23 +79,23 @@ Usage:
 กรณีโหลดจาก URL:
 
 ```
-🌅 Awaken จาก URL สำเร็จแล้วค่ะ บอส!
+🌅 Awaken จาก URL สำเร็จแล้ว!
 
 🌐 URL        : <url ที่ fetch มา>
 💾 บันทึกเป็น : .claude/sw/awaken/<filename>.md
 📝 เรียนรู้   : <สรุปสั้นๆ ว่าเนื้อหานั้นคืออะไร>
 
-✨ ไอโกะจะจำข้อมูลนี้ตลอดไปนะคะ — auto-load ทุก session ค่ะ
+✨ auto-load ทุก session
 ```
 
 กรณีโหลดจาก file:
 
 ```
-🌅 Awaken จาก File สำเร็จแล้วค่ะ บอส!
+🌅 Awaken จาก File สำเร็จแล้ว!
 
 📄 File       : <path ที่รับมา>
 💾 บันทึกเป็น : .claude/sw/awaken/<filename>
 📝 เรียนรู้   : <สรุปสั้นๆ ว่าเนื้อหานั้นคืออะไร>
 
-✨ ไอโกะจะจำข้อมูลนี้ตลอดไปนะคะ — auto-load ทุก session ค่ะ
+✨ auto-load ทุก session
 ```

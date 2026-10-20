@@ -17,7 +17,7 @@ argument ที่รับมา: `$ARGUMENTS`
 - ถ้าไม่มี argument เลย → แจ้ง user:
 
 ```
-กรุณาระบุ path ที่ต้องการ refactor ด้วยนะคะ บอส
+กรุณาระบุ path ที่ต้องการ refactor
 
 Usage: /sw-refactor-code <path> [query]
 ตัวอย่าง:
@@ -200,9 +200,9 @@ result = list(map(lambda u: u["email"], filter(lambda u: u["active"], users)))
 
 แจ้ง user:
 ```
-สร้าง `.claude/sw/REFACTOR.md` ให้แล้วนะคะ บอส
-บอสสามารถแก้ไข rule ในไฟล์นั้นได้ตามต้องการเลยค่ะ
-กำลังเริ่ม refactor ต่อเลยนะคะ...
+สร้าง `.claude/sw/REFACTOR.md` ให้แล้ว
+สามารถแก้ไข rule ในไฟล์นั้นได้ตามต้องการเลย
+กำลังเริ่ม refactor ต่อเลย...
 ```
 
 ---
@@ -217,8 +217,8 @@ result = list(map(lambda u: u["email"], filter(lambda u: u["active"], users)))
 - ถ้าไม่พบไฟล์ → แจ้ง user:
 
 ```
-ไม่พบไฟล์หรือ directory ที่ระบุค่ะ บอส: `<PATH_ARG>`
-กรุณาตรวจสอบ path อีกครั้งนะคะ
+ไม่พบไฟล์หรือ directory ที่ระบุ: `<PATH_ARG>`
+กรุณาตรวจสอบ path อีกครั้ง
 ```
 
 แล้วหยุด
@@ -276,5 +276,5 @@ result = list(map(lambda u: u["email"], filter(lambda u: u["active"], users)))
 ════════════════════════════════════════
 📁 Target  : <PATH_ARG>
 
-✅ โค้ดสะอาดดีแล้วค่ะ บอส ไม่มีอะไรต้องแก้ตาม rule ใน REFACTOR.md เลยค่ะ
+✅ โค้ดสะอาดดีแล้ว ไม่มีอะไรต้องแก้ตาม rule ใน REFACTOR.md เลย
 ```

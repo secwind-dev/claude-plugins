@@ -112,7 +112,7 @@ grep -q "secrets\|credentials" .gitignore && echo "HAS_SECRETS" || echo "MISSING
 ```
 🔐 Secret Scanner — ผลการสแกน
 
-✅ ไม่พบ hardcoded secrets ค่ะ บอส!
+✅ ไม่พบ hardcoded secrets!
 
 🎯 Target : <path>
 📁 Scanned: <จำนวน pattern ที่ตรวจ> pattern groups
@@ -120,7 +120,7 @@ grep -q "secrets\|credentials" .gitignore && echo "HAS_SECRETS" || echo "MISSING
 .gitignore Coverage:
   <แสดงสถานะแต่ละรายการ>
 
-ยอดเยี่ยมมากค่ะ บอส โค้ดปลอดภัยดีเลย 🎉
+โค้ดปลอดภัยดี 🎉
 ```
 
 ---
@@ -130,7 +130,7 @@ grep -q "secrets\|credentials" .gitignore && echo "HAS_SECRETS" || echo "MISSING
 ```
 🔐 Secret Scanner — ผลการสแกน
 
-⚠️ พบรายการที่ต้องตรวจสอบค่ะ บอส!
+⚠️ พบรายการที่ต้องตรวจสอบ!
 
 🎯 Target : <path>
 
@@ -173,5 +173,5 @@ grep -q "secrets\|credentials" .gitignore && echo "HAS_SECRETS" || echo "MISSING
 3. ถ้า secret หลุด git ไปแล้ว → **ต้อง rotate key ทันที** อย่าแค่ลบออกจาก code
 4. พิจารณาใช้ secret manager เช่น AWS Secrets Manager, Vault, หรือ GitHub Secrets
 
-> ⚠️ **หมายเหตุ:** ผล scan อาจมี false positive — กรุณาตรวจสอบแต่ละรายการด้วยตัวเองด้วยนะคะ บอส
+> ⚠️ **หมายเหตุ:** ผล scan อาจมี false positive — ควรตรวจสอบแต่ละรายการด้วยตัวเอง
 ```

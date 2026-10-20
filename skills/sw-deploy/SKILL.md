@@ -15,7 +15,7 @@ test -f .claude/sw/DEPLOY.md && echo "FOUND" || echo "NOT_FOUND"
 - ถ้า `NOT_FOUND` → แจ้ง user แล้วหยุด:
 
 ```
-❌ ไม่พบ .claude/sw/DEPLOY.md ค่ะ บอส
+❌ ไม่พบ .claude/sw/DEPLOY.md
 
 กรุณารัน /sw-init ก่อนเพื่อสร้างไฟล์ทั้งหมด
 ```

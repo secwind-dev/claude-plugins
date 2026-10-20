@@ -14,7 +14,7 @@ path รับมา: `$ARGUMENTS`
 
 ดึงชื่อ hook จาก argument (เช่น `/sw-hook log-bash` → hook-name = `log-bash`)
 
-- ถ้าไม่มี argument → แจ้ง user ว่า "กรุณาระบุชื่อ hook ด้วยนะคะ บอส เช่น `/sw-hook ชื่อ-hook`" แล้วหยุด
+- ถ้าไม่มี argument → แจ้ง user ว่า "กรุณาระบุชื่อ hook เช่น `/sw-hook ชื่อ-hook`" แล้วหยุด
 - ชื่อ hook ที่รับมาใช้เป็นชื่อไฟล์ script (เช่น `log-bash` → `.claude/hooks/log-bash.sh`)
 
 ---
@@ -23,20 +23,20 @@ path รับมา: `$ARGUMENTS`
 
 ใช้ `AskUserQuestion` ถาม 3 ข้อพร้อมกัน:
 
-**ข้อ 1:** Hook event นี้ trigger เมื่อใดคะ บอส?
+**ข้อ 1:** Hook event นี้ trigger เมื่อใด?
 - `PreToolUse` — ก่อน Claude ใช้ tool
 - `PostToolUse` — หลัง Claude ใช้ tool เสร็จ
 - `Notification` — เมื่อ Claude ส่ง notification
 - `Stop` — เมื่อ Claude หยุดทำงาน
 
-**ข้อ 2:** Hook นี้ match กับ tool ไหนคะ? (สำหรับ PreToolUse / PostToolUse เท่านั้น)
+**ข้อ 2:** Hook นี้ match กับ tool ไหน? (สำหรับ PreToolUse / PostToolUse เท่านั้น)
 - `Bash` — match เฉพาะ Bash tool
 - `Write` — match เฉพาะ Write tool
 - `Edit` — match เฉพาะ Edit tool
 - `Read` — match เฉพาะ Read tool
 - *(ทุก tool)* — ไม่ระบุ matcher ให้ trigger กับทุก tool
 
-**ข้อ 3:** Hook นี้ควรทำอะไรคะ บอส? (อธิบายสั้นๆ เช่น "log คำสั่ง bash ทุกอย่าง", "แจ้งเตือนผ่าน notification")
+**ข้อ 3:** Hook นี้ควรทำอะไร? (อธิบายสั้นๆ เช่น "log คำสั่ง bash ทุกอย่าง", "แจ้งเตือนผ่าน notification")
 
 ---
 
@@ -210,7 +210,7 @@ chmod +x .claude/hooks/<hook-name>.sh
 ## ขั้นที่ 4 — แจ้งผล
 
 ```
-✅ สร้าง Hook เรียบร้อยแล้วนะคะ บอส!
+✅ สร้าง Hook เรียบร้อยแล้ว!
 
 📄 Hook Script : .claude/hooks/<hook-name>.sh
 ⚙️  Event       : <EventType>

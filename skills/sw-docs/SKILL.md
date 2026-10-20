@@ -16,8 +16,8 @@ curl -sf "https://raw.githubusercontent.com/secwind-dev/claude-plugins/main/DOCS
 - ถ้าสำเร็จ → นำ content ไปแสดงในขั้นที่ 2
 - ถ้า fail → แจ้ง user:
   ```
-  ❌ ไม่สามารถเชื่อมต่อ GitHub ได้ค่ะ บอส
-  กรุณาตรวจสอบ internet connection แล้วลองใหม่นะคะ
+  ❌ ไม่สามารถเชื่อมต่อ GitHub ได้
+  กรุณาตรวจสอบ internet connection แล้วลองใหม่
   ```
   แล้วหยุด
 

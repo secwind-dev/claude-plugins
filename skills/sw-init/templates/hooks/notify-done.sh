@@ -23,6 +23,8 @@ OS=$(uname -s)
 SYSTEM_FILE=".claude/sw/SOUL.md"
 if [ -f "$SYSTEM_FILE" ]; then
   NAME=$(grep 'ชื่อ:' "$SYSTEM_FILE" | sed 's/.*ชื่อ:\*\* \([^ ]*\).*/\1/')
+  # แก้ไข: ดึงคำเรียก user จาก SOUL.md แทนการ hardcode — รูปแบบ: "- **เรียก user ว่า:** <คำเรียก>"
+  CALL=$(grep 'เรียก user ว่า:' "$SYSTEM_FILE" | sed 's/.*เรียก user ว่า:\*\* *//')
 fi
 NAME=${NAME:-Claude}
 
@@ -36,7 +38,10 @@ if [ -f "$ACTION_FILE" ]; then
   IS_ACTION=true
 fi
 
-MSG="${NAME} ${ACTION}ค่ะ บอส!"
+# แก้ไข: ไม่ hardcode คำลงท้าย/คำเรียก user — โทนเป็นไปตาม SOUL.md ของแต่ละโปรเจกต์
+#        ถ้าไม่มี action (แค่ตอบคำถาม) ใช้ข้อความ default แทน
+ACTION=${ACTION:-ตอบเสร็จแล้ว}
+MSG="${NAME} ${ACTION}${CALL:+ ${CALL}}"
 
 # แสดง popup notification (ทำทุกครั้ง)
 case "$OS" in

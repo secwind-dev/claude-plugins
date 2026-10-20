@@ -13,7 +13,7 @@ disable-model-invocation: true
 
 ชื่อโปรเจกต์ที่รับมา: `$ARGUMENTS`
 
-- ถ้า `$ARGUMENTS` ว่างเปล่า → แจ้ง user ว่า "กรุณาระบุชื่อโปรเจกต์ด้วยนะคะ บอส เช่น `/sw-init ชื่อโปรเจกต์`" แล้วหยุด
+- ถ้า `$ARGUMENTS` ว่างเปล่า → แจ้ง user ว่า "กรุณาระบุชื่อโปรเจกต์ เช่น `/sw-init ชื่อโปรเจกต์`" แล้วหยุด
 
 ---
 
@@ -21,8 +21,8 @@ disable-model-invocation: true
 
 ใช้ `AskUserQuestion` ถามคำถาม 2 ข้อพร้อมกันทีเดียว:
 
-1. **บทบาทของไอโกะในโปรเจกต์นี้คืออะไรคะ บอส?** (เช่น backend dev assistant, fullstack helper)
-2. **โปรเจกต์นี้ทำอะไรคะ บอส?** (อธิบายสั้นๆ)
+1. **บทบาทของ Claude ในโปรเจกต์นี้คืออะไร?** (เช่น backend dev assistant, fullstack helper)
+2. **โปรเจกต์นี้ทำอะไร?** (อธิบายสั้นๆ)
 
 ---
 

@@ -45,17 +45,17 @@ mkdir -p .claude/sw/session/
 แล้วแจ้ง user:
 
 ```
-📁 สร้าง folder .claude/sw/session/ เรียบร้อยแล้วค่ะ บอส!
+📁 สร้าง folder .claude/sw/session/ เรียบร้อยแล้ว!
 
 วิธีใช้งาน:
   1. วางไฟล์ที่ต้องการโหลดเป็น context ไว้ใน .claude/sw/session/
      เช่น: .claude/sw/session/project-brief.md
            .claude/sw/session/api-spec.md
-  2. รัน /sw-on-session อีกครั้งเพื่อโหลด context ค่ะ
+  2. รัน /sw-on-session อีกครั้งเพื่อโหลด context
 
 💡 เคล็ดลับ:
   - ไฟล์ใน session/ มีผลแค่ session ปัจจุบัน (ต้องรัน /sw-on-session ทุกครั้งที่เปิด session ใหม่)
-  - ถ้าไฟล์มี sensitive data แนะนำเพิ่ม .claude/sw/session/ ใน .gitignore ด้วยนะคะ
+  - ถ้าไฟล์มี sensitive data แนะนำเพิ่ม .claude/sw/session/ ใน .gitignore
 ```
 
 แล้วหยุด
@@ -72,9 +72,9 @@ find .claude/sw/session/ -type f | sort
 
 - ถ้าไม่มีไฟล์เลย → แจ้ง user:
   ```
-  📂 Folder .claude/sw/session/ ยังว่างอยู่นะคะ บอส
+  📂 Folder .claude/sw/session/ ยังว่างอยู่
 
-  วางไฟล์ที่ต้องการโหลดเป็น context ไว้ใน .claude/sw/session/ แล้วรัน /sw-on-session อีกครั้งค่ะ
+  วางไฟล์ที่ต้องการโหลดเป็น context ไว้ใน .claude/sw/session/ แล้วรัน /sw-on-session อีกครั้ง
   ```
   แล้วหยุด
 
@@ -92,13 +92,13 @@ find .claude/sw/session/ -type f | sort
 
 - ถ้า fail หรือ error → แจ้ง user:
   ```
-  ❌ ไม่สามารถโหลด content ได้ค่ะ บอส
+  ❌ ไม่สามารถโหลด content ได้
   Target: <target ที่รับมา>
 
   กรุณาตรวจสอบ:
   - Path หรือ URL ถูกต้อง
   - ถ้าเป็น URL ต้องเป็น public access ได้และ internet connection ปกติ
-  - ถ้าเป็น GitHub private repo จะไม่สามารถ fetch ได้โดยตรงค่ะ
+  - ถ้าเป็น GitHub private repo จะไม่สามารถ fetch ได้โดยตรง
   ```
   แล้วหยุด
 
@@ -140,7 +140,7 @@ mkdir -p .claude/sw/session/
 
 กรณีโหลดจาก folder:
 ```
-✅ โหลด session context สำเร็จแล้วค่ะ บอส!
+✅ โหลด session context สำเร็จแล้ว!
 
 📂 แหล่งที่มา  : .claude/sw/session/
 📄 รายการที่โหลด:
@@ -148,27 +148,27 @@ mkdir -p .claude/sw/session/
   - <ชื่อไฟล์ที่ 2>
   ...
 
-💡 Context นี้มีผลแค่ session ปัจจุบันนะคะ
-   หากต้องการโหลดอีกครั้งในครั้งหน้า ให้รัน /sw-on-session ใหม่ค่ะ
+💡 Context นี้มีผลแค่ session ปัจจุบัน
+   หากต้องการโหลดอีกครั้งในครั้งหน้า ให้รัน /sw-on-session ใหม่
 ```
 
 กรณีโหลดจาก URL หรือ path (ไม่มี --create):
 ```
-✅ โหลด session context สำเร็จแล้วค่ะ บอส!
+✅ โหลด session context สำเร็จแล้ว!
 
 🎯 แหล่งที่มา : <path หรือ URL ที่ใช้>
 📝 เนื้อหา    : <สรุปสั้นๆ ว่า content นั้นคืออะไร>
 
-💡 Context นี้มีผลแค่ session ปัจจุบันนะคะ
+💡 Context นี้มีผลแค่ session ปัจจุบัน
 ```
 
 กรณีโหลดจาก URL หรือ path พร้อม --create:
 ```
-✅ โหลด session context และสร้างไฟล์สำเร็จแล้วค่ะ บอส!
+✅ โหลด session context และสร้างไฟล์สำเร็จแล้ว!
 
 🎯 แหล่งที่มา : <path หรือ URL ที่ใช้>
 💾 บันทึกไว้ที่ : .claude/sw/session/<ชื่อไฟล์>
 📝 เนื้อหา    : <สรุปสั้นๆ ว่า content นั้นคืออะไร>
 
-💡 Context นี้จะโหลดอัตโนมัติครั้งหน้าเมื่อรัน /sw-on-session ด้วยนะคะ
+💡 Context นี้จะโหลดอัตโนมัติครั้งหน้าเมื่อรัน /sw-on-session ด้วย
 ```

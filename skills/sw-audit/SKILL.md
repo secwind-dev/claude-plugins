@@ -179,12 +179,12 @@ grep -rn $EX -iE "NODE_ENV\s*[:=]\s*['\"]?development['\"]?" "$TARGET" 2>/dev/nu
   1. <สิ่งที่ต้องแก้ก่อน — actionable>
   2. <รายการถัดมา>
 
-> ⚠️ ผล audit อาจมี false positive — กรุณาตรวจสอบแต่ละรายการด้วยค่ะ บอส
+> ⚠️ ผล audit อาจมี false positive — ควรตรวจสอบแต่ละรายการก่อนแก้
 
 ════════════════════════════════════════
-💡 Tip: audit นี้เพิ่ม context ไปพอสมควรแล้วนะคะ
+💡 Tip: audit นี้เพิ่ม context ไปพอสมควรแล้ว
    แนะนำให้เปิด session ใหม่ก่อนเริ่มแก้ไขโค้ด
-   เพื่อให้ Claude มี context เต็มสำหรับงานถัดไปค่ะ
+   เพื่อให้ Claude มี context เต็มสำหรับงานถัดไป
 ```
 
 ### กรณีไม่พบ issues:
@@ -195,14 +195,13 @@ grep -rn $EX -iE "NODE_ENV\s*[:=]\s*['\"]?development['\"]?" "$TARGET" 2>/dev/nu
 🎯 Target    : <path>
 📊 Risk Score: 100/100 — ✅ Low Risk
 
-✅ ไม่พบ security issues ในโค้ดเลยค่ะ บอส!
+✅ ไม่พบ security issues ในโค้ดเลย!
 
 🛡️ Config & .gitignore ครอบคลุมครบ
 📦 Dependencies ไม่มี known vulnerabilities
 
-ยอดเยี่ยมมากค่ะ 🎉
 
 ════════════════════════════════════════
-💡 Tip: แนะนำให้เปิด session ใหม่ก่อนเริ่มงานต่อไปนะคะ
-   เพื่อให้ Claude มี context เต็มค่ะ บอส
+💡 Tip: แนะนำให้เปิด session ใหม่ก่อนเริ่มงานต่อไป
+   เพื่อให้ Claude มี context เต็ม
 ```

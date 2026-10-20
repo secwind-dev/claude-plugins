@@ -52,7 +52,7 @@ fi
 
 - ถ้า `NOT_FOUND` → แจ้ง user:
   ```
-  ❌ ไม่พบ sw-claude-plugins ที่ติดตั้งอยู่ค่ะ บอส
+  ❌ ไม่พบ sw-claude-plugins ที่ติดตั้งอยู่
   กรุณาติดตั้งก่อนด้วยคำสั่ง:
     /plugin marketplace add secwind-dev/claude-plugins
     /plugin install sw-claude-plugins@sw-plugins
@@ -75,8 +75,8 @@ curl -sf "https://raw.githubusercontent.com/secwind-dev/claude-plugins/main/.cla
 - ถ้าได้ version → บันทึกเป็น `REMOTE_VER`
 - ถ้า output ว่างหรือ fail → แจ้ง user:
   ```
-  ❌ ไม่สามารถเชื่อมต่อ GitHub ได้ค่ะ บอส
-  กรุณาตรวจสอบ internet connection แล้วลองใหม่นะคะ
+  ❌ ไม่สามารถเชื่อมต่อ GitHub ได้
+  กรุณาตรวจสอบ internet connection แล้วลองใหม่
   ```
   แล้วหยุด
 
@@ -114,12 +114,12 @@ fi
 ```
 🩺 sw-doctor — ผลการตรวจสอบ
 
-✅ คุณใช้ version ล่าสุดอยู่แล้วค่ะ บอส!
+✅ คุณใช้ version ล่าสุดอยู่แล้ว!
 
 📌 Local  : v<local_version>
 🌐 Remote : v<remote_version>
 
-ไม่ต้องทำอะไรเพิ่มเติมนะคะ 🎉
+ไม่ต้องทำอะไรเพิ่มเติม 🎉
 ```
 
 หยุด
@@ -133,12 +133,12 @@ fi
 ```
 🩺 sw-doctor — ผลการตรวจสอบ
 
-🔵 Local version ใหม่กว่า remote ค่ะ บอส (dev mode?)
+🔵 Local version ใหม่กว่า remote (dev mode?)
 
 📌 Local  : v<local_version>
 🌐 Remote : v<remote_version>
 
-ดูเหมือน local จะเป็น development version นะคะ ไม่ต้องทำอะไรค่ะ
+ดูเหมือน local จะเป็น development version — ไม่ต้องทำอะไร
 ```
 
 หยุด
@@ -179,7 +179,7 @@ fi
 ```
 🩺 sw-doctor — ผลการตรวจสอบ
 
-⚠️ มี version ใหม่ให้อัปเดตค่ะ บอส!
+⚠️ มี version ใหม่ให้อัปเดต!
 
 📌 Local  : v<local_version>
 🌐 Remote : v<remote_version>
@@ -189,7 +189,7 @@ fi
 <changelog content ที่ได้จากขั้นที่ 5>
 ──────────────────────────────────────
 
-🔄 รัน 2 คำสั่งนี้เพื่ออัปเดตนะคะ บอส:
+🔄 รัน 2 คำสั่งนี้เพื่ออัปเดต:
 
   /plugin marketplace update sw-plugins
   /plugin update sw-claude-plugins@sw-plugins

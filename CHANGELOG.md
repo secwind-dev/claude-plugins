@@ -1,5 +1,19 @@
 # CHANGELOG.md
 
+## [2026-10-20] — Unreleased
+
+### 🔧 แก้ไข (Changed)
+
+- `skills/sw-init/templates/SOUL.md` — เปลี่ยนโทนเป็นกระชับ ตรงประเด็น: เพิ่มกฎ "สไตล์ภาษา" (ตัดคำลงท้าย ค่ะ/คะ และคำเกริ่น/คำปิดที่ไม่จำเป็น โดยความหมายยังครบ) และย่อตัวอย่างประโยคขออนุญาต
+- `skills/sw-init/templates/SOUL.md` — เพิ่มกฎ: ก่อนแจ้งบอสว่างานสำเร็จต้อง verify ก่อนทุกครั้ง ถ้า verify ไม่ได้ให้บอกตรงๆ
+- `.claude/sw/SOUL.md` (local) — apply การเปลี่ยนแปลงเดียวกัน + แก้ `\*\*ไม่คาดเดา...` เป็น bold ที่ถูกต้อง
+- `skills/sw-init/templates/SOUL.md` + `.claude/sw/SOUL.md` — เพิ่มกฎ: สไตล์ภาษาใช้กับข้อความที่ skill กำหนดด้วย (skill = สาระ, SOUL = โทน)
+- `skills/*/SKILL.md` (17 skills) — ลบ persona ออกจากข้อความตัวอย่าง: คำลงท้าย ค่ะ/คะ/นะคะ, คำเรียก "บอส", ชื่อ "ไอโกะ", คำชมเกินจำเป็น — ให้พฤติกรรมการตอบเป็นไปตาม SOUL.md ของโปรเจกต์ที่ติดตั้ง (ยกเว้น logic migration ชื่อใน `sw-check`)
+- `skills/sw-explore/SKILL.md` — เปลี่ยน option label `✏️ พิมพ์เองค่ะ` → `✏️ พิมพ์เอง`, `❓ ถามไอโกะกลับ` → `❓ ถามกลับ` และ Q&A log เป็น `[User ถาม] / [Claude ตอบ]`
+- `skills/sw-init/templates/hooks/notify-done.sh` — ดึงคำเรียก user จาก SOUL.md แทน hardcode `ค่ะ บอส` + default `ตอบเสร็จแล้ว` เมื่อไม่มี action
+
+---
+
 ## [2026-05-01] — v1.12.1 🚀 Deploy
 
 ### 🚀 Deploy
