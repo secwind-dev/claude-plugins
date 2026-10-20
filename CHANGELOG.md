@@ -1,6 +1,6 @@
 # CHANGELOG.md
 
-## [2026-10-20] — Unreleased
+## [2026-10-20] — v1.13.0
 
 ### 🔧 แก้ไข (Changed)
 
